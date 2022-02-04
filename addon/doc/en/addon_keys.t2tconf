@@ -1,0 +1,23 @@
+% document
+%!PostProc (html): KEY_ReportLineNumber  windows+control+F5
+%!PostProc (html): KEY_Indent windows+control+F6
+%!PostProc (html): KEY_ReportLineIndentation windows+alt+F6
+%!PostProc (html): KEY_Compare windows+control+F2
+% python
+%!PostProc (html): KEY_NextClass alt+f9
+%!PostProc (html): KEY_PreviousClass alt+f8
+%!PostProc (html): KEY_NextMethod control +f9
+%!PostProc (html): KEY_PreviousMethod control +f8
+%!PostProc (html): KEY_Previous_MethodOrClass control +alt+f8
+%!PostProc (html): KEY_Next_MethodOrClass control +alt+f9
+%!PostProc (html): KEY_Import windows+control+F7
+% line
+%!PostProc (html): KEY_FindNextBlankLine windows+control+n
+%!PostProc (html): KEY_FindPreviousBlankLine windows+control+shift+n
+%!PostProc (html): KEY_FindNextTabEnding windows+control+k
+%!PostProc (html): KEY_FindPreviousTabEnding windows+control+shift+k
+%!PostProc (html):   KEY_previousLongLine windows+control+shift+l
+%!PostProc (html):   KEY_nextLongLine windows+control+l
+%!PostProc (html):   KEY_LongLineMaxChar windows+control+o
+%!PostProc (html):  KEY_Informations windows+control+i
+%!PostProc (html):  KEY_ToggleReportLongLine windows+control+F4

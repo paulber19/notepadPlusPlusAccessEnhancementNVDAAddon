@@ -1,0 +1,28 @@
+ADDON_SUMMARY - Historial
+Autor: ADDON_AUTHOR_NAME
+
+
+%!includeconf: ../addon_global.t2tconf
+%!includeconf: addon_informations.t2tconf
+
+URL: ADDON_AUTHOR_URL
+
+[Repositorio en GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
+
+Descarga:
+- [Versión estable actual: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Versiones de desarrollo ADDON_DEV_URL]
+
+
++ v2.2 (04/02/2022) +
+- Compatibilidad con NVDA 2022.1
+- reinicialización de la configuración en caso de errores en el archivo de configuración.
+
+
+Cambios:
+- durante la actualización automática del complemento, ya no se le solicita al usuario si desea conservar las opciones de configuración actual del complemento.
+- durante una instalación manual del complemento, se solicita una solicitud de confirmación cuando el usuario ha elegido no conservar las opciones de configuración actual del complemento.
+
+
++ v2.1 (04/11/2021) +
+Primera versión estable

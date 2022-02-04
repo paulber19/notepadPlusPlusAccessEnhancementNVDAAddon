@@ -1,0 +1,409 @@
+ADDON_SUMMARY - manual del usuario
+Autor: ADDON_AUTHOR_NAME
+
+
+%!includeconf: ../addon_userManual.t2tconf
+%!includeconf: addon_informations.t2tconf
+%!includeconf: addon_keys.t2tconf
+
+URL: ADDON_AUTHOR_URL
+[Repositorio en GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
+
+
+Descargar:
+- [Versión estable ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Versión de desarrollo ADDON_DEV_URL]
+
+
+Compatibilidad:
+- versión mínima de NVDA requerida: MINIMUM_NVDA_VERSION
+- última versión de NVDA probada: LAST_TESTED_NVDA_VERSION
+
+
+Traducido por Rémy Ruiz.
+
+= Índice =[toc]
+%%toc
+
++ Introducción +
+++ Generalidades ++
+Este complemento tiene como objetivo mejorar la accesibilidad del editor de texto Notepad++ y añadir características para facilitar la edición de archivos utilizados en el lenguaje Python y los archivos escritos en lenguaje markdown.
+
+Este complemento vuelve a tomar la mayoria de los suplementos proporcionados por el complemento NVDA_notepadPlusPlus creado por Derek Riemer y Tuukka Ojala, luego modificado por Robert Hänggi y Andre9642, a saber:
+- verbalización del resultado de la órden "control+b" que permite moverse al delimitador simétrico,
+- verbalización  del desplazamiento  al siguiente o anterior marcador mediante "F2" o "mayúscula+f2",
+- informar de línea demasiado larga,
+- accesibilidad al autocompletado,
+- accesibilidad a la búsqueda incremental,
+- Apoyo a la función de busqueda anterior / siguiente.
+
+
+Y proporciona los siguientes suplementos:
+
+[Con respecto a los documentos #hdr_Document]:
+- Comparación del texto seleccionado con el del portapapeles,
+- disposición del anuncio del nombre de los documentos:
+ - anuncio reducido de la ruta de archivos,
+ - anuncio del nombre del archivo antes de su ruta,
+ - no verbalización de las barras inversas en la ruta.
+
+
+
+[Para las líneas #hdr_Line]:
+- Ir a la siguiente línea que termina al menos con una tabulación o un espacio,
+- moverse a la primera línea siguiente o anterior que excede la longitud máxima de línea.
+- Anuncio del número y la sangría de cada línea,
+- scripts para establecer la sangría,
+- Verbalización del desplazamiento del foco mediante la tecla de "Inicio",
+
+
+
+[Suplementos para archivos Python #hdr_Python]:
+- desplazamiento a la siguiente clase o método,
+- importación del código de la ventana de edición.
+
+
+[Suplementos para archivos Markdown o txt2tags #hdr_Markdown]:
+- vista previa del resultado de la conversión en HTML en el búfer virtual de NVDA o en el navegador predeterminado,
+- Modo Exploración para encabezados, enlaces, citas,
+
+
+++ Compatibilidad ++
+Este complemento ha sido probado con  Notepad++ versión 7.71.
+
+++ Precisión ++
+Este complemento usa e intercepta los atajos de Notepad++ configurados por defecto. Por lo tanto, se recomienda encarecidamente, por su correcto funcionamiento, no modificar estos atajos.
+
+La mayoría de los gestos de entrada presentados por este complemento son editables utilizando el cuadro de diálogo "Gestos de Entrada" de NVDA.
+
++ Suplementos en lo que concierne a los documentos +[hdr_Document]
+++ Verbalización de la llegada del cursor en un marcador ++
+Notepad++ te permite establecer marcadores en tu texto.
+
+Un marcador te permite volver rápidamente a una ubicación en el editor en cualquier momento.
+
+Para establecer un marcador, desde la línea que deseas marcar, pulsa "control+f2" (atajos de teclado de Notepad++ no deben ser modificados).
+
+Luego, cuando quieras regresar a este marcador, pulsa  "F2" para saltar al siguiente marcador, o "mayúscula+F2" para saltar hacia atrás al anterior. (atajos de teclado de Notepad++ no deben ser modificados).
+
+Puedes establecer tantos marcadores como desees.
+
+Para  cancelar un marcador, mueva el cursor a la línea marcada mediante el marcador y pulsa "control+f2".
+
+Puedes cancelar todos los marcadores usando el submenú "Des/Activar marcadores" del submenú "Marca" del submenú "Buscar".
+
+NVDA permanece mudo cuando el cursor llega a un marcador, el complemento corrige este problema anunciando la línea.
+
+
+++ Verbalización de la llegada del cursor en un delimitador simétrico ++
+En el documento, puedes desplazarte al delimitador simétrico pulsando "control+b" (atajos de teclado de Notepad++ no deben ser modificados).
+
+Para ello, el cursor debe colocarse en un carácter delimitador  de estilo llave, paréntesis, corchete, a lo que tendrá que coincidir el delimitador simétrico.
+
+Al pulsar estas órdenes de teclado, el complemento permitirá a NVDA de leer la línea en la que aterrizó y si la línea consiste sólo en un carácter delimitador simétrico, leerá la línea arriba y debajo de este delimitador para que pueda tener una idea del contexto.
+
+
+++ Accesibilidad al autocompletado ++
+
+La funcionalidad de autocompletado de Notepad++ no es accesible por defecto. El autocompletado tiene muchos problemas, incluyendo que se muestra en una ventana flotante.
+
+Para hacer esta funcionalidad accesible, se hacen tres cosas.
+- Cuando aparece una sugerencia de autocompletado, se reproduce un sonido como un deslizamiento. El sonido inverso se hace cuando desaparecen las sugerencias.
+- Al pulsar las flechas abajo/arriba NVDA leerá el texto sugerido siguiente/anterior.
+- El texto recomendado se verbaliza cuando aparecen las sugerencias.
+
+
+Nota: Se braillifica todo el texto si está conectada una pantalla braille. Esta característica es actualmente experimental, no dudes en reportar cualquier error con ella.
+
+++ Accesibilidad a la búsqueda incremental ++
+Una de las caracteristicas mas interesantes de notepad++ es la capacidad para usar la busqueda incremental.
+
+La búsqueda incremental es un modo de búsqueda en el que buscas una frase de prueba escribiendo en el campo de edición, y el documento se desplaza mostrandote la búsqueda en tiempo real.
+
+Mientras escribe, el documento se desplaza para mostrar la línea de texto con la frase más probable que estás buscando. También resalta el texto que coincida.
+
+El programa también te muestra cuántas coincidencias se han detectado. Hay botones para desplazarse hacia la coincidencia siguiente y anterior.
+
+Mientras escribes, NVDA anunciará la línea de texto que notepad++ detectó en un resultado de búsqueda. NVDA anuncia también cuántas coincidencias hay, pero sólo si el número de coincidencias ha cambiado.
+
+Cuando has encontrado la línea de texto que quieras, simplemente pulsa "escape", y esa línea de texto estará en tu cursor.
+
+Para abrir este cuadro de diálogo, selecciona "Búsqueda incremental" desde el menu "Buscar", o pulsa "alt+control+i".
+
+++ Apoyo a la función de busqueda anterior / siguiente ++
+Por defecto, si pulsas "control+f" aparece el cuadro de diálogo Buscar. 
+
+Si tecleas un texto en su cuadro de edición y pulsas "Intro", el texto en la ventana se selecciona y el documento se desplaza hacia el resultado de la búsqueda siguiente. La ventana permanece abierta y debes cerrarla  con la tecla "Escape".
+
+
+Luego, puedes pulsar "F3" o "majúscula+F3" para repetir la búsqueda en dirección hacia adelante o hacia atrás respectivamente.
+
+NVDA que permanece mudo En este caso, el complemento permitirá a NVDA leer tanto la línea actual, y la selección dentro de la línea que representa el texto encontrado.
+
+++ Comparación de texto ++[HDR_Compare]
+Esta función te permite realizar una comparación simple y rápida entre el texto seleccionado y el del portapapeles.
+
+Después de seleccionar el texto, use el gesto de entrada "KEY_Compare".
+
+El resultado se muestra en un cuadro de diálogo.
+
+++ Disposición del anuncio del nombre de los documentos ++
++++ Anuncio reducido de la ruta de archivos +++
+Notepad++ muestra, en el título de la ventana de edición y en la lista de pestañas, el nombre del archivo precedido por su ruta absoluta.
+
+Esta ruta puede ser muy larga y bastante tediosa de escuchar.
+
+En las preferencias de Notepad++, es posible mostrar en el título de la ventana de edición, solo el nombre del archivo, pero esto no concierne la lista  de pestañas que alcanzamos mediante las órdenes de teclado "control+tab" manteniendo pulsada la tecla "control".
+
+Este suplemento permite anunciar de manera más reducido el título de la ventana de edición y los nombres de los elementos en la lista de pestañas, reduciendo la ruta de los archivos, incluso eliminandolos por completo.
+
+La categoría "Opciones" que se encuentra en las opciones del complemento presenta el grupo de parámetros "Anuncio reducido de la ruta de los archivos" para controlar estas funciones.
+
+La opción "Reducir la ruta" te permite habilitar o deshabilitar el anuncio reducido de la ruta.
+
+Esta característica no está activada de forma predeterminada.
+
+Cuando esta opción está habilitada, la ruta del archivo se reduce dependiendo del nivel configurado en la opción "Niveles jerárquicos anteriores para mantener".
+
+Este nivel puede variar de 0 a 10:
+
+Si el nivel es igual a 0, sólo el nombre del archivo es anunciado.
+
+Para un nivel igual a -1, la ruta del archivo es anunciado bajo la forma:
+
+"letra de la unidad:\...\carpeta jerárquico -1\nombre del archivo"
+
+Por un nivel igual a -2, esto será:
+
+"letra de la unidad:\...\carpeta nivel jerárquico  -2\carpeta jerárquico -1\nombre del archivo"
+
+Si el número de niveles jerárquicos de la ruta es más pequeña que el nivel configurado, la ruta permanece sin cambios.
+
+
++++ Anuncio del nombre del archivo antes de su ruta +++
+Notepad++ muestra el nombre del documento En el título de la ventana de edición o en la lista de las pestañas mostrado mediante las órdenes de teclado "control+tab" y la tecla "control" manteniendola pulsada, bajo la forma: ruta del archivo seguido del nombre del archivo.
+
+Este suplemento hace posible anunciar a través de NVDA el nombre del archivo antes de su ruta.
+
+La opción "Anunciar el nombre del archivo antes de la ruta"" en el grupo de parámetros "Nombre de los documentos" en la categoría "Opciones" habilita o deshabilita esta funcionalidad.
+
++++ No verbalización de las barras inversas en la ruta +++
+Puede parecer penoso escuchar todas las barras inversas de la ruta del archivo cuando se desplega la lista de pestañas abiertas.
+
+Este suplemento te permite por lo tanto que se vuelvan mudas.
+
+La opción "No verbalizar las barras inversas de la ruta del archivo" en el grupo de parámetros  "Nombre de los documentos" en la categoría "Opciones" habilita o deshabilita esta funcionalidad.
+
+
++ Suplementos para las líneas +[hdr_Line]
+++ Búsqueda de líneas que terminan con tabulación o espacio ++
+El complemento instala dos scripts para desplazarse a las líneas que terminan con un espacio o una tabulación:
+- "KEY_FindNextTabEnding" para ir a la siguiente línea.
+- "KEY_FindPreviousTabEnding" para ir a la línea anterior.
+
+
+Si se encuentra una línea, el cursor se coloca al principio de la línea y se anuncia la línea.
+
+
+
+++ Búsqueda de líneas compuestas unicamente de tabulaciones o espacios ++
+
+El complemento instala dos scripts para buscar líneas compuestas unicamente de espacios o tabulaciones:
+- "KEY_FindNextBlankLine" para buscar la siguiente línea,
+- "KEY_FindPreviousBlankLine" para buscar la línea anterior.
+
+
+++ Línea larga ++
++++ Anuncio de línea demasiado larga +++
+Notepad++ tiene una regla que se puede utilizar para comprobar la longitud de una línea. Sin embargo, esta característica no es ni accesible ni significativa para los usuarios ciegos.
+
+Por lo tanto, este complemento tiene un indicador de línea demasiado larga que emitirá un pitido cuando una línea sea más larga que el número especificado de caracteres.
+
+Para activar o desactivar  el indicador de línea demasiado larga, dos soluciones:
+- En la categoría "Opciones" del cuadro de diálogo Opciones del complemento, Marca o desmarca la casilla "Informar de línea demasiado larga" y cambia, si es necesario, la longitud mínima de una línea larga.
+- Usa el gesto de entrada "KEY_ToggleReportLongLine".
+
+
+Cuando la función esté activada, escucharás un pitido:
+- cuando el cursor llega a una línea demasiado larga.
+- al escribir un carácter en una línea demasiado larga.
+
+
+Para saltar al primer carácter de desbordamiento en la línea actual, se puede utilizar el gesto de entrada "KEY_LongLineMaxChar".
+
++++ Búsqueda de línea demasiado larga +++
+El complemento instala dos scripts para llegar a la línea demasiado larga.
+- "KEY_previousLongLine": para ir a la línea anterior demasiado larga,
+- "KEY_nextLongLine": para ir a la siguiente línea demasiado larga.
+
+
+
+++ Anunciando información acerca de la línea actual ++
+Usando el gesto de entrada "KEY_Informations", NVDA anunciará la siguiente información:
+- con una simple pulsación, el número de línea y el número de la columna de la posición del cursor.
+- con una doble pulsación, , el número de caracteres seleccionados y el número de líneas afectados por la selección.
+
+
+++ Apoyo para el anuncio del número y la sangría de línea ++
+NVDA ya ofrece la posibilidad de anunciar el número y la sangría de línea.
+
+Para los números de línea, debes configurar un gesto de entrada global y si queremos que la configuración de esta función solo se aplique a Notepad++, también  debes asociarle un perfil de configuración para esta aplicación.
+
+En cuanto a la sangría de línea, el anuncio se hace en "tab" o "espacio". El complemento ofrece un anuncio diferente.
+
+Para los usuarios que desean mantener el funcionamiento de NVDA, la opción "Dejar NVDA anunciar el número y la puesta en sangría de línea" esta previsto.
+
+Basta con marcar esta opción para recuperar el funcionamiento normal de NVDA.
+
+De forma predeterminada, esta opción no está marcada.
+
+El script "Activar/desactivar la gestión del anunciado del número y la sangría de línea por el complemento", sin gesto de entrada, te permite cambiar esta opción. Es posible asociarle un gesto de entrada utilizando el cuadro de diálogo "Gestos de Entrada" de NVDA.
+
+Cuando esta opción está marcada, ya no es posible cambiar los parámetros relacionados con el anuncio del número y la sangría de línea y los scripts asociados ya no son funcionales.
+
+
++++ Anuncio del número de línea +++[HDR_ReportLigneNumber]
+El complemento instala el script "Activar/desactivar el anunciado del número de línea" para anunciar los números de línea.
+
+Este script se activa mediante el gesto de entrada "KEY_ReportLineNumber" y bucle entre las siguientes dos opciones:
+- verbalizar el número de línea,
+- no verbalizar el número de línea.
+
+
+La elección se guarda en la configuración del complemento y se reposiciona al reiniciar el complemento.
+
++++ Anuncio de la sangría de línea +++
+Esta función te permite anunciar la sangría de línea bajo un estilo a definir.
+
+Para esto, la opción "Anunciar la sangría de línea" en la categoría "Opciones" debería ser marcado.
+
+El script "Activar/desactivar el anunciado de sangría de línea" (gesto de entrada "KEY_ReportLineIndentation"), te permite cambiar esta opción.
+
+Cuando se marca la opción, la sangría de línea se anuncia según la elección del estilo seleccionado.
+
+De lo contrario, la línea se anuncia sin los espacios o tabulación al inicio de la línea.
+
+La elección se guarda en la configuración del complemento y se reposiciona al reiniciar el complemento.
+
+++++ La elección del estilo del anuncio de sangrado ++++
+Las posibles opciones para este estilo son:
+- "Verbalizar sangría": anuncia la sangría bajo la forma de número de tabulación o espacio.
+- "Verbalizar cambios de sangría": NVDA anunciará la sangría solo si hay cambios y bajo la forma anterior.
+- "Verbalizar cambios de sangría en forma de nivel": NVDA anunciará la sangría solo si hay cambios y bajo la forma de nivel (nivel 1, nivel 2, ..). El nivel se calcula   según el número de tabulación.
+- "Verbalizar cambios de sangría en forma de nivel superior o inferior": NVDA anunciará la sangría solo si hay cambios y bajo la forma nivel superior (más tabulaciones o espacios), o inferior (menos tabulaciones o espacios).
+
+
+Para configurar este estilo, dos soluciones:
+- usando el script "KEY_Indent" lo que permite hacer un bucle de las elecciones anteriores.
+- usando la lista desplegable "Estilo" en la categoría "Opciones" desde el cuadro de diálogo "Opciones" del complemento.
+
+
+Cuando se elige uno de los dos últimos estilos, la mezcla de espacio y tabulación en la sangría se reporta verbalmente.
+
+Solo hoy, el carácter "tab" se tiene en cuenta para evaluar el nivel. Como consecuencia, una línea que tiene una sangría con espacios se informará como teniendo un nivel desconocido de sangría.
+
+La elección se guarda en la configuración del complemento y se reposiciona al reiniciar el complemento.
+
++++ Puesta en sangría de línea +++
+Los siguientes gestos de entrada te permiten definir la sangría de una línea:
+- "Control" seguido de un número (de 1 a 9) del teclado alfanumérico para insertar al inicio de la línea el número de tabulación correspondiente al número.
+- "control+²" o "control+0" para eliminar la sangría de la línea ya sea en espacio o tabulación.
+
+Estos gestos de entrada son modificables mediante el cuadro de diálogo "Gestos de Entrada" de NVDA. En particular, para modificar  "control+²" que es específico para el teclado azerty. La tecla "²" siendo la tecla más a la izquierda de la fila alfanumérica para este tipo de teclado.
+
+++ Desplazamiento con la tecla de Inicio ++
+Este suplemento hace posible anunciar por NVDA la posición del cursor después de usar la tecla "Inicio", es decir, al inicio de la línea o después de la sangría.
+
+
++ Suplementos para los archivos Python +[hdr_Python]
+++ Desplazamiento de clase en clase o método en método ++
+Este complemento ofrece la posibilidad de moverse de clase en clase o método en método en un archivo que contiene código python.
+
+El complemento proporciona los siguientes scripts:
+
+- Moverse al método Python anterior: "KEY_PreviousMethod".
+- Moverse al método Python siguiente: "KEY_NextMethod".
+- Moverse a la clase Python anterior: "KEY_PreviousClass".
+- Moverse a la clase Python siguiente: "KEY_NextClass".
+- Moverse a la clase o método Python anterior: "KEY_Previous_MethodOrClass".
+- Moverse a la clase o método Python siguiente: "KEY_Next_MethodOrClass".
+
+
+++ Importación de código ++
+Cuando el texto de la ventana de edición es de código Python, es posible importarlo mediante el gesto de entrada "KEY_Import".
+
+El resultado de la importación se anuncia.
+
+En el caso de un error de importación, el cursor se coloca en la línea correspondiente.
+
+ 
++ Suplementos para archivos markdown o txt2tags +[HDR_Markdown]
+++ Vista previa ++
+El complemento ofrece la posibilidad de visualizar el resultado  HTML de la compilación del texto de un simple documento por Markdown o txt2tags.
+
+Esta visualización se puede mostrar en una ventana en Modo Exploración o en el navegador predeterminado.
+
+Para obtener esta visualización, el gesto de entrada "KEY_Compil" debe ser usado.
+
+Esto muestra un diálogo en el que se encuentra:
+- la elección del compilador: "Markdown" o "Txt2tags",
+- la visualización o no en el navegador.
+
+
+Una pulsación en el botón "Aceptar" inicia la compilación y la visualización del resultado.
+
+Las opciones seleccionadas se almacenan hasta que se cierre NVDA.
+
+Una doble pulsación del gesto de entrada hace posible visualizar el documento directamente sin pasar por el cuadro de diálogo utilizando las últimas opciones memorizadas.
+
+++ Modo Exploración (en experimentación) ++
+
+El complemento establece el Modo Exploración para desplazarse de elemento en elemento en los documentos markdown o txt2tag.
+
+Los elementos en cuestión son:
+- encabezado: cadena de caracteres  enmarcados por los signos "+" o los signos "#".
+- enlace: cadena enmarcado por el signo "<" y ">".
+
+Para activarlo, pulsa "NVDA+espacio".
+
+Las posibles órdenes de teclado son entonces:
+- "número de 0 a 9" para moverte al siguiente encabezado de nivel correspondiente al número.
+- "mayúscula+ un número de 0 a 9" para moverte al encabezado de nivel anterior  correspondiente al número.
+- "h" para moverte al siguiente encabezado.
+- "mayúscula+h" para moverte al anterior encabezado.
+- "k" para moverte al siguiente enlace.
+- "mayúscula+k" para moverte al anterior enlace.
+
+
+
++ Actualización +
+La actualización del complemento por defecto se hace automáticamente poco tiempo después de iniciar NVDA (entre 20 y 600 segundos) y como máximo una vez al día.
+Puedes desactivar esta actualización desmarcando la opción "Buscar automáticamente actualizaciones" que se encuentra en las opciones del complemento, elemento de menú "Actualización".
+La versión del complemento puede ser:
+- Ya sea una versión estable: su número de versión es de tipo "1.0" por ejemplo.
+- Ya sea una versión de desarrollo: su número de versión es entonces de tipo "1.0-dev1", o "1.0-rc1", o "1.0-beta2".
+
+
+Por defecto, una versión estable se actualiza con la última versión estable (Número de versión superior).
+Sin embargo, es posible actualizar la versión actual estable con una versión de desarrollo de la próxima versión estable. Simplemente marcando la opción "Actualizar también versiones estable hacia versiones de desarrollo" situado en las opciones del complemento, elemento de menú "Actualización".
+
+
+Una versión de desarrollo se actualiza:
+- con una versión de desarrollo más reciente,
+- con su versión estable,
+- o la última versión estable si la opción anterior no está marcada.
+
+
+El botón "Buscar actualización" situado en las opciones del complemento, elemento de menú "Actualización", permite buscar inmediatamente una actualización
+
+El botón "Ver historial" situado en la misma categoría te permite ver el historial de la versión actual en el navegador.
+
+En el caso de una actualización automática, y si se detecta una nueva versión, el cuadro de diálogo "Actualización" aparece para proponer:
+- ya sea la instalación inmediata de la nueva versión,
+- ya sea para posponer la actualización a más tarde. En este caso, la búsqueda se reiniciará como mínimo una hora más tarde.
+
+
+En el caso de una actualización hacia una versión estable, el botón "Qué hay de nuevo" ofrece la posibilidad, de abrir en el navegador, el historial del complemento y asi poder conocer las novedades de la versión propuesta.
+
++ Historial +
+El historial de las versiones del complemento está en el archivo ["changes.html" changes.html]

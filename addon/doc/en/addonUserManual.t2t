@@ -1,0 +1,402 @@
+ADDON_SUMMARY - manuel utilisateur
+Author: ADDON_AUTHOR_NAME
+
+
+%!includeconf: ../addon_userManual.t2tconf
+%!includeconf: addon_informations.t2tconf
+%!includeconf: addon_keys.t2tconf
+
+URL: ADDON_AUTHOR_URL
+[GitHub repository: ADDON_REPOSITORY ADDON_REPOSITORY]
+
+
+Download:
+- [Stable version ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Development version ADDON_DEV_URL]
+
+
+Compatibility:
+- minimum NVDA version  supported: MINIMUM_NVDA_VERSION
+- last NVDA version tested: LAST_TESTED_NVDA_VERSION
+
+
+Traducteur (s): automatic translator
+
+= Table of content =[toc]
+%%toc
+
++ Introduction +
+++ General ++
+This add-on aims to improve the accessibility of the Notepad ++ text editor and add features to facilitate editing of files used in Python language and files written in markdown language.
+
+It incorporates most of the additions provided by the NVDA_notepadPlusPlus add-on created by Derek Riemer and Tuukka Ojala, then modified by Robert Hänggi and Andre9642, namely:
+- vocalization of the result of the command "control + b" which allows to move to the symmetrical delimiter,
+- vocalization of the movement to the next or previous bookmark by "F2" or "capital letter + f2",
+- reporting of lines that are too long,
+- accessibility to automatic completion,
+- accessibility to incremental search,
+- Support previous / next search function
+
+
+And it brings the following complements:
+
+[Regarding #hdr_Document]:
+- Comparison of the selected text with that of the clipboard,
+- arrangement of the announcement of the name of the documents:
+ - reduction of the file path,
+ - announcement of the name of the file before its path,
+ - no diction of backslashes of the path.
+
+
+
+[For #hdr_Line] lines:
+- Go to the next or previous line ending with at least one tab or one space,
+- go to the first next or previous line exceeding the maximum line limit.
+- announcement of the number and withdrawal of lines,
+- scripts to fix the indentation of lines,
+- Vocalization of the movement of the focus by key "Home",
+
+
+
+[Add for Python files #hdr_Python Python files]:
+- move to the next class or method,
+- import of the code of the editing window.
+
+
+[Adds for Markdown or txt2tags files #hdr_Markdown]:
+- preview of the result of the conversion in HTML in the virtual buffer of NVDA or in the default browser,
+- navigation mode for titles, links and blocquotes,
+
+
+++ Compatibility ++
+This add-on has been tested with Notepad ++ version 7.71.
+
+++ Details ++
+This add-on uses and intercepts the Notepad ++ shortcuts configured by default. It is therefore strongly recommended, for its proper functioning, not to modify these shortcuts.
+
+Most of the input gestures brought by this add-on are modifiable using the NVDA "Input gestures" dialog.
+
++ Complements concerning documents + [hdr_Document]
+++ Vocalization of the arrival of the cursor on a bookmark ++
+Notepad ++ allows you to set bookmarks in your text.
+
+A bookmark lets you quickly jump back to a line in the editor at any time.
+
+To define a bookmark, position the cursor on the line you want to bookmark and press "control + f2" (Notepad ++ shortcut not to be modified).
+
+Then, when you want to go back to this bookmark, press "F2" to go to the next bookmark,or "upper case + F2" to return to the previous Bookmark (Notepad ++ shortcuts not to be modified).
+
+You can set as many bookmarks as you want.
+
+To cancel a bookmark, move the cursor to the line marked by the bookmark and type "control + f2".
+
+You can cancel all bookmarks using the "Remove all bookmarks" submenu of the "Bookmarks" submenu of the "Search" submenu.
+
+NVDA remaining silent when the cursor arrives on a bookmark, the add-on corrects this problem by announcing the line.
+
+
+++ Vocalization of the arrival of the cursor on a symmetric delimiter ++
+In the document, you can move to the symmetric delimiter by pressing "control + b" (NotePad ++ shortcut not to be modified).
+
+To do this, the cursor must be positioned on a delimiter character of the brace, parenthesis, bracket style, to which the symmetric delimiter must correspond.
+
+When you press this command, the add-on will allow NVDA to read the line you landed on, and if the line consists only of the symmetric delimiter character, it will read the line above and below that delimiter so to get an idea of ​​the context.
+
+++ Accessibility to automatic entry ++
+
+Notepad ++ autofill functionality is not available by default. Autofill has many issues, including showing it in a floating window.
+
+To make this functionality accessible, three things must be done.
+- When a suggestion for autofill is displayed, a sound like swiping is played. The reverse sound is made when the suggestions disappear.
+- Pressing the down / up arrows NVDA will read the next / previous suggested text.
+- The recommended text is verbalized when the suggestions appear.
+
+
+Note: All text is displayed in Braille if a Braille display is connected. This feature is currently experimental, so please report any errors.
+
+++ Incremental search accessibility ++
+One of the coolest features of notepad ++ is the ability to use incremental search.
+
+Incremental search is a search mode in which you search for a test phrase by typing in the edit field, and the document moves around showing you the search in real time.
+
+As you type, the document moves to display the line of text with the most likely phrase you are looking for. It also highlights the text that matches.
+
+The program also tells you how many matches have been detected. There are buttons to move to the next and previous match.
+
+As you type, NVDA will announce the line of text notepad ++ found in the search results. NVDA also announces the number of matches, but only if the number of matches has changed.When you have found the line of text you want, just press "Esc", and that line of text will be on your cursor.
+
+To launch this dialog box, select "Incremental Search" from the "Search" menu, or press "alt + control + i".
+
+++ Support for previous / next search function ++
+By default, if you type "control + f" you open the search dialog box.
+
+If you type some text in its edit box and press "Enter", the text in the window is selected and the focus is moved to the next search result. The window remains open and it must be closed with the "Escape" key.
+
+
+You can then press "F3" or "Shift + F3" to repeat the search in the forward or backward direction respectively.
+
+NVDA remaining silent in this case, the add-on will allow NVDA to read the current line and the selection in the line which represents the found text.
+
+++ Text comparison ++ [HDR_Compare]
+This feature allows you to make a quick and easy comparison between the selected text and that on the clipboard.
+
+After selecting the text, use the "KEY_Compare" input gesture.
+
+The result is displayed in a dialog box.
+
+++ Document name arrangement ++
++++ Reduced file path announcement +++
+Notepad ++ displays, in the title of the edit window and in the list of tabs, the name of the file preceded by its absolute path.
+
+This path can be very long and quite tiring to hear.
+
+In the preferences of Notepad ++, it is possible to display in the title of the editing window, only the name of the file, but this does not concern the list of tabs that can be reached by "control + tab" while keeping the "control" key pressed.
+
+This supplement therefore makes it possible to announce in a smaller way the title of the editing window and the names of the elements in the list of tabs, by reducing the path of the files, or even by deleting it completely.
+
+The "Options" category of the add-on settings presents the "Minimized file path advertisement" group of settings to control this functionality.
+
+The "Reduce path" option allows you to activate or deactivate the reduced route announcement.
+
+It is not enabled by default.
+
+When this option is activated, the file path is reduced according to the level configured in the choice "Antecedents hierarchical level to keep".
+
+This level can vary from 0 to 10:
+
+If the level is 0, only the name of the file is announced.
+
+For a level equal to -1, the file path is announced in the form:
+
+"drive letter: \ ... \ hierarchical folder -1 \ filename"
+
+For a level equal to -2, this will be:
+
+"drive letter: \ ...\ hierarchical level folder -2 \ hierarchical folder -1 \ filename "
+
+If the number of hierarchical levels in the path is smaller than the configured level, the path remains unchanged.
+
+
++++ Announcement of the file name before its path +++
+Notepad ++ displays the name of the document in the title of the editing window or in the list of tabs presented by "control + tab" and "control", in the form: path of the file followed by the name of the file.
+
+This add-in allows NVDA to announce the name of the file before its path.
+
+The option "Announce the name of the file before its path" in the "Document name" parameter group in the "Options" category activates or deactivates this operation.
+
++++ No diction of backslashes of the path +++
+It may seem annoying to hear all the backslashes in the file path when scrolling through the list of open tabs.
+
+This supplement therefore makes it possible to make them silent.
+
+The option "Do not say backslashes in the path" in the "Document name" group of the category activates or deactivates this operation.
+
+
++ Complements for lines + [hdr_Line]
+++ Finds lines ending with tab or space ++
+The add-on installs two scripts to move to lines ending in a space or a tab:
+- "KEY_FindNextTabEnding" to go to the next line.
+- "KEY_FindPreviousTabEnding" to go to the previous line.
+
+
+If a line is found, the cursor is positioned at the start of the line and the line is announced.
+
+
+
+++ Finds lines consisting only of tabs or spaces ++
+
+The add-on installs two scripts to find lines consisting only of spaces or tabs:
+- "KEY_FindNextBlankLine" to find the next line,
+- "KEY_FindPreviousBlankLine" to find the previous line.
+
+
+++ Long Line ++
++++ Announcement of too long lines +++
+Notepad ++ has a rule that can be used to check the length of a line. However, this feature is neither accessible nor meaningful for blind users.
+
+Therefore, this add-on has an too long line indicator that triggers a beep when a line is longer than the specified number of characters.
+
+There are two solutions to activate or deactivate the reporting of lines that are too long:
+- in the "Options" category of the dialog for configuring the add-on, check or uncheck the box "Report too long lines" and modify, if necessary, the Minimum size of a long line.
+- use the "KEY_ToggleReportLongLine" input gesture.
+
+
+When the feature is enabled, you will hear a beep:
+- when the cursor arrives on a line that is too long.
+- when typing a character on a line that is too long.
+
+
+To go to the first overflowing character on the current line, you can use the "KEY_LongLineMaxChar" input gesture.+++ Finding lines that are too long +++
+The add-on installs two scripts to reach too long lines.
+- "KEY_previousLongLine": to go to the previous too long line,
+- "KEY_nextLongLine": to go to the next too long line.
+
+
+
+++ Announcement of information on the current line ++
+Using the "KEY_Informations" input gesture, NVDA will announce the following information:
+- with a simple press, the row number and column number of the cursor position.
+- with a double press, the number of characters selected and the number of lines concerned by the selection.
+
+
+++ Support for announcing the number and removing lines ++
+NVDA already offers the possibility of announcing the number and the withdrawal of the line.
+
+For line numbers, you must configure a global input gesture and if you want the configuration of this functionality to apply only to Notepad ++, you must also associate a configuration profile with this application.
+
+As for the withdrawal of lines, the announcement is made in "tab" or "space". The add-on offers a different ad.
+
+For users who wish to keep NVDA running, the option "Let NVDA announce number and line removal" is provided.
+
+All you have to do is check this option to restore NVDA to normal operation.
+
+By default, this option is not checked.
+
+The script "Activate / Deactivate the management of the number announcement and the withdrawal of lines by the add-on", without a input gesture, allows this option to be toggled. It is possible to associate a input gesture with it using the NVDA "input gestures" dialog.
+
+When this option is checked, it is no longer possible to modify the parameters relating to the announcement of the number and withdrawal of lines and the associated scripts are no longer functional.
+
+
++++ Announcement of line number +++ [HDR_ReportLigneNumber]
+The add-on installs the "Enable / Disable Line Number Announcement" script to advertise line numbers.
+
+This script is triggered by the "KEY_ReportLineNumber" input gesture and loops between the following two choices:
+- say the line number,
+- do not say the line number.
+
+
+The choice is to save in the configuration of the add-on and reposition when restarting the add-on.
+
++++ Announcement of withdrawal from the line +++
+This functionality is used to announce the indentation of the line under a style to be defined.
+
+To do this, the "Announce line withdrawal" option in the "Options" category must be checked.
+
+The script "Activate / deactivate the announcement of the withdrawal of the line" (input gesture "KEY_ReportLineIndentation"), allows to toggle this option.
+
+When the option is checked, the indentation of the line is announced according to the choice of style selected.
+
+Otherwise, the line is advertised without leading-of-line spaces or tabs.The choice is to save in the configuration of the add-on and reposition when restarting the add-on.
+
+++++ Choice of style of withdrawal announcement ++++
+The possible choices for This style are:
+- "say indentation": announce the indentation in the form of tabulation number or space.
+- "Say indentation changes: NVDA will announce the indentation only if there is a change and in the previous form.
+- "Say indentation changes as level": NVDA will announce the indentation if there is a change and as level (level 1, level2, ..). The level is calculated according to the number of tabs.
+- "Say indentation changes in the form higher or lower level": NVDA will announce the indentation if there is a change and in the form higher level (No more tabs or spaces), or lower level (less tabs or spaces).
+
+
+To configure this style, two solutions:
+- use of the "KEY_Indent" script which allows you to loop through the previous choices.
+- use of the "Style" drop-down list in the "Options" category of the add-on configuration dialog.
+
+
+When one of the last two styles is chosen, the mixture of space and tab in the indentation is signaled vocally.
+
+Only today, the "tab" character is taken into account to evaluate the level. Therefore, a line having an indentation with spaces will be flagged as having an unknown indentation level.
+
+The choice is to save in the configuration of the add-on and reposition when restarting the add-on.
+
++++ Indent lines +++
+The following input gestures are used to define the indentation of a line:
+- "Control" followed by a number (from 1 to 9) from the alphanumeric keyboard to insert at the beginning of the line the number of tabulation corresponding to the number.
+- "control + ²" or "control + 0" to remove the indentation of the line whether in space or tabulation.
+
+
+These input gestures can be changed using the NVDA "Input Gestures" dialog. In particular to modify "control + ²" which is specific to the azerty keyboard. The "²" key being the leftmost key of the alphanumeric row of this type of keyboard.
+
+++ Move with the Home key ++
+This add-in allows NVDA to announce the cursor position after using the "Home" key, ie either at the start of the line or after the indentation.
+
+
++ Add-ins for Python files + [hdr_Python]
+++ Move from class to class or from method to method ++
+This add-on offers the possibility of moving from class to class or from method to method in a file containing python code.
+
+It brings the following scripts:
+
+- Go to the previous Python method: "KEY_PreviousMethod".
+- Go to the following Python method: "KEY_NextMethod".
+- Go to the previous Python class: "KEY_PreviousClass".
+- Go to the following python class: "KEY_NextClass".
+- Go to the previous Python class or method: "KEY_Previous_MethodOrClass".
+- Go to the following Python class or method: "KEY_Next_MethodOrClass".
+
+
+++ Code import ++
+When the text of the edit window is Python code,it is possible to import it using the "KEY_Import" input gesture.
+
+The result of the import is announced.
+
+In the event of an import error, the cursor is positioned on the line concerned.
+
+
++ Additions for markdown or txt2tags files + [HDR_Markdown]
+++ Preview ++
+The add-on offers the possibility of visualizing the HTML result of the compilation of the text of a simple document by Markdown or txt2tags.
+
+This visualization can be displayed in a window in browse mode or in the default browser.
+
+To obtain this visualization, the "KEY_Compil" input gesture must be used.
+
+This displays a dialog in which we find:
+- choice of compiler: "Markdown" or "Txt2tags",
+- display or not in the browser.
+
+
+Pressing the "OK" button starts the compilation and display of the result.
+
+The selected choices are remembered until NVDA is shut down.
+
+A double press of the control gesture allows you to view the document directly without going through a dialogue using the last stored choices.
+
+++ Browse mode (in experimentation) ++
+
+The add-on sets up the browse mode to move from item to item in markdown or txt2tag documents.
+
+The elements concerned are:
+-title: string of characters surrounded by "+" or "#".
+- link: string surrounded by "<" and ">".
+
+To activate it, type "NVDA + space".
+
+The possible commands are:
+- "number from 0 to 9" to move to the next level title corresponding to the number.
+- "shift + a number from 0 to 9" to move to the previous level title corresponding to the number.
+- "h" to move to the next title.
+- "shift + h" to move to the previous title.
+- "k" to move to the next link.
+- "shift + k" to move to the previous link.
+
+
+
++ Update +
+By default, the add-on update is done automatically shortly after NVDA starts up (between 20 and 600 seconds) and at most once a day.
+It is possible to deactivate this update by unchecking the option "Automatically check for updates" found in the add-on settings, menu item "Update".
+The add-on version can be:
+- or a stable version: its version number is of the type "1.0" for example.
+- either a development version: its version number is then of the type "1.0-dev1", or "1.0-rc1", or "1.0-beta2".
+
+
+By default, a stable version is updated to a more recent stable version (higher version number).
+But it is possible to update the current stable version with a development version of the next stable version. Just check the option "Also update stable versions to development versions" located in the add-on settings, menu item "Update".
+
+
+A development version is updated:- with a more recent development version,
+- with its stable version,
+- or with the latest stable version if the previous option is not checked.
+
+
+The "Check for update" button in the add-on's settings, "Update" menu item, allows you to immediately search for an update.
+
+The "View history" button, placed in this same category, allows you to display the history of the current version in the browser.
+
+In the case of an automatic update and if a new version is detected, the "Update" dialog box is displayed to propose:
+- either the immediate installation of the new version,
+- or to postpone the update until later. In this case, the search will be restarted at least one hour later.
+
+
+In the case of an update to a stable version, the "What's new" button offers the possibility of opening, in the browser, the history of the add-on and thus being able to know the novelties of the proposed version.
+
++ History +
+The version history of this add-on is in the file ["changes.html" changes.html]

@@ -1,0 +1,409 @@
+ADDON_SUMMARY - manuel utilisateur
+Auteur: ADDON_AUTHOR_NAME
+
+
+%!includeconf: ../addon_userManual.t2tconf
+%!includeconf: addon_informations.t2tconf
+%!includeconf: addon_keys.t2tconf
+
+URL: ADDON_AUTHOR_URL
+[Dépot GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
+
+
+Téléchargement:
+- [Version stable ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Version de développement ADDON_DEV_URL]
+
+
+Compatibilité:
+- version minimum de NVDA supportée: MINIMUM_NVDA_VERSION
+- dernière version de NVDA testée: LAST_TESTED_NVDA_VERSION
+
+
+Traducteur (s): auteur de l'extension
+
+= Sommaire =[toc]
+%%toc
+
++ Introduction +
+++ Généralités ++
+Cette extension a pour objectif d'améliorer l'accessibilité de l'éditeur de texte Notepad++ et ajouter des fonctionnalités pour faciliter l'édition de fichiers utilisés en langage Python et des fichiers écrit en langage markdown.
+
+Elle reprend la plupart des compléments apportées par l'extension NVDA_notepadPlusPlus créé par Derek Riemer et Tuukka Ojala, puis modifiée par Robert Hänggi et Andre9642, à savoir:
+- vocalisation du résultat de la commande "control+b" qui permet de se déplacer au délimiteur symétrique,
+- vocalisation du déplacement au prochain ou précédent signet par "F2" ou "majuscule+f2",
+- signalement des lignes trop longues,
+- accessibilité à la saisie semi-automatique,
+- accessibilité à la recherche incrémentielle,
+- Prise en charge de la fonction de recherche précédente / suivant
+
+
+Et elle apporte les compléments suivants:
+
+[Concernant les documents #hdr_Document]:
+- Comparaison du texte sélectionné avec celui du presse-papier,
+- arrangement de l'annonce du nom des documents:
+ - réduction du chemin des fichiers,
+ - annonce du nom du fichier avant son chemin,
+ - non diction des barres obliques inversées du chemin.
+
+
+
+[Pour les lignes #hdr_Line]:
+- Aller à la ligne suivante ou précédente se terminant par au moins une tabulation ou un espace,
+- aller à la première ligne suivante ou précédente dépassant la limite maximale de ligne.
+- annonce du numéro et du retrait des lignes,
+- scripts pour fixer le retrait des lignes,
+- Vocalisation du déplacement du focus par touche "Début",
+
+
+
+[Compléments pour les fichiers Python #hdr_Python]:
+- déplacement à la prochaine class ou méthode,
+- importation du code de la fenêtre d'édition.
+
+
+[Compléments pour les fichiers Markdown ou txt2tags #hdr_Markdown]:
+- prévisualisation du résultat de la conversion en HTML dans le tampon virtuel de NVDA ou dans le navigateur par défaut,
+- mode navigation pour les titres, les liens et citations,
+
+
+++ Compatibilité ++
+Cette extension a été testé avec Notepad ++ version 7.71.
+
+++ Précisions ++
+Cette extension utilise et intercepte les raccourcis de Notepad ++ configuré par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de ne pas modifier ces raccourcis.
+
+La plupart des gestes de commande amenés par cette extension sont modifiable à l'aide du dialogue "Gestes de commande" de NVDA.
+
++ Compléments concernant les documents +[hdr_Document]
+++ Vocalisation de l'arrivée du curseur sur un signet ++
+Notepad++ permet de définir des signets dans votre texte.
+
+Un signet vous permet de revenir rapidement sur une ligne dans l’éditeur à n’importe quel moment.
+
+Pour définir un signet, positionnez le curseur sur la ligne que vous souhaitez mettre en signet et appuyez sur "control+f2" (raccourci Notepad++ à ne pas modifier).
+
+Puis, lorsque vous souhaitez revenir sur ce signet, appuyer sur "F2" pour aller au signet suivant, ou "majuscule+F2" pour revenir au Signet précédent (raccourcis Notepad++ à ne pas modifier).
+
+Vous pouvez définir autant de signets que vous souhaitez.
+
+Pour annuler un signet, déplacez le curseur sur la ligne marqué par le signet et tapez "control+f2".
+
+Vous pouvez annuler tous les signets en utilisant le sous-menu "Enlever tous les signets" du sous-menu "Signets" du sous-menu "Recherche".
+
+NVDA restant muet lors de l'arrivée du curseur sur un signet, l'extension corrige ce problème en annonçant la ligne.
+
+
+++ Vocalisation de l'arrivée du curseur sur un délimiteur symétrique ++
+Dans le document, vous pouvez vous déplacer au délimiteur symétrique en appuyant sur "control+b" (raccourci NotePad++ à ne pas modifier).
+
+Pour cela, le curseur doit être positionné sur un caractère délimiteur du style accolade, parenthèse, crochet, auquel le délimiteur symétrique devra correspondre.
+
+Lorsque vous appuyez sur cette commande, l'extension permettra à NVDA de lire la ligne sur laquelle vous avez atterri, et si la ligne se compose uniquement du caractère délimiteur symétrique, il lira la ligne au-dessus et au-dessous de ce délimiteur afin d'avoir une idée du contexte.
+
+++ Accessibilité à la saisie automatique ++
+
+La fonctionnalité de la saisie automatique de Notepad++ n'est pas accessible par défaut. La saisie automatique a de nombreux problèmes, y compris qu'elle s'affiche dans une fenêtre flottante.
+
+Pour rendre cette fonctionnalité accessible, trois choses à faire.
+- Lorsqu'une suggestion pour la saisie automatique s'affiche, un son comme un glissement est joué. Le son inverse est fait lorsque les suggestions disparaissent.
+- En appuyant sur les flèches bas/haut NVDA lira le texte suggéré suivant/précédent.
+- Le texte recommandé est verbalisé lorsque les suggestions apparaissent.
+
+
+Remarque: tout le texte est affiché en braille si un afficheur braille est connecté. Cette fonctionnalité est actuellement expérimentale, n'hésitez pas à signaler toute erreur.
+
+++ Accessibilité à la recherche Incrémentielle ++
+L'une des caractéristiques les plus intéressantes de notepad++ est la possibilité d'utiliser la recherche incrémentielle.
+
+La recherche incrémentielle est un mode de recherche dans lequel vous recherchez une phrase-test en tapant dans le champ d'édition, et le document se déplace en vous montrant la recherche en temps réel.
+
+Pendant que vous tapez, le document se déplace pour afficher la ligne de texte avec la phrase la plus probable que vous recherchez. Il met également en évidence le texte qui correspond.
+
+Le programme vous indique également combien de correspondances ont été détectées. Il y a des boutons pour se déplacer à la correspondance suivante et précédente.
+
+Au fur et à mesure que vous tapez, NVDA annoncera la ligne de texte que notepad ++ a détectée dans les résultats de la recherche. NVDA annonce également le nombre de correspondances, mais uniquement si le nombre de correspondances a changé.
+
+Lorsque vous avez trouvé la ligne de texte que vous voulez, il suffit d'appuyer sur "Echap", et cette ligne de texte sera sur votre curseur.
+
+Pour lancer cette boîte de dialogue, sélectionnez "Recherche Incrémentielle" dans le menu "Recherche", ou appuyez sur "alt+control+i".
+
+++ Prise en charge de la fonction de recherche précédente / suivante ++
+Par défaut, si vous tapez "control+f" vous ouvrez la boîte de dialogue de recherche.
+
+Si vous tapez du texte dans sa zone d'édition et appuyez sur "Entrée", le texte dans la fenêtre est sélectionné et le focus est déplacé vers le résultat de recherche suivant. La fenêtre reste ouverte et il faut la fermer avec la touche "Échapp".
+
+
+Vous pouvez alors appuyer sur "F3" ou "majuscule+F3" pour répéter la recherche dans la direction vers l'avant ou vers l'arrière respectivement.
+
+NVDA restant muet dans ce cas, l'extension permettra à NVDA de lire la ligne courante et la sélection dans la ligne qui représente le texte trouvé.
+
+++ Comparaison de texte ++[HDR_Compare]
+Cette fonctionnalité permet de faire une simple et rapide comparaison entre le texte sélectionné et celui du presse-papier.
+
+Après avoir sélectionné le texte, utilisez le geste de commande "KEY_Compare".
+
+Le résultat est affiché dans une boite de dialogue.
+
+++ Arrangement du nom des documents ++
++++ Annonce réduite du chemin des fichiers +++
+Notepad++ affiche, dans le titre de la fenêtre d'édition et dans la liste des onglets, le nom du fichier précédé par son chemin absolu.
+
+Ce chemin peut être très long et assez fatigant à entendre.
+
+Dans les préférences de Notepad++, il est possible de faire afficher dans le titre de la fenêtre d'édition, seulement le nom du fichier, mais cela ne concerne pas la liste des onglets que l'on atteint par "control+tab" en gardant la touche "control" enfoncé.
+
+Ce complément permet donc d'annoncer de manière plus réduite le titre de la fenêtre d'édition et les noms des éléments dans la liste des onglets, en réduisant le chemin des fichiers, voire même en le supprimant complètement.
+
+La catégorie "Options" des paramètres de l'extension présente le groupe de paramètres "Annonce réduite du chemin des fichiers" pour contrôler cette fonctionnalité.
+
+L'option "Réduire le chemin" permet d'activer ou désactiver l'annonce réduite du chemin.
+
+Elle n'est pas activée par défaut.
+
+Quand cette option est activée, le chemin du fichier est réduit en fonction du niveau configuré dans le choix "Niveau hiérarchique antécédents à conserver".
+
+Ce niveau peut varier de 0 à 10:
+
+Si le niveau est égal à 0, seul le nom du fichier est annoncé.
+
+Pour un niveau égal à -1, le chemin du fichier est annoncé sous la forme:
+
+"lettre du lecteur:\...\dossier hiérarchique -1\nom du fichier"
+
+Pour un niveau égal à -2, cela sera:
+
+"lettre du lecteur:\...\dossier niveau hiérarchique -2\dossier hiérarchique -1\nom du fichier"
+
+Si le nombre de niveaux hiérarchiques du chemin est plus petit que le niveau configuré, le chemin reste inchangé.
+
+
++++ Annonce du nom du fichier avant son chemin +++
+Notepad++ affiche le nom du document dans le titre de la fenêtre d'édition ou dans la liste des onglets présentée par "control+tab" et "control", sous la forme: chemin du fichier suivi du nom du fichier.
+
+Ce complément permet de faire annoncer par NVDA le nom du fichier avant son chemin.
+
+L'option "Annoncer le nom du fichier avant son chemin" du groupe de paramètres "Nom des documents" de la catégorie "Options" active ou désactive ce fonctionnement.
+
++++ Non diction des barres obliques inversées du chemin +++
+Il peut sembler pénible d'entendre toutes les barres obliques inversées du chemin du fichier quand on déroule la liste des onglets ouverts.
+
+Ce complément permet donc de les rendre muettes.
+
+L'option "Ne pas dire les barres obliques inversées du chemin" du groupe "Nom des documents" de la catégorie active ou désactive ce fonctionnement.
+
+
++ Compléments pour les lignes +[hdr_Line]
+++ Recherche des lignes se terminant par tabulation ou espace ++
+L'extension installe deux scripts pour se déplacer aux lignes se terminant par un espace ou une tabulation:
+- "KEY_FindNextTabEnding" pour aller à la prochaine ligne.
+- "KEY_FindPreviousTabEnding" pour aller à la précédente ligne.
+
+
+Si une ligne est trouvée, le curseur est positionné en début de ligne et la ligne est annoncée.
+
+
+
+++ Recherche des lignes se composant uniquement de tabulations ou d'espaces ++
+
+L'extension installe deux scripts pour rechercher les lignes se composant uniquement d'espaces ou de tabulations:
+- "KEY_FindNextBlankLine" pour rechercher la prochaine ligne,
+- "KEY_FindPreviousBlankLine" pour rechercher la ligne précédente.
+
+
+++ Longue Ligne ++
++++ Annonce des lignes trop longues +++
+Notepad ++ a une règle qui peut être utilisée pour vérifier la longueur d'une ligne. Cependant, cette fonctionnalité n’est ni accessible ni significative pour les utilisateurs non-voyants.
+
+Par conséquent, cette extension dispose d'un indicateur de ligne trop longue qui déclenche un bip lorsqu'une ligne est plus longue que le nombre de caractères spécifié.
+
+Pour activer ou désactiver le signalement des lignes trop longues, deux solutions:
+- dans la catégorie "Options" du dialogue de paramétrage de l'extension, Cocher ou décocher la case "Signaler les lignes trop longues " et modifiez, si nécessaire, la Taille minimum d'une longue ligne.
+- utiliser le geste de commande "KEY_ToggleReportLongLine".
+
+
+Lorsque la fonctionnalité est activée, vous entendrez un bip:
+- lors de l'arrivée du curseur sur une ligne trop longue.
+- lors de la frappe d'un caractère sur une ligne trop longue.
+
+
+Pour aller jusqu’au premier caractère débordant sur la ligne courante, vous pouvez utiliser le geste de commande "KEY_LongLineMaxChar".
+
++++ Recherche des lignes trop longues +++
+L'extension installe deux scripts pour atteindre les lignes trop longues.
+- "KEY_previousLongLine": pour aller à la précédente ligne trop longue,
+- "KEY_nextLongLine": pour aller à la prochaine ligne trop longue.
+
+
+
+++ Annonce d'informations sur la ligne actuelle ++
+En utilisant le geste de commande "KEY_Informations", NVDA annoncera les informations suivantes:
+- avec un simple appui, le numéro de ligne et numéro de la colonne de la position du curseur.
+- avec un double appui, le nombre de caractères sélectionnés et le nombre de lignes concernées par la sélection.
+
+
+++ Prise en charge de l'annonce du numéro et du retrait des lignes ++
+NVDA offre déjà la possibilité de faire annoncer le numéro et le retrait de la ligne.
+
+Pour les numéros de ligne, il faut configurer un geste de commande global et si l'on veut que la configuration de cette fonctionnalité ne s'applique qu'à Notepad++, il faut aussi associer un profil de configuration à cette application.
+
+Quant au retrait des lignes, l'annonce se fait en "tab" ou "espace". L'extension propose une annonce différente.
+
+Pour les utilisateurs qui désirent conserver le fonctionnement de NVDA, l'option "Laisser NVDA annoncer le numéro et le retrait des lignes" est prévue.
+
+Il suffit de cocher cette option pour retrouver le fonctionnement normal de NVDA.
+
+Par défaut, cette option n'est pas cochée.
+
+Le script "Activer/Désactiver la gestion de l'annonce du numéro et du retrait des lignes par l'extension", sans geste de commande, permet de basculer cette option. Il est possible de lui associer un geste de commande à l'aide du dialogue "Gestes de commande" de NVDA.
+
+Quand cette option est cochée, il n'est plus possible de modifier les paramètres relatifs à l'annonce du numéro et du retrait des lignes et les scripts associés ne sont plus fonctionnels.
+
+
++++ Annonce du numéro de ligne +++[HDR_ReportLigneNumber]
+L'extension installe le script "Activer/désactiver l'annonce des numéros de ligne" pour faire annoncer les numéros de ligne.
+
+Ce script se déclenche par le geste de commande "KEY_ReportLineNumber" et boucle entre les deux choix suivants:
+- dire le numéro de ligne,
+- ne pas dire le numéro de ligne.
+
+
+Le choix est sauvegarder dans la configuration de l'extension et repositionner lors du redémarrage de l'extension.
+
++++ Annonce du retrait de la ligne +++
+Cette fonctionnalité permet de faire annoncer le retrait de la ligne sous un style à définir.
+
+Pour cela, l'option "Annoncer le retrait de la ligne" de la catégorie "Options" doit être cochée.
+
+Le script "Activer/désactiver l'annonce du retrait de la ligne" (geste de commande "KEY_ReportLineIndentation"), permet de basculer cette option.
+
+Quand l'option est cochée, le retrait de la ligne est annoncé suivant le choix de style sélectionné.
+
+Sinon, la ligne est annoncée sans les espaces ou tabulation de début de ligne.
+
+Le choix est sauvegarder dans la configuration de l'extension et repositionner lors du redémarrage de l'extension.
+
+++++ Choix du style de l'annonce du retrait ++++
+Les choix possible pour Ce style sont:
+- "Dire les indentations": annoncer l'indentation sous la forme de nombre de tabulation ou d'espace.
+- "Dire les changements d'indentation": NVDA annoncera l'indentation seulement s'il y a changement et sous la forme précédente.
+- "Dire les changements d'indentation sous la forme de niveau": NVDA annoncera l'indentation s'il y a changement et sous la forme de niveau (niveau 1, niveau2, ..). Le niveau est calculé suivant le nombre de tabulation.
+- "Dire les changements d'indentation sous la forme niveau supérieur ou inférieur": NVDA annoncera l'indentation s'il y a changement et sous la forme niveau supérieur (Plus de tabulations ou d'espace), ou inférieur (moins de tabulations ou d'espaces).
+
+
+Pour configurer ce style, deux solutions:
+- utilisation du script "KEY_Indent" qui permet de boucler sur les choix précédents.
+- utilisation de la liste déroulante "Style" de la catégorie "Options" du dialogue de paramétrage de l'extension.
+
+
+Quand l'un des deux derniers styles est choisi, le mélange d'espace et de tabulation dans l'indentation est signalé vocalement.
+
+Seul aujourd'hui, le caractère "tab" est pris en compte pour évaluer le niveau. Par conséquence, une ligne ayant une indentation avec des espaces sera signalée comme ayant un niveau d'indentation inconnu.
+
+Le choix est sauvegarder dans la configuration de l'extension et repositionner lors du redémarrage de l'extension.
+
++++ Mise en retrait des lignes +++
+Les gestes de commandes suivants permettent de définir le retrait d'une ligne:
+- "Control" suivi d'un chiffre (de 1 à 9) du clavier alphanumérique pour insérer en début de ligne le nombre de tabulation correspondant au chiffre.
+- "control+²" ou "control+0" pour supprimer l'indentation de la ligne quelle soit en espace ou tabulation.
+
+
+Ces gestes de commandes sont modifiables à l'aide du dialogue "Gestes de commandes" de NVDA. En particulier pour modifier "control+²" qui est spécifique au clavier azerty. La touche "²" étant la touche la plus à gauche de la rangé alphanumériques de ce type de clavier.
+
+++ Déplacement avec la touche Début ++
+Ce complément permet de faire annoncer par NVDA la position du curseur après l'utilisation de la touche "Début", c'est à dire soit en début de ligne, soit après l'indentation.
+
+
++ Compléments pour les fichiers Python +[hdr_Python]
+++ Déplacement de class en class ou de méthode en méthode ++
+Cette extension offre la possibilité de se déplacer de class en class ou de méthode en méthode dans un fichier contenant du code python.
+
+Elle apporte les scripts suivants:
+
+- Aller à la méthode Python précédente: "KEY_PreviousMethod".
+- Aller à la méthode Python suivante: "KEY_NextMethod".
+- Aller à la class Python précédente: "KEY_PreviousClass".
+- Aller à la class python suivante: "KEY_NextClass".
+- Aller à la class ou méthode Python précédente: "KEY_Previous_MethodOrClass".
+- Aller à la class ou méthode Python suivante: "KEY_Next_MethodOrClass".
+
+
+++ Importation de code ++
+Lorsque le texte de la fenêtre d'édition est du code Python, il est possible de l'importer à l'aide du geste de commande "KEY_Import".
+
+Le résultat de l'importation est annoncé.
+
+Dans le cas d'une erreur d'importation, le curseur est positionné sur la ligne concernée.
+
+
++ Compléments pour fichiers markdown ou txt2tags +[HDR_Markdown]
+++ Prévisualisation ++
+L'extension offre la possibilité de visualiser le résultat HTML de la compilation du texte d'un simple document par Markdown ou txt2tags.
+
+Cette visualisation peut être affichée dans une fenêtre en mode navigation ou dans le navigateur par défaut.
+
+Pour obtenir cette visualisation, le geste de commande "KEY_Compil" doit être utilisé.
+
+Celui-ci affiche un dialogue dans lequel on trouve:
+- le choix du compilateur: "Markdown" ou "Txt2tags",
+- l'affichage ou non dans le navigateur.
+
+
+L'appui sur le bouton "OK" lance la compilation et l'affichage du résultat.
+
+Les choix sélectionnés sont mémorisés jusqu'à l'arrêt de NVDA.
+
+Un double appui du geste de commande permet de visualiser directement le document sans passer par le dialogue en utilisant les derniers choix mémorisés.
+
+++ Mode navigation (en expérimentation) ++
+
+L'extension met en place le mode navigation pour se déplacer d'élément en élément dans les documents markdown ou txt2tag.
+
+Les éléments concernés sont:
+-titre: chaine de caractères encadrés par des "+" ou des "#".
+- lien: chaine encadrée par "<" et ">".
+
+Pour l'activer, tapez "NVDA+espace".
+
+Les commandes possibles sont alors:
+- "chiffre de 0 à 9" pour se déplacer au prochain titre de niveau correspondant au chiffre.
+- "majuscule+ un chiffre de 0 à 9" pour se déplacer au précédent titre de niveau correspondant au chiffre.
+- "h" pour se déplacer au prochain titre.
+- "majuscule+h" pour se déplacer au précédent titre.
+- "k" pour se déplacer au prochain lien.
+- "majuscule+k" pour se déplacer au précédent lien.
+
+
+
++ Mise à jour +
+La mise à jour de l'extension se fait, par défaut, automatiquement peu de temps après le démarrage de NVDA (entre 20 et 600 secondes) et au maximum une fois par jour.
+Il est possible de désactiver cette mise à jour en décochant l'option "Rechercher automatiquement les mises à jour" se trouvant dans les paramètres de l'extension, élément de menu "Mise à jour".
+La version de l'extension peut être:
+- soit une version stable: son numéro de version est du type "1.0" par exemple.
+- soit une version de développement: son numéro de version est alors du type "1.0-dev1", ou "1.0-rc1", ou "1.0-beta2".
+
+
+Par défaut, une version stable est mise à jour avec une version stable plus récente (numéro de version supérieur).
+Mais il est possible de mettre à jour la version stable courante avec une version de développement de la prochaine version stable. Il suffit de cocher l'option "Mettre aussi à jour les versions stable vers les versions de développement " situé dans les paramètres de l'extension, élément de menu "Mise à jour".
+
+
+Une version de développement est mise à jour:
+- avec une version de développement plus récente,
+- avec sa version stable,
+- ou avec la dernière version stable si l'option précédente est pas cochée.
+
+
+Le bouton "Rechercher une mise à jour" placé dans les paramètres de l'extension, élément de menu "Mise à jour", permet de rechercher immédiatement une mise à jour.
+
+Le bouton "Voir l'historique", placé dans cette même catégorie, vous permet d'afficher l'historique de la version actuelle dans le navigateur.
+
+Dans le cas d'une mise à jour automatique et si une nouvelle version est détectée, la boite de dialogue "Mise à jour" s'affiche pour proposer:
+- soit l'installation immédiate de la nouvelle version,
+- soit de reporter la mise à jour à plus tard. Dans ce cas, la recherche se relancera au minimum une heure plus tard.
+
+
+Dans le cas d'une mise à jour vers une version stable, le bouton "Quoi de neuf" offre la possibilité d'ouvrir, dans le navigateur, l'historique de l'extension et ainsi pouvoir connaitre les nouveautés de la version proposée.
+
++ Historique +
+L'historique des versions de cette extension est dans le fichier ["changes.html" changes.html]
