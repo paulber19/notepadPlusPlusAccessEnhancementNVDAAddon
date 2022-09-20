@@ -6,7 +6,7 @@
 * [development version] [2]
 * Compatibility:
 * Minimum NVDA version required: 2020.4
-* Latest version of NVDA tested: 2022.1
+* Latest version of NVDA tested: 2022.3
 
 
 
@@ -61,5 +61,5 @@ This extension uses and intercepts the shortcuts of Notepad ++ configured by def
 
 Note: this is an automatic translation from french language.
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.2.nvda-addon
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.2.1.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev

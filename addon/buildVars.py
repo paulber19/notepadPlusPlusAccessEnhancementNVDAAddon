@@ -76,7 +76,7 @@ This extension uses and intercepts the shortcuts of Notepad ++ configured by def
 		"""It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
 """),
 	# version
-	"addon_version": "2.2",
+	"addon_version": "2.2.1",
 	# Author(s)
 	"addon_author": u"paulber19",
 	# URL for the add-on documentation support
@@ -86,7 +86,7 @@ This extension uses and intercepts the shortcuts of Notepad ++ configured by def
 	# Minimum NVDA version supported (e.g. "2018.3")
 	"addon_minimumNVDAVersion": "2020.4",
 	# Last NVDA version supported/tested (e.g. "2018.4", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2022.1",
+	"addon_lastTestedNVDAVersion": "2022.3",
 	# Add-on update channel (default is stable or None)
 	"addon_updateChannel": None,
 }

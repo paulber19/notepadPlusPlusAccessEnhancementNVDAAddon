@@ -6,7 +6,7 @@
 	* [versión de desarrollo][2]
 * Compatibilidad:
 	* Versión mínima de NVDA requerida: 2020.4
-	* Última versión de NVDA probada: 2022.1
+	* Última versión de NVDA probada: 2022.3
 
 
 # Características #
@@ -59,5 +59,5 @@ Este complemento ha sido probado con  Notepad++ versión 7.71.
 Este complemento usa e intercepta los atajos de Notepad++ configurados por defecto. Por lo tanto, se recomienda encarecidamente, por su correcto funcionamiento, no modificar estos atajos.
 
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.2.nvda-addon
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.2.1.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev

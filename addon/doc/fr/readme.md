@@ -6,7 +6,7 @@
 	* [version de développement][2]
 * Compatibilité:
 	* Version minimum de NVDA requise: 2020.4
-	* Dernière version de NVDA testée: 2022.1
+	* Dernière version de NVDA testée: 2022.3
 
 
 # Fonctionnalités #
@@ -59,5 +59,5 @@ Cette extension a été testé avec Notepad ++ version 7.71.
 Cette extension utilise et intercepte les raccourcis de Notepad ++ configuré par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de ne pas modifier ces raccourcis.
 
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.2.nvda-addon
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.2.1.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev
