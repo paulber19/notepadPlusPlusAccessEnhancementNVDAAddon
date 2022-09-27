@@ -69,7 +69,7 @@ Et elle apporte les compléments suivants:
 
 
 ++ Compatibilité ++
-Cette extension a été testé avec Notepad ++ version 7.71.
+Cette extension a été testé avec Notepad ++ version 8.4.2 32 et 64 bits.
 
 ++ Précisions ++
 Cette extension utilise et intercepte les raccourcis de Notepad ++ configuré par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de ne pas modifier ces raccourcis.

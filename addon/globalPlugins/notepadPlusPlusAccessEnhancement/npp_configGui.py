@@ -43,7 +43,7 @@ class NPPGeneralOptionsPanel(SettingsPanel):
 		groupText = _("Documents's name")
 		groupSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label=groupText)
 		groupBox = groupSizer.GetStaticBox()
-		group= BoxSizerHelper(self, sizer=groupSizer)
+		group = BoxSizerHelper(self, sizer=groupSizer)
 		sHelper.addItem(group)
 		# Translators: A setting to activate saying file name before file path.
 		labelText = _("&Say file name before path")
@@ -117,12 +117,16 @@ class NPPLineOptionsPanel(SettingsPanel):
 		sHelper.addItem(self.LineIndentationAnnouncementGroup)
 		# Translators: A setting for enabling/disabling line indentation announcement.
 		labelText = _("Report line &indentation")
-		self.reportLineIndentationCheckBox = self.LineIndentationAnnouncementGroup.addItem(wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
+		self.reportLineIndentationCheckBox = self.LineIndentationAnnouncementGroup.addItem(
+			wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
 		self.reportLineIndentationCheckBox.SetValue(_addonConfigManager.toggleReportLineIndentationOption(False))
 		# Translators: Setting for indent report mode.
 		labelText = _("St&yle:")
 		choice = indentReportModeLabels[:]
-		self.indentReportMode = self.LineIndentationAnnouncementGroup.addLabeledControl(labelText, wx.Choice, choices=[str(x) for x in choice])
+		self.indentReportMode = self.LineIndentationAnnouncementGroup.addLabeledControl(
+			labelText,
+			wx.Choice,
+			choices=[str(x) for x in choice])
 		self.indentReportMode.SetSelection(_addonConfigManager.toggleIndentReportMode(False))
 		self.updateLineNumberAndIndentationAnnouncementBox()
 		# Translators: This is the label for a group of editing options in the settings panel.
@@ -217,7 +221,8 @@ class NPPUpdatePanel(SettingsPanel):
 
 	def onSeeHistory(self, evt):
 		addon = addonHandler.getCodeAddon()
-		from languageHandler import curLang
+		from languageHandler import getLanguage
+		curLang = getLanguage()
 		theFile = os.path.join(addon.path, "doc", curLang, "changes.html")
 		if not os.path.exists(theFile):
 			lang = curLang.split("_")[0]

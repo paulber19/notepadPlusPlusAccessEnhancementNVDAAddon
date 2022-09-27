@@ -14,6 +14,13 @@ Descarga:
 - [Versiones de desarrollo ADDON_DEV_URL]
 
 
++ v2.3 (27/09/2022) +
+- corrección de la imposibilidad de mostrar el historial del complemento con el botón "Ver historial".
+- corrección de movimientos incorrectos de método a método o de clase a clase.
+- una línea que identifica un método o clase ahora solo se identifica por "def" o "clase" respectivamente.
+- Compatibilidad con notepad++ 8.3 64 bits.
+
+
 + v2.2 (04/02/2022) +
 - Compatibilidad con NVDA 2022.1
 - reinicialización de la configuración en caso de errores en el archivo de configuración.

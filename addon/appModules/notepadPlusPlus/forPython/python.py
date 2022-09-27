@@ -105,13 +105,10 @@ class PythonDocument(object):
 			return
 		currentLine = info.getCurrentLineNumber()
 		if next:
-			r = range(currentLine, len(textList) - 1)
-			dec = 1
+			rng = list(range(currentLine + 1, len(textList)))
 		else:
-			r = range(currentLine, 0, -1)
-			dec = -1
-		for id in r:
-			lineID = id + dec
+			rng = list(range(currentLine - 1, -1, -1))
+		for lineID in rng:
 			line = textList[lineID]
 			if len(line) == 0:
 				continue
@@ -133,13 +130,10 @@ class PythonDocument(object):
 			return
 		currentLine = info.getCurrentLineNumber()
 		if next:
-			r = range(currentLine, len(textList) - 1)
-			dec = 1
+			rng = list(range(currentLine + 1, len(textList)))
 		else:
-			r = range(currentLine, 0, -1)
-			dec = -1
-		for id in r:
-			lineID = id + dec
+			rng = list(range(currentLine - 1, -1, -1))
+		for lineID in rng:
 			line = textList[lineID]
 			if len(line) == 0:
 				continue
@@ -154,42 +148,23 @@ class PythonDocument(object):
 		speech.speakMessage(_("No more line ending with tab or space"))
 
 	@classmethod
-	def moveToNext(cls, info, regElement, regStop=None, noElementText=""):
+	def moveToNextOrPrevious(cls, info, regElement, regStop=None, noElementText="", previous=False):
 		info.expand(textInfos.UNIT_STORY)
 		document = info._getStoryText()
 		textList = document.splitlines()
 		if len(textList) == 0:
-			log.error("error: text list empty")
 			return
-
-		currentLine = info.getCurrentLineNumber()
-		for line in textList[currentLine + 1:]:
-			if regElement.match(line):
-				lineID = textList.index(line)
+		if previous:
+			start = info.getCurrentLineNumber() - 1
+			rng = list(range(start, -1, -1))
+		else:
+			start = info.getCurrentLineNumber() + 1
+			rng = list(range(start, len(textList)))
+		for lineID in rng:
+			if regElement.match(textList[lineID]):
 				info.goToLine(lineID)
 				return
-			if regStop and regStop.match(line):
-				break
-		speech.speakMessage(noElementText)
-		return
-
-	@classmethod
-	def moveToPrevious(cls, info, regElement, regStop=None, noElementText=""):
-		info.expand(textInfos.UNIT_STORY)
-		document = info._getStoryText()
-		textList = document.splitlines()
-		if len(textList) == 0:
-			log.error("error: text list empty")
-			return
-
-		currentLine = info.getCurrentLineNumber()
-		tempList = textList[: currentLine]
-		for line in reversed(tempList):
-			if regElement.match(line):
-				lineID = tempList.index(line)
-				info.goToLine(lineID)
-				return
-			if regStop and regStop.match(line):
+			if regStop and regStop.match(textList[lineID]):
 				break
 		speech.speakMessage(noElementText)
 		return
@@ -197,41 +172,41 @@ class PythonDocument(object):
 	@classmethod
 	def nextClass(cls, info):
 		noElementText = PythonDocument.msgNoOtherClass
-		regElement = re.compile("^[ \t]*((?:class).*?:.*$)", re.MULTILINE)
+		regElement = re.compile("^[ \t]*((?:class ).*$)", re.MULTILINE)
 		regStop = None
-		cls.moveToNext(info, regElement, regStop, noElementText)
+		cls.moveToNextOrPrevious(info, regElement, regStop, noElementText)
 
 	@classmethod
 	def previousClass(cls, info):
 		noElementText = PythonDocument.msgNoOtherClass
-		regElement = re.compile("^[ \t]*((?:class).*?:.*$)", re.MULTILINE)
+		regElement = re.compile("^[ \t]*((?:class ).*$)", re.MULTILINE)
 		regStop = None
-		cls.moveToPrevious(info, regElement, regStop, noElementText)
+		cls.moveToNextOrPrevious(info, regElement, regStop, noElementText, previous=True)
 
 	@classmethod
 	def nextMethod(cls, info):
 		noElementText = PythonDocument.msgNoOtherMethod
-		regElement = re.compile("^[ \t]*((?:def).*?:.*$)", re.MULTILINE)
+		regElement = re.compile("^[ \t]*((?:def ).*$)", re.MULTILINE)
 		regStop = re.compile("^[ \t]*((?:class).*?:.*$)", re.MULTILINE)
-		cls.moveToNext(info, regElement, regStop, noElementText)
+		cls.moveToNextOrPrevious(info, regElement, regStop, noElementText)
 
 	@classmethod
 	def previousMethod(cls, info):
 		noElementText = PythonDocument.msgNoOtherMethod
-		regElement = re.compile("^[ \t]*((?:def).*?:.*$)", re.MULTILINE)
+		regElement = re.compile("^[ \t]*((?:def ).*$)", re.MULTILINE)
 		regStop = re.compile("^[ \t]*((?:class).*?:.*$)", re.MULTILINE)
-		cls.moveToPrevious(info, regElement, regStop, noElementText)
+		cls.moveToNextOrPrevious(info, regElement, regStop, noElementText, previous=True)
 
 	@classmethod
 	def nextClassOrMethod(cls, info):
 		noElementText = PythonDocument.msgNoOtherClassOrMethod
-		regElement = re.compile("^[ \t]*((?:class|def).*?:.*$)", re.MULTILINE)
+		regElement = re.compile("^[ \t]*((?:class |def ).*$)", re.MULTILINE)
 		regStop = None
-		cls.moveToNext(info, regElement, regStop, noElementText)
+		cls.moveToNextOrPrevious(info, regElement, regStop, noElementText)
 
 	@classmethod
 	def previousClassOrMethod(cls, info):
 		noElementText = PythonDocument.msgNoOtherClassOrMethod
-		regElement = re.compile("^[ \t]*((?:class|def).*?:.*$)", re.MULTILINE)
+		regElement = re.compile("^[ \t]*((?:class |def ).*$)", re.MULTILINE)
 		regStop = None
-		cls.moveToPrevious(info, regElement, regStop, noElementText)
+		cls.moveToNextOrPrevious(info, regElement, regStop, noElementText, previous=True)

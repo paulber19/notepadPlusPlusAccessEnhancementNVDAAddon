@@ -14,6 +14,11 @@ Téléchargement:
 - [versions de développement ADDON_DEV_URL]
 
 
++ v2.3 (27/09/2022) +
+- correction de l'impossibilité d'afficher l'historique de l'extension à l'aide du bouton "Voir l'historique".
+- correction de mauvais déplacements de méthodes en méthodes ou de class en class.
+- une ligne identifiant une méthode ou class est maintenant  seulement identifier par "def " ou "class " respectivement.
+- compatibilité avec notepad++ 8.3 64 bits.
 
 
 + v2.2 (04/02/2022) +

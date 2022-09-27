@@ -25,6 +25,7 @@ import wx
 import NVDAObjects.window.scintilla
 import watchdog
 import review
+import ctypes
 from . import npp_convert
 from .import forPython
 from .forPython.python import PythonDocument, InterpreterError
@@ -103,13 +104,36 @@ def makeDesc(pre, description):
 	return "%s: %s" % (pre, description)
 
 
+# a part of buildin NVDA appmodule
+class CharacterRangeStructLongLong(ctypes.Structure):
+	"""By default character ranges in Scintilla are represented by longs.
+	However long is not big enough for files over 2 GB,
+	therefore in 64-bit builds of Notepad++ 8.3 and later
+	these ranges are represented by longlong.
+	"""
+	_fields_ = [
+		('cpMin', ctypes.c_longlong),
+		('cpMax', ctypes.c_longlong),
+	]
+
+
+class ScintillaTextInfoNpp83(ScintillaTextInfoEx):
+	"""Text info for 64-bit builds of Notepad++ 8.3 and later.
+	"""
+
+	class TextRangeStruct(ctypes.Structure):
+		_fields_ = [
+			('chrg', CharacterRangeStructLongLong),
+			('lpstrText', ctypes.c_char_p),
+		]
+
+
 class NPPDocument (
 	NVDAObjects.window.scintilla.Scintilla,
 	EditableTextWithAutoSelectDetection, EditableTextWithSuggestions):
 	"""An edit window that implements all of the scripts on the edit field for Notepad++"""
 	treeInterceptorClass = npp_browseMode.NPPDocumentTreeInterceptor
 	shouldCreateTreeInterceptor = False
-	TextInfo = ScintillaTextInfoEx
 
 	__gestures = {
 		"kb:upArrow": "reportLineOverflow",
@@ -128,6 +152,18 @@ class NPPDocument (
 		"kb:Enter": "EnterKey",
 		"kb:Home": "HomeKey",
 	}
+
+	def _get_TextInfo(self):
+		if self.appModule.is64BitProcess:
+			appVerMajor, appVerMinor, *__ = self.appModule.productVersion.split(".")
+			# When retrieving the version, Notepad++ concatenates
+			# minor, patch, build in major.minor.patch.build to the form of major.minor
+			# https://github.com/notepad-plus-plus/npp-usermanual/blob/master/content/docs/plugin-communication.md#nppm_getnppversion
+			# e.g. '8.3' for '8.3', '8.21' for '8.2.1' and '8.192' for '8.1.9.2'.
+			# Therefore, only use the first digit of the minor version to match against version 8.3 or later.
+			if int(appVerMajor) >= 8 and int(appVerMinor[0]) >= 3:
+				return ScintillaTextInfoNpp83
+		return ScintillaTextInfoEx
 
 	def initOverlayClass(self):
 		pass

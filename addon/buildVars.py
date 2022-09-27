@@ -68,7 +68,7 @@ And finally:
 
 
 2- Compatibility
-This extension has been tested with Notepad ++ version 7.91.
+This extension has been tested with Notepad ++ version 8.4.2.
 
 
 3- Constraints
@@ -76,7 +76,7 @@ This extension uses and intercepts the shortcuts of Notepad ++ configured by def
 		"""It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
 """),
 	# version
-	"addon_version": "2.2.1",
+	"addon_version": "2.3",
 	# Author(s)
 	"addon_author": u"paulber19",
 	# URL for the add-on documentation support
@@ -99,8 +99,8 @@ import os.path
 pythonSources = [
 	os.path.join("addon", "*.py"),
 	os.path.join("addon", "shared", "*.py"),
-	os.path.join("addon", "appModules", "notepad++", "*.py"),
-	os.path.join("addon", "appModules", "notepad++", "forPython", "*.py"),
+	os.path.join("addon", "appModules", "notepadPlusPlus", "*.py"),
+	os.path.join("addon", "appModules", "notepadPlusPlus", "forPython", "*.py"),
 	os.path.join("addon", "globalPlugins", "notepadPlusPlusAccessEnhancement", "*.py"),
 	os.path.join("addon", "globalPlugins", "notepadPlusPlusAccessEnhancement", "updateHandler", "*.py"),
 ]

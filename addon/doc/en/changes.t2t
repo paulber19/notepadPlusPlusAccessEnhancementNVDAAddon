@@ -17,6 +17,13 @@ Download:
 
 Sorry, but this document is an automatic translation from french language.
 
++ v2.3 (September/27/2022) +
+- fixed inability to view add-on history using the "View History" button.
+- correction of incorrect movements from method to method or from class to class.
+- a line identifying a method or class is now only identified by "def" or "class" respectively.
+- compatibility with notepad++ 8.3 64 bits.
+
+
 + v2.2 (02/04/2022) +
 - Compatibility with NVDA 2022.1.
 - reset the configuration in the event of errors in the configuration file.

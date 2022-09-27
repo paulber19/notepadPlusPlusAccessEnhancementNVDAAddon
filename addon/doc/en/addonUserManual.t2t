@@ -69,7 +69,7 @@ And it brings the following complements:
 
 
 ++ Compatibility ++
-This add-on has been tested with Notepad ++ version 7.71.
+This add-on has been tested with Notepad ++ version 8.4.2 32 and 64 bits.
 
 ++ Details ++
 This add-on uses and intercepts the Notepad ++ shortcuts configured by default. It is therefore strongly recommended, for its proper functioning, not to modify these shortcuts.
