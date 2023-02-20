@@ -4,6 +4,7 @@
 # This file is covered by the GNU General Public License.
 
 import addonHandler
+import globalVars
 import weakref
 from NVDAObjects.behaviors import EditableTextWithAutoSelectDetection, EditableTextWithSuggestions
 import api
@@ -126,6 +127,11 @@ class ScintillaTextInfoNpp83(ScintillaTextInfoEx):
 			('chrg', CharacterRangeStructLongLong),
 			('lpstrText', ctypes.c_char_p),
 		]
+import queueHandler
+_dSpellCheckReportDelay = None
+from keyboardHandler import KeyboardInputGesture
+_copyAllMisspelledWordsToClipboardGesture =  KeyboardInputGesture.fromName(_addonConfigManager.getCopyAllMisspelledWordsToClipboardShortCut())
+
 
 
 class NPPDocument (
@@ -207,6 +213,43 @@ class NPPDocument (
 		# Is it not a blank line, and are we further in the line than the marker position?
 		if caretPosition >= _addonConfigManager.getMaxLineLength() and caretInfo.text not in ['\r', '\n']:
 			tones.beep(500, 50)
+	def checkForDSpellCheckErrors(self, text):
+		global _dSpellCheckReportDelay 
+		def callback(prevClipData ):
+			clipdataText = api.getClipData()
+			if prevClipData != "":
+				api.copyToClip(prevClipData)
+			if clipdataText == "":
+				return
+			errors = clipdataText.splitlines()
+			if len(errors) > 200:
+				return
+			from nvwave import playWaveFile
+			words = text.split(" ")
+			print("words: %s"%words)
+			print("errors: %s"%errors)
+			for error in errors:
+				if error in text:
+					playWaveFile(os.path.join(globalVars.appDir, "waves", "textError.wav"))
+					return
+
+		if _dSpellCheckReportDelay  is not None:
+			_dSpellCheckReportDelay .Stop()
+		_dSpellCheckReportDelay  = None
+		text = text.replace("\n", "")
+		text = text.replace("\r", "")
+		if text == "":
+			return
+		try:
+			prevClipData = api.getClipData()
+		except:
+			prevClipData = ""
+		#_copyAllMisspelledWordsToClipboardGesture .send()
+		queueHandler.queueFunction(
+				queueHandler.eventQueue,
+				_copyAllMisspelledWordsToClipboardGesture .send)
+		wx.CallLater(300, callback, prevClipData )
+
 
 	def _caretScriptPostMovedHelper(self, speakUnit, gesture, info=None):
 		if isScriptWaiting():
@@ -219,8 +262,13 @@ class NPPDocument (
 		# Forget the word currently being typed as the user has moved the caret somewhere else.
 		speech.clearTypedWordBuffer()
 		review.handleCaretMove(info)
-		if speakUnit and not willSayAllResume(gesture):
+		if speakUnit and (not gesture or not willSayAllResume(gesture)):
 			info.expand(speakUnit)
+			if speakUnit == textInfos.UNIT_LINE and _addonConfigManager.toggleReportSpellingErrorsOption(False):
+				global _dSpellCheckReportDelay 
+				if _dSpellCheckReportDelay  is not None:
+					_dSpellCheckReportDelay .Stop()
+				_dSpellCheckReportDelay  = wx.CallLater(300, self.checkForDSpellCheckErrors, info.text)
 			forPython.mySpeakTextInfo(info, unit=speakUnit, reason=REASON_CARET)
 		braille.handler.handleCaretMove(self)
 

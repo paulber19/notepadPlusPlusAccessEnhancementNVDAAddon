@@ -68,8 +68,12 @@ Y proporciona los siguientes suplementos:
 - Modo Exploración para encabezados, enlaces, citas,
 
 
+[Suplementos para el complemento DSpellCheck de Notepad++ #hdr_DSpellCheck]:
+- anunciar errores de ortografía al moverse de línea en línea
+
+
 ++ Compatibilidad ++
-Este complemento ha sido probado con  Notepad++ versión 7.71.
+Este complemento ha sido probado con  Notepad++ versión 8.4 32 y 64 bits.
 
 ++ Precisión ++
 Este complemento usa e intercepta los atajos de Notepad++ configurados por defecto. Por lo tanto, se recomienda encarecidamente, por su correcto funcionamiento, no modificar estos atajos.
@@ -373,6 +377,58 @@ Las posibles órdenes de teclado son entonces:
 - "mayúscula+h" para moverte al anterior encabezado.
 - "k" para moverte al siguiente enlace.
 - "mayúscula+k" para moverte al anterior enlace.
+
+
+
+
++ Suplementos para el complemento DSpellCheck de Notepad++ +[HDR_DSpellCheck]
+Este complemento contiene un corrector ortográfico para Notepad++.
+
+Vea aquí para más información:
+- [el repositorio en GitHub https://github.com/Predelnik/DSpellCheck]
+- [el manual en inglés https://nppmanuel.nliautaud.fr/plugins/dspellcheck]
+
+
+Para la comunidad francesa:
+- [un tutorial en francés https://nppmanuel.nliautaud.fr/plugins/dspellcheck]
+- El tutorial de nuestro amigo Rémy ([vea aquí https://blindhelp.github.io/DSpellCheck/]).
+
+
+Una vez instalado, el submenú "DSpellCheck" aparece en el menú "Complementos" de la barra de menú de Notepad++.
+
+La detección automática de los errores de ortografía se activa o desactiva mediante el submenú "Spell Check Document Automatically".
+
+Los submenús "Find Next Misspelling" y "Find previous Misspelling"    te permite seleccionar el siguiente o anterior error de ortografía respectivamente.
+
+El menú contextual luego permite corregirlo.
+
+Los errores de ortografía están marcados en rojo en el texto, pero NVDA no indica los colores en el Notepad++.
+
+Este suplemento trata de indicarlos mediante un sonido cuando se mueve de línea en línea.
+
+Tenga en cuenta que es una característica completamente experimental y no está completamente operativa hasta la fecha.
+Puede que no funcione en ciertos casos, como, por ejemplo, con los archivos con la extensión "t2t" y que es necesario cambiar en "txt" para que DSpellCheck encuentre  los errores de ortografía.
+
+Para el complemento, el problema esencial con DSpellCheck, es cómo recuperar los errores de ortografía que detectó para saber si hay uno en la línea bajo el cursor.
+
+En ausencia de una API conocida, la única solución posible es usar el portapapeles y pedirle a DSpellCheck que copie todos los errores de ortografía encontrados.
+
+El submenú "Copy All Misspelled Words to Clipboard" de DSpellCheck lo permite.
+
+Este submenú debe ser activado por el complemento a cada cambio de línea mediante flecha arriba o abajo. Para documentos importantes y con una gran cantidad de errores de ortografía, esto puede inducir una demora que puede ser molesta.
+
+Para activar este submenú, el complemento utiliza el atajo "control+shift+alt+espacio".
+
+Pero este atajo no se define de forma predeterminada y debe configurarse en Notepad++ para que el complemento funcione.
+
+Abre el diálogo "Configurador de accesos directos" y ve a la pestaña "Comandos de Complementos". En el campo de edición "Filtro:" teclear "copy all" y pulse en el botón "Modificar".
+
+Luego marque "Ctrl", "shift", "alt" y seleccione en la lista la tecla "spacebar". Validar mediante el botón "OK"
+Finalmente cierre el diálogo.
+
+El complemento instala el script "Activar o desactivar el anunciado de los errores de ortografía", sin gesto de entrada,  para  anunciar o no los errores de ortografía cuando el cursor llega a una línea de texto después de un desplazamiento mediante flecha arriba o abajo. Este script aparece en el diálogo "Gestos de Entrada" en la categoría "Editor de texto Notepad++: complementos de accesibilidad" y un gesto de entrada se le puede asignar.
+
+Si se reproduce el sonido, coloque el cursor al principio de la línea y active el submenú  "Find Next Misspelling" para ir al primer error de ortografía en la línea y corregirlo.
 
 
 

@@ -27,7 +27,7 @@ Traducteur (s): automatic translator
 
 + Introduction +
 ++ General ++
-This add-on aims to improve the accessibility of the Notepad ++ text editor and add features to facilitate editing of files used in Python language and files written in markdown language.
+This add-on aims to improve the accessibility of the Notepad++ text editor and add features to facilitate editing of files used in Python language and files written in markdown language.
 
 It incorporates most of the additions provided by the NVDA_notepadPlusPlus add-on created by Derek Riemer and Tuukka Ojala, then modified by Robert Hänggi and Andre9642, namely:
 - vocalization of the result of the command "control + b" which allows to move to the symmetrical delimiter,
@@ -68,23 +68,27 @@ And it brings the following complements:
 - navigation mode for titles, links and blocquotes,
 
 
+[Add for DSpellCheck Notepad++ plugin #hdr_DSpellCheck]:
+- reporting of spelling errors when moving from line to line
+
+
 ++ Compatibility ++
-This add-on has been tested with Notepad ++ version 8.4.2 32 and 64 bits.
+This add-on has been tested with Notepad++ version 8.4 32 and 64 bits.
 
 ++ Details ++
-This add-on uses and intercepts the Notepad ++ shortcuts configured by default. It is therefore strongly recommended, for its proper functioning, not to modify these shortcuts.
+This add-on uses and intercepts the Notepad++ shortcuts configured by default. It is therefore strongly recommended, for its proper functioning, not to modify these shortcuts.
 
 Most of the input gestures brought by this add-on are modifiable using the NVDA "Input gestures" dialog.
 
 + Complements concerning documents + [hdr_Document]
 ++ Vocalization of the arrival of the cursor on a bookmark ++
-Notepad ++ allows you to set bookmarks in your text.
+Notepad++ allows you to set bookmarks in your text.
 
 A bookmark lets you quickly jump back to a line in the editor at any time.
 
-To define a bookmark, position the cursor on the line you want to bookmark and press "control + f2" (Notepad ++ shortcut not to be modified).
+To define a bookmark, position the cursor on the line you want to bookmark and press "control + f2" (Notepad++ shortcut not to be modified).
 
-Then, when you want to go back to this bookmark, press "F2" to go to the next bookmark,or "upper case + F2" to return to the previous Bookmark (Notepad ++ shortcuts not to be modified).
+Then, when you want to go back to this bookmark, press "F2" to go to the next bookmark,or "upper case + F2" to return to the previous Bookmark (Notepad++ shortcuts not to be modified).
 
 You can set as many bookmarks as you want.
 
@@ -96,7 +100,7 @@ NVDA remaining silent when the cursor arrives on a bookmark, the add-on corrects
 
 
 ++ Vocalization of the arrival of the cursor on a symmetric delimiter ++
-In the document, you can move to the symmetric delimiter by pressing "control + b" (NotePad ++ shortcut not to be modified).
+In the document, you can move to the symmetric delimiter by pressing "control + b" (NotePad++ shortcut not to be modified).
 
 To do this, the cursor must be positioned on a delimiter character of the brace, parenthesis, bracket style, to which the symmetric delimiter must correspond.
 
@@ -104,7 +108,7 @@ When you press this command, the add-on will allow NVDA to read the line you lan
 
 ++ Accessibility to automatic entry ++
 
-Notepad ++ autofill functionality is not available by default. Autofill has many issues, including showing it in a floating window.
+Notepad++ autofill functionality is not available by default. Autofill has many issues, including showing it in a floating window.
 
 To make this functionality accessible, three things must be done.
 - When a suggestion for autofill is displayed, a sound like swiping is played. The reverse sound is made when the suggestions disappear.
@@ -115,7 +119,7 @@ To make this functionality accessible, three things must be done.
 Note: All text is displayed in Braille if a Braille display is connected. This feature is currently experimental, so please report any errors.
 
 ++ Incremental search accessibility ++
-One of the coolest features of notepad ++ is the ability to use incremental search.
+One of the coolest features of notepad++ is the ability to use incremental search.
 
 Incremental search is a search mode in which you search for a test phrase by typing in the edit field, and the document moves around showing you the search in real time.
 
@@ -123,7 +127,7 @@ As you type, the document moves to display the line of text with the most likely
 
 The program also tells you how many matches have been detected. There are buttons to move to the next and previous match.
 
-As you type, NVDA will announce the line of text notepad ++ found in the search results. NVDA also announces the number of matches, but only if the number of matches has changed.When you have found the line of text you want, just press "Esc", and that line of text will be on your cursor.
+As you type, NVDA will announce the line of text notepad++ found in the search results. NVDA also announces the number of matches, but only if the number of matches has changed.When you have found the line of text you want, just press "Esc", and that line of text will be on your cursor.
 
 To launch this dialog box, select "Incremental Search" from the "Search" menu, or press "alt + control + i".
 
@@ -146,11 +150,11 @@ The result is displayed in a dialog box.
 
 ++ Document name arrangement ++
 +++ Reduced file path announcement +++
-Notepad ++ displays, in the title of the edit window and in the list of tabs, the name of the file preceded by its absolute path.
+Notepad++ displays, in the title of the edit window and in the list of tabs, the name of the file preceded by its absolute path.
 
 This path can be very long and quite tiring to hear.
 
-In the preferences of Notepad ++, it is possible to display in the title of the editing window, only the name of the file, but this does not concern the list of tabs that can be reached by "control + tab" while keeping the "control" key pressed.
+In the preferences of Notepad++, it is possible to display in the title of the editing window, only the name of the file, but this does not concern the list of tabs that can be reached by "control + tab" while keeping the "control" key pressed.
 
 This supplement therefore makes it possible to announce in a smaller way the title of the editing window and the names of the elements in the list of tabs, by reducing the path of the files, or even by deleting it completely.
 
@@ -178,7 +182,7 @@ If the number of hierarchical levels in the path is smaller than the configured 
 
 
 +++ Announcement of the file name before its path +++
-Notepad ++ displays the name of the document in the title of the editing window or in the list of tabs presented by "control + tab" and "control", in the form: path of the file followed by the name of the file.
+Notepad++ displays the name of the document in the title of the editing window or in the list of tabs presented by "control + tab" and "control", in the form: path of the file followed by the name of the file.
 
 This add-in allows NVDA to announce the name of the file before its path.
 
@@ -212,7 +216,7 @@ The add-on installs two scripts to find lines consisting only of spaces or tabs:
 
 ++ Long Line ++
 +++ Announcement of too long lines +++
-Notepad ++ has a rule that can be used to check the length of a line. However, this feature is neither accessible nor meaningful for blind users.
+Notepad++ has a rule that can be used to check the length of a line. However, this feature is neither accessible nor meaningful for blind users.
 
 Therefore, this add-on has an too long line indicator that triggers a beep when a line is longer than the specified number of characters.
 
@@ -242,7 +246,7 @@ Using the "KEY_Informations" input gesture, NVDA will announce the following inf
 ++ Support for announcing the number and removing lines ++
 NVDA already offers the possibility of announcing the number and the withdrawal of the line.
 
-For line numbers, you must configure a global input gesture and if you want the configuration of this functionality to apply only to Notepad ++, you must also associate a configuration profile with this application.
+For line numbers, you must configure a global input gesture and if you want the configuration of this functionality to apply only to Notepad++, you must also associate a configuration profile with this application.
 
 As for the withdrawal of lines, the announcement is made in "tab" or "space". The add-on offers a different ad.
 
@@ -369,6 +373,54 @@ The possible commands are:
 - "shift + k" to move to the previous link.
 
 
++ Additions for DSpellCheck Notepad++ plugin +[HDR_DSpellCheck]
+This extension module contains a spell checker for Notepad++.
+
+see here for more information:
+- [the GitHub repository https://github.com/Predelnik/DSpellCheck]
+- [the manual in English https://nppmanuel.nliautaud.fr/plugins/dspellcheck]
+
+
+For the French community:
+- [a tutorial in French https://nppmanuel.nliautaud.fr/plugins/dspellcheck]
+- The tutorial of our friend Rémy ([see here https://blindhelp.github.io/DSpellCheck/]).
+
+
+Once installed, the "DSpellCheck" submenu appears under the "Plugins" menu in the Notepad++ menu bar.
+
+The automatic detection of spelling errors is activated or deactivated using the "Spell Check Document Automatically" sub-menu.
+
+The "Find Next Misspelling" and "Find previous Misspelling" sub-menus allow you to select the next or previous fault respectively.
+
+The pop-up menu is then used to correct it.
+
+Mistakes are marked in red in the text, but NVDA does not flag colors in Notepad++.
+
+This add-on attempts to signal them with a sound when moving line by line.
+
+Please note, this is a totally experimental feature and is not fully operational to date.
+It may not work in some cases, for example with files with the extension "t2t" and which must be changed to "txt" for DSpellCheck to find the errors.
+
+For the add-on, the essential problem with DSpellCheck is how to retrieve the spelling errors it has detected in order to know if there is one on the line under the cursor.
+
+In the absence of a known API, the only possible solution is to use the clipboard and ask DSpellCheck to copy all the faults found there.
+
+The DSpellCheck's "Copy All Misspelled Words to Clipboard" submenu allows this.
+
+This sub-menu must be activated by the add-on each time the line is changed by the up or down arrow. For important documents and with a large number of errors, this can induce a delay which can be annoying.
+
+To activate this submenu, the add-on uses the "control+shift+alt+space" shortcut.
+
+But this shortcut is not defined by default and it must be configured in Notepad++ for the add-on to work.
+
+Open the "keyboard shortcut manager" dialog and go to the "plugin commands" tab. in the filter type "copy all" and press the "modify" button.
+
+Then check "Ctrl", "shift", "alt" and select the "spacebar" key from the list. confirm with "OK"
+Finally close the dialog.
+
+The add-on installs the "Activate or deactivate the reporting of spelling errors" script, without a input gesture, to indicate or not the errors when the cursor arrives on a line of text following an up or down arrow move.This script appears in the "Input Gestures" dialog under the  "Notepad++ Text Editor: Accessibility enhancements" category and a input gesture can be assigned to it.
+
+If the sound is played, place the cursor at the beginning of the line and activate the "Find Next Misspelling" sub-menu to go to the first fault on the line and correct it.
 
 + Update +
 By default, the add-on update is done automatically shortly after NVDA starts up (between 20 and 600 seconds) and at most once a day.

@@ -298,10 +298,31 @@ class AppModule(AppModule):
 			# Translators: message to the user to report line number' announcement indicator state.
 			ui.message(_("Don't say line number"))
 
+	@script(
+		# Translators: Input help mode message for toggle report spelling errors option command.
+		description=_("Toggle report spelling errors option")
+	)
+	def script_toggleReportSpellingErrorsOption(self, gesture):
+		option = _addonConfigManager.toggleReportSpellingErrorsOption()
+		if option:
+			# Translators: message to the user to report spelling errors reporting.
+			ui.message(_("Report spelling errors"))
+		else:
+			# Translators: message to the user to don't report spelling errors.
+			ui.message(_("Don't report spelling errors"))
+		
+
 	def script_test(self, gesture):
 		print("Notepad ++ test")
 		ui.message("Notepad ++ test")
-
+		from keyboardHandler import KeyboardInputGesture
+		from time import sleep
+		KeyboardInputGesture.fromName("control+shift+alt+space").send()
+		sleep(0.1)
+		text = api.getClipData()
+		print("text: %s"%text.splitlines())
+		speech.speakMessage(text)
+		
 	__gestures = {
-		# "kb:alt+control+f10": "test",
+		"kb:alt+control+f10": "test",
 	}

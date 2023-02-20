@@ -1,4 +1,4 @@
-# Notepad ++ text editor: accessibility enhancement #
+# Notepad++ text editor: accessibility enhancement #
 * Author: PaulBer19
 * URL: paulber19@laposte.net
 * Download:
@@ -6,13 +6,13 @@
 * [development version] [2]
 * Compatibility:
 * Minimum NVDA version required: 2020.4
-* Latest version of NVDA tested: 2022.3
+* Latest version of NVDA tested: 2023.1
 
 
 
 # Features #
 
-This extension aims to improve the accessibility of the Notepad ++ text editor and add functionalities to facilitate the editing of files used in Python language and files written in markdown language.
+This extension aims to improve the accessibility of the Notepad++ text editor and add functionalities to facilitate the editing of files used in Python language and files written in markdown language.
 
 It includes most of the additions made by the NVDA_notepadPlusPlus add-on created by Derek Riemer and Tuukka Ojala, then modified by Robert Hänggi and Andre9642 <https://github.com/derekriemer/nvda-notepadPlusPlus>.
 
@@ -35,8 +35,12 @@ For Python files, it provides:
 For Markdown or txt2tags files:
 
 * preview of the result of the conversion to HTML in the virtual buffer of NVDA or in the default browser,
-- added navigation mode for titles, links, quotes.
+* added navigation mode for titles, links, quotes.
 
+
+For DSpellCheck Notepad++ plugin:
+ 
+* reporting of spelling errors when moving from line to line
 
 
 And the others complements:
@@ -49,17 +53,19 @@ And the others complements:
 * format of the announcement of the name of the documents:
 	* reduced file path announcement,
 	* announcement of the name of the file before its path,
-	* no diction of path's backslashs.
+	* no diction of path's backslashs,
+	* reporting of spelling errors found by the DSpellCheck add-in (experimental).
 
 
 # Compatibility #
-This extension has been tested with Notepad ++ version 7.71.
+This extension has been tested with Notepad++ version 8.4.
+
 
 
 # Constraints #
-This extension uses and intercepts the shortcuts of Notepad ++ configured by default. It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
+This extension uses and intercepts the shortcuts of Notepad++ configured by default. It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
 
-Note: this is an automatic translation from french language.
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.3.nvda-addon
+
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.4.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev

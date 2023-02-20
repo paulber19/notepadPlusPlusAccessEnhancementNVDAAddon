@@ -24,7 +24,7 @@ addon_info = {
 		"""
 1- Features #
 
-This extension aims to improve the accessibility of the Notepad ++ text editor and add functionalities """
+This extension aims to improve the accessibility of the Notepad++ text editor and add functionalities """
 		"""to facilitate the editing of files used in Python language and files written in markdown language.
 
 It includes most of the additions made by NVDA_notepadPlusPlus add-on created by Derek Riemer and """
@@ -68,15 +68,15 @@ And finally:
 
 
 2- Compatibility
-This extension has been tested with Notepad ++ version 8.4.2.
+This extension has been tested with Notepad++ version 8.4.2.
 
 
 3- Constraints
-This extension uses and intercepts the shortcuts of Notepad ++ configured by default. """
+This extension uses and intercepts the shortcuts of Notepad++ configured by default. """
 		"""It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
 """),
 	# version
-	"addon_version": "2.3",
+	"addon_version": "2.4",
 	# Author(s)
 	"addon_author": u"paulber19",
 	# URL for the add-on documentation support
@@ -86,7 +86,7 @@ This extension uses and intercepts the shortcuts of Notepad ++ configured by def
 	# Minimum NVDA version supported (e.g. "2018.3")
 	"addon_minimumNVDAVersion": "2020.4",
 	# Last NVDA version supported/tested (e.g. "2018.4", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2022.3",
+	"addon_lastTestedNVDAVersion": "2023.1",
 	# Add-on update channel (default is stable or None)
 	"addon_updateChannel": None,
 }

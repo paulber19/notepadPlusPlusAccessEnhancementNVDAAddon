@@ -19,6 +19,7 @@ addonHandler.initTranslation()
 # config section
 SCT_General = "General"
 SCT_Options = "Options"
+SCT_DSpellCheck = "DSpellCheck"
 
 # general section items
 ID_ConfigVersion = "ConfigVersion"
@@ -36,6 +37,7 @@ ID_ReduceFilePath = "ReduceFilePath"
 ID_PreviousHierarchicalLevelToKeep = "PreviousHierarchicalLevelToKeep"
 ID_SayFileNameBeforePath = "SayFileNameBeforePath"
 ID_NoSayFilePathBackslashs = "NoSayFilePathBackslashs"
+ID_ReportSpellingErrors = "ReportSpellingErrors"
 
 # header line mode
 Mode_SayIndent = 0
@@ -56,6 +58,9 @@ indentReportModeLabels = [
 	# Translators: no indent report.
 	_("Say nothing"),  # Mode_SayNothing
 ]
+# DSpellCheck section
+ID_CopyAllMisspelledWordsToClipboardShortCut = "CopyAllMisspelledWordsToClipboardShortCut"
+
 
 _curAddon = addonHandler.getCodeAddon()
 _addonName = _curAddon.manifest["name"]
@@ -131,6 +136,7 @@ class AddonConfiguration10(BaseAddonConfiguration):
 	{previousHierarchicalLevelToKeep} = integer(default=0)
 	{sayFileNameBeforePath} = boolean(default=True)
 	{noSayFilePathBackslashs} = boolean(default=False)
+	{reportSpellingErrors} = boolean(default=False)
 	""".format(
 		section=SCT_Options,
 		maxLineLength=ID_MaxLineLength,
@@ -143,14 +149,22 @@ class AddonConfiguration10(BaseAddonConfiguration):
 		reduceFilePath=ID_ReduceFilePath,
 		previousHierarchicalLevelToKeep=ID_PreviousHierarchicalLevelToKeep,
 		sayFileNameBeforePath=ID_SayFileNameBeforePath,
-		noSayFilePathBackslashs=ID_NoSayFilePathBackslashs)
+		noSayFilePathBackslashs=ID_NoSayFilePathBackslashs,
+		reportSpellingErrors=ID_ReportSpellingErrors)
+	_DSpellCheckConfSpec = """[{section}]
+	{copyAllMisspelledWordsToClipboardShortCut} = string(default = "control+shift+alt+space")
+	""".format(
+		section=SCT_DSpellCheck,
+		copyAllMisspelledWordsToClipboardShortCut = ID_CopyAllMisspelledWordsToClipboardShortCut 
+	)
 
 	#: The configuration specification
 	configspec = ConfigObj(StringIO("""# addon Configuration File
-	{general}{options}
+	{general}{options}{DspellCheck}
 	""".format(
 		general=_GeneralConfSpec,
-		options=_OptionsConfSpec)
+		options=_OptionsConfSpec,
+		DspellCheck=_DSpellCheckConfSpec)
 	), list_values=False, encoding="UTF-8")
 
 
@@ -357,6 +371,12 @@ class AddonConfigurationManager():
 
 	def toggleNoSayFilePathBackslashsOption(self, toggle=True):
 		return self.toggleOption(ID_NoSayFilePathBackslashs, toggle)
+
+	def toggleReportSpellingErrorsOption(self, toggle=True):
+		return self.toggleOption(ID_ReportSpellingErrors, toggle)
+	def getCopyAllMisspelledWordsToClipboardShortCut(self):
+		conf = self.addonConfig
+		return conf[SCT_DSpellCheck][ID_CopyAllMisspelledWordsToClipboardShortCut ]
 
 
 # singleton for addon config manager
