@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'notepadPlusPlusAccessEnhancement' '2.4'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
 "POT-Creation-Date: 2023-07-11 11:49+0300\n"
-"PO-Revision-Date: 2023-07-12 12:19+0300\n"
+"PO-Revision-Date: 2023-07-19 12:43+0300\n"
 "Last-Translator: Ivan Shtefuriak <ip0877@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Translators: Summary for this add-on to be shown on installation and add-on information.
 #: addon\buildVars.py:20
 msgid "Notepad++ text's editor : accessibility enhancement"
-msgstr "Notepad++: покращення доступності"
+msgstr "Текстовий редактор Notepad++ : покращення доступності"
 
 #: addon\buildVars.py:24
 msgid ""
@@ -125,7 +125,7 @@ msgstr ""
 "І нарешті:\n"
 "\n"
 "* інформування про номер та відступ кожного рядка,\n"
-"* скрипти для встановлення відступів,\n"
+"* сценарії для встановлення відступів,\n"
 "* переміщення фокусу за допомогою клавіші \"home\",\n"
 "* порівняння виділеного тексту з текстом у буфері обміну,\n"
 "* перехід до наступного рядка, що закінчується принаймні одним знаком "
@@ -181,13 +181,13 @@ msgstr "Зазначати зміни відступу"
 #. Translators: say level.
 #: addon\shared\npp_addonConfigManager.py:55
 msgid "Say level"
-msgstr "Зазначати рівень"
+msgstr "Зазначати зміни відступу у формі рівнів"
 
 #. Mode_SayLevel
 #. Translators: say indent changes.
 #: addon\shared\npp_addonConfigManager.py:57
 msgid "Say level changes"
-msgstr "Зазначати зміни рівня"
+msgstr "Зазначати зміни відступу у формі вищого або нижчого рівня"
 
 #. Mode_SayLevelChange
 #. Translators: no indent report.
@@ -306,7 +306,7 @@ msgstr "Промовляти номер рядка"
 #. Translators: message to the user to report line number' announcement indicator state.
 #: addon\appModules\notepadPlusPlus\__init__.py:299
 msgid "Don't say line number"
-msgstr "Не промовляти номер рядка"
+msgstr "Не промовляти номера рядка"
 
 #. Translators: Input help mode message for toggle report spelling errors option command.
 #: addon\appModules\notepadPlusPlus\__init__.py:303
@@ -325,7 +325,7 @@ msgstr "Не інформувати про орфографічні помилк
 
 #: addon\appModules\notepadPlusPlus\npp_application.py:85
 msgid "Documents {index} on {total}"
-msgstr "Документи {index} на {total}"
+msgstr "Документ {index} з {total}"
 
 #: addon\appModules\notepadPlusPlus\npp_browseMode.py:48
 msgid "block quote"
@@ -616,7 +616,7 @@ msgstr "Немає відступу"
 
 #: addon\appModules\notepadPlusPlus\forPython\__init__.py:276
 msgid "Attention, mixture of spaces and tab"
-msgstr "Увага, суміш пробілів і табуляцій"
+msgstr "Увага, поєднання пробілів і табуляцій"
 
 #: addon\appModules\notepadPlusPlus\forPython\__init__.py:321
 #: addon\appModules\notepadPlusPlus\forPython\__init__.py:326
@@ -679,7 +679,7 @@ msgstr "&Промовляти спочатку ім'я файлу, потім ш
 #. Translators: A option to not to mention the backslashs.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:53
 msgid "&Don't say backslash of path"
-msgstr "&Не промовляти зворотної скісної риски"
+msgstr "&Не промовляти зворотніх скісних рисок"
 
 #. Translators: This is the label for a group of editing options in the settings panel.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:57
@@ -699,7 +699,7 @@ msgstr "&Кількість попередніх рівнів, які слід �
 #. Translators: A setting for enabling/disabling line and Number indentation announcement management.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:101
 msgid "&Let NVDA announce the line number and indentations"
-msgstr "&Дозволити NVDA оголошувати номер рядка та відступи"
+msgstr "&Дозволити NVDA оголошувати номери та відступи рядків"
 
 #. Translators: A setting for enabling/disabling report line number
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:109
@@ -750,7 +750,7 @@ msgstr "Автоматично перевіряти &оновлення "
 #. Translators: This is the label for a checkbox in the update settings panel.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:200
 msgid "Update also release versions to &developpement versions"
-msgstr "Оновлювати релізні версії до версій у &розробці"
+msgstr "Оновлювати стабільні версії до версій у &розробці"
 
 #. translators: label for a button in update settings panel.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:206
