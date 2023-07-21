@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 'notepadPlusPlusAccessEnhancement' '2.4'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
 "POT-Creation-Date: 2023-07-11 11:49+0300\n"
-"PO-Revision-Date: 2023-07-19 12:43+0300\n"
+"PO-Revision-Date: 2023-07-21 11:04+0300\n"
 "Last-Translator: Ivan Shtefuriak <ip0877@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -91,10 +91,10 @@ msgstr ""
 "та додати функціональність для полегшення редагування файлів, написаних "
 "мовою Python, а також файлів, написаних мовою розмітки markdown.\n"
 "\n"
-"Він містить більшість покращень наданих додатком NVDA_notepadPlusPlus, "
-"створеним Дереком Рімером (Derek Riemer) і Туукка Ояла (Tuukka Ojala), а "
-"потім модифікованим Робертом Ханггі (Robert Hanggi) і Андре9642 <https://"
-"github.com/derekriemer/nvda-notepadPlusPlus>.\n"
+"Він містить більшість покращень від додатка NVDA_notepadPlusPlus, який "
+"створили Дерек Рімер (Derek Riemer) і Туукка Ояла (Tuukka Ojala), а потім "
+"модифікували Роберт Ханггі (Robert Hanggi) і Андре9642 <https://github.com/"
+"derekriemer/nvda-notepadPlusPlus>.\n"
 "\n"
 "а саме:\n"
 "\n"
@@ -126,7 +126,7 @@ msgstr ""
 "\n"
 "* інформування про номер та відступ кожного рядка,\n"
 "* сценарії для встановлення відступів,\n"
-"* переміщення фокусу за допомогою клавіші \"home\",\n"
+"* переміщення фокуса за допомогою клавіші \"home\",\n"
 "* порівняння виділеного тексту з текстом у буфері обміну,\n"
 "* перехід до наступного рядка, що закінчується принаймні одним знаком "
 "табуляції або одним пробілом,\n"
@@ -291,7 +291,7 @@ msgstr "Крок становить %s пробілів"
 #: addon\appModules\notepadPlusPlus\__init__.py:280
 #, python-format
 msgid "The increment is %s Tab"
-msgstr "Крок становить %s таб"
+msgstr "Крок становить %s табів"
 
 #. Translators: Input help mode message for toggle Report Line Number Option command.
 #: addon\appModules\notepadPlusPlus\__init__.py:284
@@ -679,7 +679,7 @@ msgstr "&Промовляти спочатку ім'я файлу, потім ш
 #. Translators: A option to not to mention the backslashs.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:53
 msgid "&Don't say backslash of path"
-msgstr "&Не промовляти зворотніх скісних рисок"
+msgstr "&Не промовляти зворотних скісних рисок"
 
 #. Translators: This is the label for a group of editing options in the settings panel.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:57
@@ -694,7 +694,7 @@ msgstr "&Зменшити шлях"
 #. Translators: Setting for previous hieararchical level to keep.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:67
 msgid "&Previous hierarchical levels to keep"
-msgstr "&Кількість попередніх рівнів, які слід зберегти"
+msgstr "&Кількість попередніх рівнів, які зберігатимуться"
 
 #. Translators: A setting for enabling/disabling line and Number indentation announcement management.
 #: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:101
