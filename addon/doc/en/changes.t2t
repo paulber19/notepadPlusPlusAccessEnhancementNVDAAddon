@@ -6,9 +6,8 @@ Author: ADDON_AUTHOR_NAME
 %!includeconf: addon_informations.t2tconf
 
 
-URL: ADDON_AUTHOR_URL
+URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
-[GitHub repository: ADDON_REPOSITORY ADDON_REPOSITORY]
 
 Download:
 - [Current stable version: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
@@ -16,6 +15,34 @@ Download:
 
 
 Sorry, but this document is an automatic translation from french language.
+
+
++ v2.5 (September/086/2023) +
+New:
+- possibility to announce the path of the name of the files while going up in the hierarchy of the files.
+- improved accessibility in the "Documents" dialog box opened by "Alt+d" followed by "d":
+ - the path can be announced in a reduced way.
+ - when opening the dialog box, the selected element is no longer announced several times.
+ - possibility to select a file by the first letter of its name
+ - possibility of not having the path, the type or the size of the file announced when selecting a file
+
+
+Compatibility:
+- Dropped support for NVDA versions below 2022.1.
+- compatibility with notepad++ 8.5.6.
+
+
+Bug Fixes:
+- when a long line contains accented characters, moving to the first character which is after the maximum length is now correct.
+- the signaling of a long line is now correct when moving the cursor by right or left arrow around the maximum limit.
+- removed the double beep when moving to the first character which is after the maximum line length.
+
+
+Various:
+- upgraded markdown2.py file to version 2.4.9.
+- removal of code concerning Python 2.
+- making the buildVars.py file compatible with the add-on store.
+- modification of the documentation for compatibility with the add-on store.
 
 
 + v2.4 (February/20/2023) +

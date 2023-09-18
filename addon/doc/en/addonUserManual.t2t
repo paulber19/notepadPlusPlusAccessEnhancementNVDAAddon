@@ -6,8 +6,7 @@ Author: ADDON_AUTHOR_NAME
 %!includeconf: addon_informations.t2tconf
 %!includeconf: addon_keys.t2tconf
 
-URL: ADDON_AUTHOR_URL
-[GitHub repository: ADDON_REPOSITORY ADDON_REPOSITORY]
+URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
 
 Download:
@@ -65,7 +64,7 @@ And it brings the following complements:
 
 [Adds for Markdown or txt2tags files #hdr_Markdown]:
 - preview of the result of the conversion in HTML in the virtual buffer of NVDA or in the default browser,
-- navigation mode for titles, links and blocquotes,
+- navigation mode for titles, links and long lines,
 
 
 [Add for DSpellCheck Notepad++ plugin #hdr_DSpellCheck]:
@@ -360,7 +359,9 @@ The add-on sets up the browse mode to move from item to item in markdown or txt2
 
 The elements concerned are:
 -title: string of characters surrounded by "+" or "#".
-- link: string surrounded by "<" and ">".
+- link Markdown: string surrounded by "<" and ">".
+- long line: line whose length exceeds the maximum length defined by configuration.
+
 
 To activate it, type "NVDA + space".
 
@@ -370,7 +371,9 @@ The possible commands are:
 - "h" to move to the next title.
 - "shift + h" to move to the previous title.
 - "k" to move to the next link.
-- "shift + k" to move to the previous link.
+- "shift + k" to move to the previous link
+- "j" to move to next long line.
+- "shift + J" to move to previous long line.
 
 
 + Additions for DSpellCheck Notepad++ plugin +[HDR_DSpellCheck]

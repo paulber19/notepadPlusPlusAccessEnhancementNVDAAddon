@@ -1,32 +1,24 @@
 # coding :utf-8
 # appModules\notepad++\__init__.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2022 paulber19
+# Copyright (C) 2020-2023 paulber19
 # Released under GPL2
 
 
 import addonHandler
 import core
+import wx
 import os
 from scriptHandler import script
-try:
-	# for nvda version >= 2021.2
-	from controlTypes.role import Role
-	ROLE_LISTITEM = Role.LISTITEM
-	ROLE_EDITABLETEXT = Role.EDITABLETEXT
-	ROLE_PANE = Role.PANE
-	ROLE_BUTTON = Role.BUTTON
-	ROLE_STATICTEXT = Role.STATICTEXT
-except ImportError:
-	from controlTypes import (
-		ROLE_PANE, ROLE_LISTITEM, ROLE_EDITABLETEXT, ROLE_BUTTON, ROLE_STATICTEXT)
+
+from controlTypes.role import Role
 import eventHandler
 import speech
 import ui
 import api
 import NVDAObjects
 from . import npp_editWindow
-from .npp_editWindow import PRE_Line, makeDesc
+from .npp_scriptDesc import PRE_Line, makeDesc
 from . import npp_incrementalFind, npp_autocomplete
 from . import forPython
 from . import npp_application
@@ -97,18 +89,91 @@ class ListItem (NVDAObjects.IAccessible.IAccessible):
 		return name
 
 
+class DocumentListItem (NVDAObjects.IAccessible.IAccessible):
+	_lastFocusedObject = None
+	delay = None
+
+	def _get_name(self):
+		name = super(DocumentListItem, self)._get_name()
+		if name and chr(0x21f5) in name:
+			name = name.replace("%s " % chr(0x21f5), "")
+		path = self.firstChild.next.name
+		tempList = path.split("\\")
+		reducedPath = "\\".join(npp_application._reducePath(tempList))
+		name = name.replace(path, reducedPath)
+		columns = _addonConfigManager.getDocumentColumnsChoices()
+		nameList = name.split(";")
+		newList = [nameList[0]]
+		i = 1
+		for index in range(1, len(self.children)):
+			childName = self.getChild(index).name
+			if not childName:
+				continue
+			if (index - 1) in columns:
+				newList.append(nameList[i])
+			i += 1
+		return ";".join(newList)
+
+	def event_selection(self):
+		pass
+
+	def event_selectionRemove(self):
+		pass
+
+	def _gainFocus(self):
+		if DocumentListItem.delay is not None:
+			DocumentListItem.delay .Stop()
+			DocumentListItem.delay = None
+		self.reportFocus()
+
+	def event_gainFocus(self):
+		if DocumentListItem.delay is not None:
+			DocumentListItem.delay .Stop()
+		DocumentListItem.delay = wx.CallLater(10, self._gainFocus)
+
+	def event_typedCharacter(self, ch):
+		super(DocumentListItem, self).event_typedCharacter(ch)
+		lastFocus = DocumentListItem ._lastFocusedObject
+		index = lastFocus.IAccessibleChildID - 1
+		objs = self.parent.children
+		before = objs[:index]
+		after = objs[index + 1:-1]
+		choices = after + before
+		from oleacc import SELFLAG_TAKESELECTION, SELFLAG_TAKEFOCUS
+		for obj in choices:
+			if obj.name.lower().startswith(ch):
+				obj.IAccessibleObject.accSelect(SELFLAG_TAKEFOCUS, obj.IAccessibleChildID)
+				obj.IAccessibleObject.accSelect(SELFLAG_TAKESELECTION, obj.IAccessibleChildID)
+				return
+		# after a typed character, the focus is put on the first item of the document list.
+		# if there is no new document, we want that the focus don't move.
+		lastFocus.IAccessibleObject.accSelect(SELFLAG_TAKEFOCUS, lastFocus.IAccessibleChildID)
+		lastFocus.IAccessibleObject.accSelect(SELFLAG_TAKESELECTION, lastFocus.IAccessibleChildID)
+
+
+import winInputHook
+_winInputHookKeyDownCallback = None
+
+
+def internal_keyDownEventEx(vkCode, scanCode, extended, injected):
+	focus = api.getFocusObject()
+	if focus.role == Role.LISTITEM and focus.windowControlID == 7001:
+		DocumentListItem ._lastFocusedObject = focus
+	return _winInputHookKeyDownCallback(vkCode, scanCode, extended, injected)
+
+
 class AppModule(AppModule):
 	scriptCategory = _scriptCategory
 
 	def __init__(self, *args, **kwargs):
 		super(AppModule, self).__init__(*args, **kwargs)
-		# toggleDebugFlag()
+		toggleDebugFlag()
 		printDebug("notePadPlusPlusAccessEnhancement appModule init")
 		self.requestEvents()
 		self.isAutocomplete = False
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
-		if obj.windowClassName == "Notepad++" and obj.role == ROLE_PANE:
+		if obj.windowClassName == "Notepad++" and obj.role == Role.PANE:
 			clsList.insert(0, MainWindow)
 			self.mainWindow = obj
 			return
@@ -117,25 +182,28 @@ class AppModule(AppModule):
 			clsList.insert(0, npp_editWindow.NPPDocument)
 			return
 		try:
-			if obj.role == ROLE_LISTITEM and (
+			if obj.role == Role.LISTITEM and (
 				obj.parent.windowClassName == "ListBox" and obj.parent.parent.parent.windowClassName == "ListBoxX"):
 				clsList.insert(0, npp_autocomplete.AutocompleteList)
 				return
 		except AttributeError:
 			pass
 		if (
-			(obj.windowControlID == 1682 and obj.role == ROLE_EDITABLETEXT)
+			(obj.windowControlID == 1682 and obj.role == Role.EDITABLETEXT)
 			or (
-				obj.role == ROLE_BUTTON and obj.windowControlID in (67220, 67219))
+				obj.role == Role.BUTTON and obj.windowControlID in (67220, 67219))
 		):
 			clsList.insert(0, npp_incrementalFind.IncrementalFind)
 			return
-		if obj.windowControlID == 1689 and obj.role == ROLE_STATICTEXT:
+		if obj.windowControlID == 1689 and obj.role == Role.STATICTEXT:
 			clsList.insert(0, npp_incrementalFind.LiveTextControl)
 			return
-
-		if obj.role == ROLE_LISTITEM:
-			clsList.insert(0, ListItem)
+		if obj.role == Role.LISTITEM:
+			if obj.windowControlID == 7001:
+				# list item in document window
+				clsList.insert(0, DocumentListItem)
+			else:
+				clsList.insert(0, ListItem)
 			return
 
 	def terminate(self):
@@ -148,7 +216,7 @@ class AppModule(AppModule):
 
 	# code written by Tuukka Ojala, Derek Riemer
 	def event_show(self, obj, nextHandler):
-		if obj.role == ROLE_PANE:
+		if obj.role == Role.PANE:
 			self.isAutocomplete = True
 			core.callLater(100, self.waitforAndReportDestruction, obj)
 			# get the edit field if the weak reference still has it.
@@ -310,19 +378,25 @@ class AppModule(AppModule):
 		else:
 			# Translators: message to the user to don't report spelling errors.
 			ui.message(_("Don't report spelling errors"))
-		
+
+	def event_NVDAObject_init(self, obj):
+		pass
+
+	def event_appModule_gainFocus(self):
+		printDebug("appModule notePadPlusPlus: event_appModulegainFocus")
+		global _winInputHookKeyDownCallback
+		_winInputHookKeyDownCallback = winInputHook.keyDownCallback
+		winInputHook.setCallbacks(keyDown=internal_keyDownEventEx)
+
+	def event_appModule_loseFocus(self):
+		printDebug("appModule notepadPlusPlus: event_appModuleLoseFocus")
+		if _winInputHookKeyDownCallback is not None:
+			winInputHook.setCallbacks(keyDown=_winInputHookKeyDownCallback)
 
 	def script_test(self, gesture):
 		print("Notepad ++ test")
 		ui.message("Notepad ++ test")
-		from keyboardHandler import KeyboardInputGesture
-		from time import sleep
-		KeyboardInputGesture.fromName("control+shift+alt+space").send()
-		sleep(0.1)
-		text = api.getClipData()
-		print("text: %s"%text.splitlines())
-		speech.speakMessage(text)
-		
+
 	__gestures = {
 		"kb:alt+control+f10": "test",
 	}

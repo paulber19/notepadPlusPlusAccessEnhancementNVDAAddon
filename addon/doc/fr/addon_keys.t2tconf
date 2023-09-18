@@ -3,6 +3,7 @@
 %!PostProc (html): KEY_Indent windows+control+F6
 %!PostProc (html): KEY_ReportLineIndentation windows+alt+F6
 %!PostProc (html): KEY_Compare windows+control+F2
+%!PostProc (html):  KEY_Compil windows+control+F8
 % python
 %!PostProc (html): KEY_NextClass alt+f9
 %!PostProc (html): KEY_PreviousClass alt+f8
@@ -21,3 +22,5 @@
 %!PostProc (html):   KEY_LongLineMaxChar windows+control+o
 %!PostProc (html):  KEY_Informations windows+control+i
 %!PostProc (html):  KEY_ToggleReportLongLine windows+control+F4
+
+

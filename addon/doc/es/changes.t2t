@@ -5,19 +5,46 @@ Autor: ADDON_AUTHOR_NAME
 %!includeconf: ../addon_global.t2tconf
 %!includeconf: addon_informations.t2tconf
 
-URL: ADDON_AUTHOR_URL
+URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
-[Repositorio en GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
 
 Descarga:
 - [Versión estable actual: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
 - [Versiones de desarrollo ADDON_DEV_URL]
 
 
++ v2.5 (08/09/2023) +
+Nuevas características:
+- posibilidad de anunciar la ruta del nombre de los archivos subiendo en la jerarquía de las carpetas.
+- mejora de la accesibilidad en el diálogo "Documentos" abierto con "Alt+d" seguido de "d".
+ - la ruta se puede anunciar de manera reducida.
+  - cuando se abre el diálogo, el elemento seleccionado ya no se anuncia varias veces.
+  - posibilidad de seleccionar un archivo por la primera letra de su nombre
+  - posibilidad de no ser anunciada la ruta, el tipo o tamaño del archivo al seleccionar un archivo
+
+
+Compatibilidad:
+- Se abandonó el soporte de las versiones de NVDA inferiores a la 2022.1.
+- compatibilidad con notepad++ 8.5.6.
+
+
+Corección de fallos:
+- cuando una línea larga contiene caracteres acentuados, pasar al primer carácter después de la longitud máxima ahora es correcto.
+- el anunciado de una línea larga ahora es correcta al mover el cursor con una flecha derecha o izquierda alrededor del límite máximo.
+- eliminación del doble pitido al pasar al primer carácter que está después de la longitud máxima de línea.
+
+
+Diversos:
+- actualización del archivo markdown2.py a la versión 2.4.9.
+- eliminado código relativo a Python 2.
+- puesta en compatibilidad del archivo buildVars.py con la Tienda de Complementos (Add-on Store).
+- modificación de la documentación para la compatibilidad con la Tienda de Complementos (Add-on Store).
+
+
 + v2.4 (20/02/2023) +
 - Compatibilidad con NVDA 2023.1
 
-Nuevas características
+Nuevas características:
 - anunciar errores de ortografía encontrados mediante el suplemento para el complemento DSpellCheck de Notepad++ (experimental).
 
 

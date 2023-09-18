@@ -5,13 +5,40 @@ Auteur: ADDON_AUTHOR_NAME
 %!includeconf: ../addon_global.t2tconf
 %!includeconf: addon_informations.t2tconf
 
-URL: ADDON_AUTHOR_URL
+URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
-[Dépôt GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
 
 Téléchargement:
 - [Version stable actuelle: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
 - [versions de développement ADDON_DEV_URL]
+
+
++ v2.5 (08/09/2023) +
+Nouveautés:
+- possibilité de faire annoncer le chemin du nom des fichiers en remontant dans la hiérarchie des dossiers.
+- amélioration de l'accessibilité dans la boite de dialogue "Documents" ouvert par "Alt+d" suivi de "d":
+ - le chemin peut être annoncé de manière réduite.
+ - à l'ouverture de la boite de dialogue, l'élément sélectionné n'est plus annoncé plusieurs fois.
+ - possibilité de sélectionner un fichier par la première lettre de son nom
+ - possibilité de ne pas faire annoncer le chemin, le type ou la taille du fichier lors de la sélection d'un fichier
+
+
+Compatibilité:
+- Abandon du support des versions de NVDA inférieures à la 2022.1.
+- compatibilité avec notepad++ 8.5.6.
+
+
+Correction de bogues:
+- quand une longue ligne contient des caractères accentués, le déplacement vers le premier caractère qui est après la longueur maximale  est maintenant correct.
+- la signalisation d'une ligne longue est maintenant correcte lors de déplacement du curseur par flèche droite ou gauche autour de la limite maximale.
+- suppression du double bip sonore  lors d'du déplacement au premier caractère qui est après la longueur de ligne maximale.
+
+
+Divers:
+- mise à niveau du fichier markdown2.py à la version 2.4.9.
+- suppression du code concernant Python 2.
+- mise en compatibilité du fichier buildVars.py avec l'add-on store.
+- modification de la documentation pour compatibilité avec l'add-on store.
 
 
 + v2.4 (20/02/2023) +

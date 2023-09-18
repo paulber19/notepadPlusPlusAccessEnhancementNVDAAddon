@@ -1,13 +1,12 @@
 # Notepad++ text editor: accessibility enhancement #
-* Author: PaulBer19
-* URL: paulber19@laposte.net
+* Author: PaulBer19 (paulber19@laposte.net)
+* URL: [https://github.com/paulber19/notepadPlusPlusAccessEnhancementNVDAAddon.git] [3]
 * Download:
 * [stable version] [1]
 * [development version] [2]
 * Compatibility:
-* Minimum NVDA version required: 2020.4
-* Latest version of NVDA tested: 2023.1
-
+* Minimum NVDA version required: 2022.1
+* Latest version of NVDA tested: 2023.3
 
 
 # Features #
@@ -39,7 +38,7 @@ For Markdown or txt2tags files:
 
 
 For DSpellCheck Notepad++ plugin:
- 
+
 * reporting of spelling errors when moving from line to line
 
 
@@ -58,7 +57,7 @@ And the others complements:
 
 
 # Compatibility #
-This extension has been tested with Notepad++ version 8.4.
+This extension has been tested with Notepad++ version 8.4 and 8.5.6.
 
 
 
@@ -67,5 +66,6 @@ This extension uses and intercepts the shortcuts of Notepad++ configured by defa
 
 
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.4.nvda-addon
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.5.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev
+[3]: https://github.com/paulber19/notepadPlusPlusAccessEnhancementNVDAAddon.git

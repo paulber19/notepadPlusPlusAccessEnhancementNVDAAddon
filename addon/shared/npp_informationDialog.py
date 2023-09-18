@@ -1,6 +1,6 @@
 # shared/npp_informationDialog.py
 # A part of notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2021 paulber19
+# Copyright (C) 2020-2023 paulber19
 # This file is covered by the GNU General Public License.
 
 
@@ -89,7 +89,7 @@ class InformationDialog(wx.Dialog):
 		if parent is None:
 			mainFrame.prePopup()
 		d = InformationDialog(parent or mainFrame, dialogTitle, informationLabel, information)
-		d.Center(wx.BOTH | wx.CENTER_ON_SCREEN)
+		d.CentreOnScreen()
 		d.Show()
 		if parent is None:
 			mainFrame.postPopup()

@@ -1,19 +1,13 @@
 # appModules\notepad++\npp_browseMode.py
 # A part of notepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2022 paulber19
+# Copyright (C) 2020-2023 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
 import browseMode
 import re
 import textInfos
-try:
-	# for nvda versio>= 2021.1
-	from speech.sayAll import CURSOR
-	CURSOR_CARET = CURSOR.CARET
-except ImportError:
-	import sayAllHandler
-	CURSOR_CARET = sayAllHandler.CURSOR_CARET
+from speech.sayAll import CURSOR
 import winUser
 import treeInterceptorHandler
 import ui
@@ -23,14 +17,8 @@ from textInfos import DocumentWithPageTurns
 from . import forPython
 import os
 import sys
-try:
-	# for nvda version >= 2021.3
-	from controlTypes.outputReason import OutputReason
-	REASON_CARET = OutputReason.CARET
-except ImportError:
-	# for nvda version >= 2020.1 and < 2021.3
-	from controlTypes import OutputReason
-	REASON_CARET = OutputReason.CARET
+from controlTypes.outputReason import OutputReason
+
 
 _curAddon = addonHandler.getCodeAddon()
 sharedPath = os.path.join(_curAddon.path, "shared")
@@ -98,7 +86,6 @@ class BrowseModeTreeInterceptorEx(browseMode.BrowseModeTreeInterceptor):
 	@classmethod
 	def addQuickNav(cls, itemType, key, nextDoc, nextError, prevDoc, prevError, readUnit=None):
 		map = cls.__gestures
-
 		"""Adds a script for the given quick nav item.
 		@param itemType: The type of item, I.E. "heading" "Link" ...
 		@param key: The quick navigation key to bind to the script.
@@ -118,7 +105,7 @@ class BrowseModeTreeInterceptorEx(browseMode.BrowseModeTreeInterceptor):
 		script = lambda self, gesture: self._quickNavScript(gesture, itemType, "next", nextError, readUnit)
 		script.__doc__ = nextDoc
 		script.__name__ = funcName
-		script.resumeSayAllMode = CURSOR_CARET
+		script.resumeSayAllMode = CURSOR.CARET
 		setattr(cls, funcName, script)
 		if key is not None:
 			map["kb:%s" % key] = scriptName
@@ -127,7 +114,7 @@ class BrowseModeTreeInterceptorEx(browseMode.BrowseModeTreeInterceptor):
 		script = lambda self, gesture: self._quickNavScript(gesture, itemType, "previous", prevError, readUnit)
 		script.__doc__ = prevDoc
 		script.__name__ = funcName
-		script.resumeSayAllMode = CURSOR_CARET
+		script.resumeSayAllMode = CURSOR.CARET
 		setattr(cls, funcName, script)
 		if key is not None:
 			map["kb:shift+%s" % key] = scriptName
@@ -138,18 +125,23 @@ BrowseModeTreeInterceptorEx._BrowseModeTreeInterceptorEx__gestures = (
 	browseMode.BrowseModeTreeInterceptor._BrowseModeTreeInterceptor__gestures.copy())
 
 
+from .npp_scriptDesc import (
+	makeDesc,
+	PRE_Line
+)
+
 qn = BrowseModeTreeInterceptorEx.addQuickNav
 qn(
 	"longLine",
 	key="j",
 	# Translators: Input help message for a quick navigation command in browse mode.
-	nextDoc=NVDAString("moves to the next long line"),
+	nextDoc=makeDesc(PRE_Line, _("Go to next line that is exceeds the maximum line length")),
 	# Translators: Message presented when the browse mode element is not found.
-	nextError=NVDAString("no next long line"),
+	nextError=_("no next long line"),
 	# Translators: Input help message for a quick navigation command in browse mode.
-	prevDoc=NVDAString("moves to the previous long line"),
+	prevDoc=makeDesc(PRE_Line, _("Go to previous line that is exceeds the maximum line length")),
 	# Translators: Message presented when the browse mode element is not found.
-	prevError=NVDAString("no previous long line"))
+	prevError=_("no previous long line"))
 del qn
 
 
@@ -197,7 +189,7 @@ class NPPDocumentTreeInterceptor (BrowseModeTreeInterceptorEx, browseMode.Browse
 		selection = info.copy()
 		info.expand(unit)
 		if not willSayAllResume(gesture):
-			forPython.mySpeakTextInfo(info, unit=unit, reason=REASON_CARET)
+			forPython.mySpeakTextInfo(info, unit=unit, reason=OutputReason.CARET)
 		if not oldInfo.isCollapsed:
 			speech.speakSelectionChange(oldInfo, selection)
 		self.selection = selection

@@ -1,20 +1,13 @@
 # appModules\notepad++\npp_application.py
 # A part of notepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2022 paulber19
+# Copyright (C) 2020-2023 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
 import api
 import speech
-try:
-	from controlTypes.role import Role
-	ROLE_TABCONTROL = Role.TABCONTROL
-	ROLE_TAB = Role.TAB
-	from controlTypes.state import State
-	STATE_SELECTED = State.SELECTED
-except ImportError:
-	from controlTypes import ROLE_TABCONTROL, ROLE_TAB
-	from controlTypes import STATE_SELECTED
+from controlTypes.role import Role
+from controlTypes.state import State
 import queueHandler
 import os
 import sys
@@ -41,7 +34,7 @@ class Tabs (object):
 		if foreground is None:
 			return None
 		for o in foreground.children:
-			if o.role == ROLE_TABCONTROL:
+			if o.role == Role.TABCONTROL:
 				return o
 
 		return None
@@ -52,7 +45,7 @@ class Tabs (object):
 		tabs = []
 		for index in range(0, self.obj.childCount):
 			o = self.obj.getChild(index)
-			if o is None or o.role != ROLE_TAB:
+			if o is None or o.role != Role.TAB:
 				continue
 			if returnNames:
 				tabs.append(o.name)
@@ -71,7 +64,7 @@ class Tabs (object):
 			return None
 		tabsList = self.getTabs()
 		for o in tabsList:
-			if STATE_SELECTED in o.states:
+			if State.SELECTED in o.states:
 				return tabsList.index(o) + 1
 		return None
 
@@ -92,22 +85,52 @@ def reducePath(filePathAndName):
 	nameList = filePathAndName.split("\\")
 	filename = nameList[-1]
 	pathList = nameList[:-1]
-	if _addonConfigManager.toggleReduceFilePathOption(False):
-		previousHierarchicalLevelToKeep = _addonConfigManager.getPreviousHierarchicalLevelToKeep()
-		if previousHierarchicalLevelToKeep:
-			if len(pathList) > previousHierarchicalLevelToKeep + 1:
-				tempList = [pathList[0], "..."]
-				tempList.extend(pathList[(-1) * (previousHierarchicalLevelToKeep):])
-				pathList = tempList
-		else:
-			# no keep path
-			return filename
-	path = "\\".join(pathList)
-	if _addonConfigManager.toggleSayFileNameBeforePathOption(False):
+	pathList = _reducePath(nameList[:-1])
+	if not pathList:
+		return filename
+	sep = "\\"
+	sayFileNameBeforePathOption = _addonConfigManager.toggleSayFileNameBeforePathOption(False)
+	if _addonConfigManager.toggleReversePathOption(False):
+		pathList = reversePath(pathList)
+		sep = "/"
+		sayFileNameBeforePathOption = True
+	if sayFileNameBeforePathOption:
+		path = sep.join(pathList)
 		name = "%s (%s)" % (filename, path)
 	else:
 		pathList.append(filename)
-		name = "\\".join(pathList)
+		name = sep.join(pathList)
 	if _addonConfigManager.toggleNoSayFilePathBackslashsOption(False):
 		name = name.replace("\\", " ")
 	return name
+
+
+def _reducePath(pathList):
+	if not _addonConfigManager.toggleReduceFilePathOption(False):
+		return pathList
+	previousHierarchicalLevelToKeep = _addonConfigManager.getPreviousHierarchicalLevelToKeep()
+	if previousHierarchicalLevelToKeep:
+		if len(pathList) > previousHierarchicalLevelToKeep + 1:
+			tempList = [pathList[0], "..."]
+			tempList.extend(pathList[(-1) * (previousHierarchicalLevelToKeep):])
+			return tempList
+		else:
+			return pathList
+	return []
+
+
+def reversePath(pathList):
+	if not _addonConfigManager.toggleReversePathOption(False):
+		return pathList
+	withLevel = not _addonConfigManager.toggleReportReversedPathWithNoLevelOption(False)
+	nb = len(pathList)
+	textList = []
+	for index in range(nb - 1, -1, -1):
+		level = nb - index
+		item = pathList[-level]
+		if withLevel and item != "..." and index:
+			levelText = "(n-%s)" % str(level - 1) if level - 1 else "(n)"
+			textList.append("{name} {levelText}" .format(name=item, levelText=levelText))
+		else:
+			textList.append(" %s" % item)
+	return textList

@@ -1,6 +1,6 @@
 # appModules\notepad++\forPython\__init__.py
 # A part of the notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2022 paulber19
+# Copyright (C) 2020-2023 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -10,12 +10,7 @@ import speech
 import api
 import textInfos
 import ui
-try:
-	# for nvda version >= 2021.1
-	from speech.speech import SpeakTextInfoState
-except ImportError:
-	from speech import SpeakTextInfoState
-
+from speech.speech import SpeakTextInfoState
 import config
 from speech.priorities import Spri
 from speech.commands import (
@@ -31,17 +26,8 @@ from npp_addonConfigManager import _addonConfigManager
 from npp_addonConfigManager import (
 	Mode_SayIndent, Mode_SayLevel, Mode_SayLevelChange, Mode_SayIndentChange, Mode_SayNothing)
 del sys.path[-1]
+from controlTypes.outputReason import OutputReason
 
-try:
-	# for nvda version >= 2021.3
-	from controlTypes.outputReason import OutputReason
-	REASON_QUERY = OutputReason.QUERY
-	REASON_CARET = OutputReason.CARET
-except ImportError:
-	# for nvda version >= 2020.1
-	from controlTypes import OutputReason
-	REASON_QUERY = OutputReason.QUERY
-	REASON_CARET = OutputReason.CARET
 
 addonHandler.initTranslation()
 # messages
@@ -321,7 +307,7 @@ def SayPosition():
 		ui.message(_("column %s") % (len(sLine) + 1))
 		info = api.getReviewPosition().copy()
 		info.expand(textInfos.UNIT_CHARACTER)
-		speech.speakTextInfo(info, unit=textInfos.UNIT_CHARACTER, reason=REASON_CARET)
+		speech.speakTextInfo(info, unit=textInfos.UNIT_CHARACTER, reason=OutputReason.CARET)
 	elif indentReportMode == Mode_SayNothing:
 		ui.message(_("column %s") % (len(sLine) + 1))
 	elif indentReportMode in [Mode_SayIndent, Mode_SayIndentChange, Mode_SayLevelChange]:
@@ -386,7 +372,7 @@ def mySpeakTextInfo(
 	useCache: Union[bool, SpeakTextInfoState] = True,
 	formatConfig: Dict[str, bool] = None,
 	unit: Optional[str] = None,
-	reason: OutputReason = REASON_QUERY,
+	reason: OutputReason = OutputReason.QUERY,
 	_prefixSpeechCommand: Optional[SpeechCommand] = None,
 	onlyInitialFields: bool = False,
 	suppressBlanks: bool = False,
@@ -396,14 +382,8 @@ def mySpeakTextInfo(
 		unit == textInfos.UNIT_LINE):
 		NVDAReportLineIndentationOption = config.conf["documentFormatting"]["reportLineIndentation"]
 		NVDAReportLineNumberOption = config.conf["documentFormatting"]["reportLineNumber"]
-		try:
-			# for nvda version >= 2020.1
-			NVDASpeechSplitTextIndentation = speech.speech.splitTextIndentation
-			speech.speech.splitTextIndentation = splitTextIndentation
-		except AttributeError:
-			# for nvda version < 2020.1
-			NVDASpeechSplitTextIndentation = speech.splitTextIndentation
-			speech.splitTextIndentation = splitTextIndentation
+		NVDASpeechSplitTextIndentation = speech.speech.splitTextIndentation
+		speech.speech.splitTextIndentation = splitTextIndentation
 		config.conf["documentFormatting"]["reportLineIndentation"] = 1
 		config.conf["documentFormatting"]["reportLineNumber"] = False
 	res = speech.speakTextInfo(
@@ -419,12 +399,7 @@ def mySpeakTextInfo(
 	)
 	if _addonConfigManager.toggleManageLineNumberAndIndentationAnnouncementOption(False) and (
 		unit == textInfos.UNIT_LINE):
-		try:
-			# for nvda version >= 2021.1
-			speech.speech.splitTextIndentation = NVDASpeechSplitTextIndentation
-		except AttributeError:
-			# for nvda version < 2020.1
-			speech.splitTextIndentation = NVDASpeechSplitTextIndentation
+		speech.speech.splitTextIndentation = NVDASpeechSplitTextIndentation
 		config.conf["documentFormatting"]["reportLineIndentation"] = NVDAReportLineIndentationOption
 		config.conf["documentFormatting"]["reportLineNumber"] = NVDAReportLineNumberOption
 	return res

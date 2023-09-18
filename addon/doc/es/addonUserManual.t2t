@@ -6,8 +6,7 @@ Autor: ADDON_AUTHOR_NAME
 %!includeconf: addon_informations.t2tconf
 %!includeconf: addon_keys.t2tconf
 
-URL: ADDON_AUTHOR_URL
-[Repositorio en GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
+URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
 
 Descargar:
@@ -65,7 +64,7 @@ Y proporciona los siguientes suplementos:
 
 [Suplementos para archivos Markdown o txt2tags #hdr_Markdown]:
 - vista previa del resultado de la conversión en HTML en el búfer virtual de NVDA o en el navegador predeterminado,
-- Modo Exploración para encabezados, enlaces, citas,
+- Modo Exploración para encabezados, enlaces y largas líneas,
 
 
 [Suplementos para el complemento DSpellCheck de Notepad++ #hdr_DSpellCheck]:
@@ -73,7 +72,7 @@ Y proporciona los siguientes suplementos:
 
 
 ++ Compatibilidad ++
-Este complemento ha sido probado con  Notepad++ versión 8.4 32 y 64 bits.
+Este complemento ha sido probado con  Notepad++ versión 8.4 y 8.5.6, 32 y 64 bits.
 
 ++ Precisión ++
 Este complemento usa e intercepta los atajos de Notepad++ configurados por defecto. Por lo tanto, se recomienda encarecidamente, por su correcto funcionamiento, no modificar estos atajos.
@@ -293,7 +292,7 @@ La elección se guarda en la configuración del complemento y se reposiciona al 
 Las posibles opciones para este estilo son:
 - "Verbalizar sangría": anuncia la sangría bajo la forma de número de tabulación o espacio.
 - "Verbalizar cambios de sangría": NVDA anunciará la sangría solo si hay cambios y bajo la forma anterior.
-- "Verbalizar cambios de sangría en forma de nivel": NVDA anunciará la sangría solo si hay cambios y bajo la forma de nivel (nivel 1, nivel 2, ..). El nivel se calcula   según el número de tabulación.
+- "Verbalizar cambios de sangría en forma de nivel": NVDA anunciará la sangría solo si hay cambios y bajo la forma de nivel (nivel 1, nivel 2, ...). El nivel se calcula   según el número de tabulación.
 - "Verbalizar cambios de sangría en forma de nivel superior o inferior": NVDA anunciará la sangría solo si hay cambios y bajo la forma nivel superior (más tabulaciones o espacios), o inferior (menos tabulaciones o espacios).
 
 
@@ -366,7 +365,9 @@ El complemento establece el Modo Exploración para desplazarse de elemento en el
 
 Los elementos en cuestión son:
 - encabezado: cadena de caracteres  enmarcados por los signos "+" o los signos "#".
-- enlace: cadena enmarcado por el signo "<" y ">".
+- enlace Markdown: cadena enmarcado por el signo "<" y ">".
+- línea larga: línea cuya longitud excede la longitud máxima definida por la configuración.
+
 
 Para activarlo, pulsa "NVDA+espacio".
 
@@ -377,6 +378,9 @@ Las posibles órdenes de teclado son entonces:
 - "mayúscula+h" para moverte al anterior encabezado.
 - "k" para moverte al siguiente enlace.
 - "mayúscula+k" para moverte al anterior enlace.
+- "j" para moverte a la siguiente línea larga.
+- "mayúscula+j" para moverte a la anterior línea larga.
+
 
 
 
@@ -429,6 +433,26 @@ Finalmente cierre el diálogo.
 El complemento instala el script "Activar o desactivar el anunciado de los errores de ortografía", sin gesto de entrada,  para  anunciar o no los errores de ortografía cuando el cursor llega a una línea de texto después de un desplazamiento mediante flecha arriba o abajo. Este script aparece en el diálogo "Gestos de Entrada" en la categoría "Editor de texto Notepad++: complementos de accesibilidad" y un gesto de entrada se le puede asignar.
 
 Si se reproduce el sonido, coloque el cursor al principio de la línea y active el submenú  "Find Next Misspelling" para ir al primer error de ortografía en la línea y corregirlo.
+
++ Suplemento para el diálogo Documentos +
+Este diálogo se muestra cuando el atajo "Alt+d" seguido de "d" es tecleado, correspondiente al menú "Documentos" y su submenú "Documentos...".
+
+Éste presenta la lista de documentos abiertos.
+
+Para cada archivo, el nombre del archivo es seguido por tres información: su ruta, su tipo, su tamaño.
+
+Cuando se abre el diálogo, el complemento evita que el archivo seleccionado se anuncie varias veces.
+
+La ruta se anunciará en una forma más reducida de acuerdo con la opción "Reducir la ruta", es decir, al no anunciar todos los niveles de la jerarquía de las carpetas (consulta la sección "Disposición de la ruta").
+
+Por ejemplo, la ruta:
+	"F:\documentos\temp\nvda 2023.1 beta\userConfig\addons\notepadPlusPlusAccessEnhancement\doc\es\"
+se anunciará como sigue manteniendo los últimos 3 niveles:
+"F:\...\notepadPlusPlusAccessEnhancement\doc\es\"
+
+El número de niveles a conservar es configurable (consulta la sección "Disposición de la ruta")
+
+Por configuración, cada información asociada con el archivo no se puede anunciar (consulta el grupo "Diálogo Documentos" en la categoría "General" desde el cuadro de diálogo "Opciones" del complemento). Por defecto, todas se anuncian.
 
 
 

@@ -1,0 +1,858 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'notepadPlusPlusAccessEnhancement' '2.4'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
+"POT-Creation-Date: 2023-07-11 11:49+0300\n"
+"PO-Revision-Date: 2023-07-21 11:04+0300\n"
+"Last-Translator: Ivan Shtefuriak <ip0877@gmail.com>\n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: addon\buildVars.py:20
+msgid "Notepad++ text's editor : accessibility enhancement"
+msgstr "Текстовий редактор Notepad++ : покращення доступності"
+
+#: addon\buildVars.py:24
+msgid ""
+"\n"
+"1- Features #\n"
+"\n"
+"This extension aims to improve the accessibility of the Notepad++ text "
+"editor and add functionalities to facilitate the editing of files used in "
+"Python language and files written in markdown language.\n"
+"\n"
+"It includes most of the additions made by NVDA_notepadPlusPlus add-on "
+"created by Derek Riemer and Tuukka Ojala, then modified by Robert Hanggi and "
+"Andre9642 <https://github.com/derekriemer/nvda-notepadPlusPlus>.\n"
+"\n"
+"To know:\n"
+"\n"
+"* vocalization of the result of the \"control + b\" command which allows you "
+"to move to the symmetric delimiter,\n"
+"* vocalization of the movement to the next or previous bookmark with \"F2\" "
+"or \"capital letter + f2\",\n"
+"* reporting of lines that are too long,\n"
+"* accessibility to autocomplete,\n"
+"* accessibility to incremental search,\n"
+"* Support for previous / next search function.\n"
+"\n"
+"\n"
+"For Python files, it provides:\n"
+"\n"
+"* move to the next class or method,\n"
+"* importing the code from the editing window.\n"
+"\n"
+"\n"
+"For Markdown or txt2tags files:\n"
+"\n"
+"* preview of the result of the conversion to HTML in the virtual buffer of "
+"NVDA or in the default browser,\n"
+"* added browse mode commands for title, link, blocquote.\n"
+"\n"
+"\n"
+"\n"
+"And finally:\n"
+"\n"
+"* Announcement of the number and indentation of each line,\n"
+"* scripts to set the indentation,\n"
+"* Focus movement displacement by \"home\" key,\n"
+"* Comparison of the selected text with that of the clipboard,\n"
+"* go to the next line ending with at least one tab or one space,\n"
+"* format of the announcement of the name of the documents:\n"
+"\t* reduced file path announcement,\n"
+"\t* announcement of the name of the file before its path,\n"
+"\t* no diction of path's backslashs.\n"
+"\n"
+"\n"
+"2- Compatibility\n"
+"This extension has been tested with Notepad++ version 8.4.2.\n"
+"\n"
+"\n"
+"3- Constraints\n"
+"This extension uses and intercepts the shortcuts of Notepad++ configured by "
+"default. It is therefore strongly advised, for its proper functioning, not "
+"to modify these shortcuts.\n"
+msgstr ""
+"\n"
+"1- Можливості #\n"
+"\n"
+"Цей додаток має на меті покращити доступність текстового редактора Notepad++ "
+"та додати функціональність для полегшення редагування файлів, написаних "
+"мовою Python, а також файлів, написаних мовою розмітки markdown.\n"
+"\n"
+"Він містить більшість покращень від додатка NVDA_notepadPlusPlus, який "
+"створили Дерек Рімер (Derek Riemer) і Туукка Ояла (Tuukka Ojala), а потім "
+"модифікували Роберт Ханггі (Robert Hanggi) і Андре9642 <https://github.com/"
+"derekriemer/nvda-notepadPlusPlus>.\n"
+"\n"
+"а саме:\n"
+"\n"
+"* озвучення результату виконання команди \"control + b\", яка дозволяє "
+"перейти до симетричного роздільника,\n"
+"* озвучення переходу до наступної або попередньої закладки за допомогою "
+"\"F2\" або \"Shift+f2\",\n"
+"* Інформування про надто довгі рядки,\n"
+"* доступність автозаповнення,\n"
+"* доступність покрокового пошуку,\n"
+"* підтримка функції попереднього/наступного пошуку.\n"
+"\n"
+"\n"
+"Для файлів на мові Python забезпечує:\n"
+"\n"
+"* перехід до наступного класу або методу,\n"
+"* імпорт коду з вікна редагування.\n"
+"\n"
+"\n"
+"Для файлів Markdown або txt2tags:\n"
+"\n"
+"* попередній перегляд результату перетворення в HTML у віртуальному буфері "
+"NVDA або в типовому браузері,\n"
+"* додані команди режиму огляду для заголовків, посилань і цитат.\n"
+"\n"
+"\n"
+"\n"
+"І нарешті:\n"
+"\n"
+"* інформування про номер та відступ кожного рядка,\n"
+"* сценарії для встановлення відступів,\n"
+"* переміщення фокуса за допомогою клавіші \"home\",\n"
+"* порівняння виділеного тексту з текстом у буфері обміну,\n"
+"* перехід до наступного рядка, що закінчується принаймні одним знаком "
+"табуляції або одним пробілом,\n"
+"* формат оголошення назв документів:\n"
+"\t* стисле оголошення файлового шляху,\n"
+"\t* оголошення спочатку імені файлу, а потім його шляху,\n"
+"\t* ігнорування знаків скісної риски у шляху.\n"
+"\n"
+"\n"
+"2- Сумісність\n"
+"Цей додаток було протестовано з Notepad++ версії 8.4.2.\n"
+"\n"
+"\n"
+"3- Обмеження\n"
+"Цей додаток використовує та перехоплює типові гарячі клавіші Notepad++. Тому "
+"для його належного функціонування наполегливо рекомендується не змінювати "
+"їх.\n"
+
+#. Translators: the label of a message box dialog
+#. to ask the user if he wants keep current configuration settings.
+#: addon\installTasks.py:47
+msgid "Do you want to keep current add-on configuration settings ?"
+msgstr "Бажаєте зберегти поточні налаштування параметрів додатка?"
+
+#. Translators: the title of a message box dialog.
+#: addon\installTasks.py:49 addon\installTasks.py:54
+#, python-format
+msgid "%s - installation"
+msgstr "%s - встановлення"
+
+#. Translators: the label of a message box dialog.
+#: addon\installTasks.py:52
+msgid ""
+"Are you sure you don't want to keep the current add-on configuration "
+"settings?"
+msgstr ""
+"Ви впевнені, що не бажаєте зберегти поточні налаштування параметрів додатка?"
+
+#. labels for indent report mode: order is important
+#. Translators: say indents.
+#: addon\shared\npp_addonConfigManager.py:51
+msgid "Say indent"
+msgstr "Зазначати відступ"
+
+#. Mode_SayIndent:
+#. Translators: say indent changes.
+#: addon\shared\npp_addonConfigManager.py:53
+msgid "Say indent changes"
+msgstr "Зазначати зміни відступу"
+
+#. Mode_SayIndentChange
+#. Translators: say level.
+#: addon\shared\npp_addonConfigManager.py:55
+msgid "Say level"
+msgstr "Зазначати зміни відступу у формі рівнів"
+
+#. Mode_SayLevel
+#. Translators: say indent changes.
+#: addon\shared\npp_addonConfigManager.py:57
+msgid "Say level changes"
+msgstr "Зазначати зміни відступу у формі вищого або нижчого рівня"
+
+#. Mode_SayLevelChange
+#. Translators: no indent report.
+#: addon\shared\npp_addonConfigManager.py:59
+msgid "Say nothing"
+msgstr "Не зазначати нічого"
+
+#: addon\shared\npp_addonConfigManager.py:188
+msgid ""
+"The configuration file of the add-on contains errors. The configuration has "
+"been  reset to factory defaults"
+msgstr ""
+"Файл конфігурації додатка містить помилки. Параметри скинуто до початкових "
+"налаштувань"
+
+#. Translators: title of message box
+#: addon\shared\npp_addonConfigManager.py:191
+msgid "Warning"
+msgstr "УВАГА"
+
+#. Translators: this is the default title of Information dialog.
+#: addon\shared\npp_informationDialog.py:39
+msgid "Informations"
+msgstr "Інформація"
+
+#. Translators: label of copy to clipboard button.
+#: addon\shared\npp_informationDialog.py:58
+msgid "Co&py to Clipboard"
+msgstr "&Копіювати в буфер обміну"
+
+#. Translators: message to the user when the information has been copied to clipboard.
+#: addon\shared\npp_informationDialog.py:76
+msgid "Copied"
+msgstr "Скопійовано"
+
+#. Translators: message to the user when the information cannot be copied to clipboard.
+#: addon\shared\npp_informationDialog.py:82
+msgid "Error, the information cannot be copied to the clipboard"
+msgstr "Помилка, інформацію неможливо скопіювати в буфер обміну"
+
+#. Translators: the label of a dialog box message.
+#: addon\shared\npp_utils.py:29
+#, python-format
+msgid "%s dialog is allready open"
+msgstr "%s діалог вже відкрито"
+
+#. Translators: title of all add-on dialog boxs.
+#: addon\shared\npp_utils.py:38
+msgid "{addonSummary}'s add-on - {dialogTitle}"
+msgstr "Додаток {addonSummary} – {dialogTitle}"
+
+#. Translators: Input help mode message for toggle Manage Line Number And Indentation Announcement command.
+#: addon\appModules\notepadPlusPlus\__init__.py:176
+msgid "Toggle line number and indentation's announcement management by add-on"
+msgstr "Вмикає/вимикає оголошення додатком номерів та відступів рядків"
+
+#. Translators: message to user to report line number and indentation's announcement by add-on")
+#: addon\appModules\notepadPlusPlus\__init__.py:181
+msgid "Line number and indentation's announcement by add-on"
+msgstr "Оголошення номера рядка та відступу здійснюється додатком"
+
+#. Translators: message to user to report line indentation 'sannouncement by NVDA.
+#: addon\appModules\notepadPlusPlus\__init__.py:184
+msgid "Line number and indentation's announcement by NVDA"
+msgstr "Оголошення номера рядка та відступу здійснюється NVDA"
+
+#: addon\appModules\notepadPlusPlus\__init__.py:203
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:699
+msgid "clipboard is empty"
+msgstr "буфер обміну порожній"
+
+#: addon\appModules\notepadPlusPlus\__init__.py:207
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:630
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:703
+msgid "no selection"
+msgstr "немає виділення"
+
+#. Translators: Input help mode message for toggle Report Line Indentation command.
+#: addon\appModules\notepadPlusPlus\__init__.py:248
+msgid "Toggle line indentation reporting"
+msgstr "Перемикає інформування про відступ рядка"
+
+#: addon\appModules\notepadPlusPlus\__init__.py:255
+#: addon\appModules\notepadPlusPlus\__init__.py:271
+#: addon\appModules\notepadPlusPlus\__init__.py:291
+msgid ""
+"Impossible, the number and the indentation of the lines are not announced by "
+"the extension"
+msgstr "Неможливо, номер та відступ рядків не оголошуються додатком"
+
+#. Translators: Input help mode message for toggle Indent Report Mode command.
+#: addon\appModules\notepadPlusPlus\__init__.py:264
+msgid "Choose line indentation announcement's format"
+msgstr "Вибирає формат інформування про відступ рядка"
+
+#: addon\appModules\notepadPlusPlus\__init__.py:278
+#, python-format
+msgid "The increment is %s spaces"
+msgstr "Крок становить %s пробілів"
+
+#: addon\appModules\notepadPlusPlus\__init__.py:280
+#, python-format
+msgid "The increment is %s Tab"
+msgstr "Крок становить %s табів"
+
+#. Translators: Input help mode message for toggle Report Line Number Option command.
+#: addon\appModules\notepadPlusPlus\__init__.py:284
+msgid "Activate/desactivate the line number's announcement"
+msgstr "Перемикає оголошення номера рядка"
+
+#. Translators: message to the user to report line number' announcement indicator state.
+#: addon\appModules\notepadPlusPlus\__init__.py:296
+msgid "Say line number"
+msgstr "Промовляти номер рядка"
+
+#. Translators: message to the user to report line number' announcement indicator state.
+#: addon\appModules\notepadPlusPlus\__init__.py:299
+msgid "Don't say line number"
+msgstr "Не промовляти номера рядка"
+
+#. Translators: Input help mode message for toggle report spelling errors option command.
+#: addon\appModules\notepadPlusPlus\__init__.py:303
+msgid "Toggle report spelling errors option"
+msgstr "Перемикає опцію інформування про орфографічні помилки"
+
+#. Translators: message to the user to report spelling errors reporting.
+#: addon\appModules\notepadPlusPlus\__init__.py:309
+msgid "Report spelling errors"
+msgstr "Інформувати про орфографічні помилки"
+
+#. Translators: message to the user to don't report spelling errors.
+#: addon\appModules\notepadPlusPlus\__init__.py:312
+msgid "Don't report spelling errors"
+msgstr "Не інформувати про орфографічні помилки"
+
+#: addon\appModules\notepadPlusPlus\npp_application.py:85
+msgid "Documents {index} on {total}"
+msgstr "Документ {index} з {total}"
+
+#: addon\appModules\notepadPlusPlus\npp_browseMode.py:48
+msgid "block quote"
+msgstr "цитата"
+
+#: addon\appModules\notepadPlusPlus\npp_browseMode.py:96
+msgid "Extended browse mode for Notepad++"
+msgstr "Розширений режим огляду для Notepad++"
+
+#. Translators: the label of a message box dialog.
+#: addon\appModules\notepadPlusPlus\npp_convert.py:52
+msgid ""
+"It seems the document is a t2t document. Do you want to continue to treate "
+"as markdown ?"
+msgstr ""
+"Здається, документ є документом t2t. Ви хочете продовжити його обробку як "
+"markdown?"
+
+#. Translators: the title of a message box dialog.
+#: addon\appModules\notepadPlusPlus\npp_convert.py:54
+#: addon\appModules\notepadPlusPlus\npp_convert.py:109
+#: addon\appModules\notepadPlusPlus\npp_convert.py:125
+#, python-format
+msgid "%s - warning"
+msgstr "%s - попередження"
+
+#. Translators: The title of the browseable message
+#. Translators: Title for the default browser, instead of the file name
+#: addon\appModules\notepadPlusPlus\npp_convert.py:61
+#: addon\appModules\notepadPlusPlus\npp_convert.py:66
+msgid "Preview of MarkDown or HTML"
+msgstr "Попередній перегляд MarkDown або HTML"
+
+#. Translators: the label of a message box dialog.
+#: addon\appModules\notepadPlusPlus\npp_convert.py:107
+#, python-format
+msgid "The target(%s) is not HTML"
+msgstr "Ціль (%s) не є HTML"
+
+#. Translators: the label of a message box dialog.
+#: addon\appModules\notepadPlusPlus\npp_convert.py:123
+msgid "Cannot compile text with txt2tags"
+msgstr "Неможливо скомпілювати текст за допомогою txt2tags"
+
+#. Translators: The title of the browseable message
+#: addon\appModules\notepadPlusPlus\npp_convert.py:142
+msgid "Preview of txt2tags or HTML"
+msgstr "Попередній перегляд txt2tags або HTML"
+
+#. Translators: This is the title of convert to html dialog window
+#: addon\appModules\notepadPlusPlus\npp_convert.py:162
+msgid "Convert to HTML"
+msgstr "Перетворити в HTML"
+
+#. markdown or txt2tags
+#. Translators: This is a label appearing on convert to html dialog
+#: addon\appModules\notepadPlusPlus\npp_convert.py:182
+msgid "&Treate with:"
+msgstr "&Обробити як:"
+
+#. Translators:  label of a check box.
+#: addon\appModules\notepadPlusPlus\npp_convert.py:197
+msgid "&Display the result in the navigator"
+msgstr "&Показати результат у браузері"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:85
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:317
+msgid "Start of line"
+msgstr "Початок рядка"
+
+#. script prefix
+#. Translators: This is the label for the notepadPlusPlus settings dialog.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:98
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:96
+msgid "Line"
+msgstr "Рядок"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:99
+msgid "Document"
+msgstr "Документ"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:100
+msgid "Python"
+msgstr "Python"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:101
+msgid "Markdown"
+msgstr "Markdown"
+
+#. Translators: Input help mode message for move To previous Line With Only Tab Or Space command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:298
+msgid "Move to previous line with only tab or space"
+msgstr ""
+"Переходить до попереднього рядка, що складається лише з табуляцій або "
+"пробілів"
+
+#. Translators: Input help mode message for move To Next Line With Only Tab Or Space command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:308
+msgid "Move to next line with only tab or space"
+msgstr ""
+"Переходить до наступного рядка, що складається лише з табуляцій або пробілів"
+
+#. Translators: Input help mode message for move To Next Line Ending With Tab Or Space command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:318
+msgid "Move to next line ending with tab or space character"
+msgstr ""
+"Переходить до наступного рядка, що закінчується табуляцією або пробілом"
+
+#. Translators: Input help mode message for move To previous Line Ending With Tab Or Space command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:328
+msgid "Move to previous line ending with tab or space character"
+msgstr ""
+"Переходить до попереднього рядка, що закінчується табуляцією або пробілом"
+
+#. Translators: Input help mode message for move To next Class command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:338
+msgid "Move to next python class"
+msgstr "Переходить до наступного класу python"
+
+#. Translators: Input help mode message for move To Previous Class command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:348
+msgid "Move to previous python class"
+msgstr "Переходить до попереднього класу python"
+
+#. Translators: Input help mode message for move To Next Method command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:358
+msgid "Move to next python method"
+msgstr "Переходить до наступного методу python"
+
+#. Translators: Input help mode message for move To Previous Method command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:368
+msgid "Move to previous python method"
+msgstr "Переходить до попереднього методу python"
+
+#. Translators: Input help mode message for move To Next Class Or Method command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:378
+msgid "Move to next python class or method"
+msgstr "Переходить до наступного класу або методу python"
+
+#. Translators: Input help mode message for move To Previous Class Or Method command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:388
+msgid "Move to previous python class or method"
+msgstr "Переходить до попереднього класу або методу python"
+
+#. Translators: Input help mode message for delete indentation command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:424
+msgid "Delete indentation"
+msgstr "Видаляє відступ"
+
+#. Translators: Input help mode message for set  indentation level command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:432
+msgid "Set the indentation to level {level} ({level} tabs)"
+msgstr "Встановлює рівень відступу {level} ({level} табів)"
+
+#. Translators: Input help mode message for set  indentation level command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:436
+msgid "Set the indentation to level 1(1 tab)"
+msgstr "Встановлює рівень відступу 1 (1 таб)"
+
+#. Translators: message to the user to report no more bookmark.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:540
+msgid "No more bookmark"
+msgstr "Більше немає закладок"
+
+#. Translators: Input help mode message for toggleLongLineindicatorcommand.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:556
+msgid "Toggle long line indicator"
+msgstr "Перемикання індикатора довгого рядка"
+
+#. Translators: message to user to report long lines.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:562
+msgid "Report  Long lines"
+msgstr "Інформувати про довгі рядки"
+
+#. Translators: message to user to  long line report desactivated.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:565
+msgid "Don't report long lines"
+msgstr "Не інформувати про довгі рядки"
+
+#. Translators: Input help mode message for go to next long line command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:569
+msgid "Go to next line that is exceeds the maximum line length"
+msgstr "Переходить до наступного рядка з надмірною довжиною"
+
+#. Translators: Input help mode message for go to previous long line command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:579
+msgid "Go to previous line that is exceeds the maximum line length"
+msgstr "Переходить до попереднього рядка з надмірною довжиною"
+
+#. Translators: Input help mode message for go To First Overflowing Character command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:589
+msgid "Moves to the first character that is after the maximum line length"
+msgstr "Переходить до першого символу після максимальної довжини рядка"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:606
+msgid ""
+"Report current caret position. Twice: report number of selected characters"
+msgstr ""
+"Інформує про поточну позицію курсора. Двічі: інформує про кількість вибраних "
+"символів"
+
+#. Translators: message to user to report current position.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:626
+msgid "line {0}, column {1}"
+msgstr "рядок {0}, стовпець {1}"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:633
+#, python-format
+msgid "%s characters selectionned"
+msgstr "Вибрано %s символів"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:633
+msgid "one character selected"
+msgstr "вибрано один символ"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:634
+#, python-format
+msgid "%s lines"
+msgstr "%s рядках"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:634
+msgid "one line"
+msgstr "одному рядку"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:635
+msgid "{0} selected on {1}"
+msgstr "{0} у {1}"
+
+#. Translators: Message shown when there are no more search results in this direction
+#. using the notepad++ find command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:649
+msgid "No more search results in this direction"
+msgstr "В цьому напрямку більше немає результатів пошуку"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:656
+msgid ""
+"Open the dialog to Treat the edit window content as MarkDown or txt2tags "
+"document and display it as webpage in the internal or external default "
+"browserTwice: treate with last selected parameters."
+msgstr ""
+"Відкриває діалог Обробки вмісту вікна редагування як документу MarkDown або "
+"txt2tags і показує його як вебсторінку у внутрішньому або зовнішньому "
+"стандартному браузері. Двічі: обробляє з останніми вибраними параметрами."
+
+#. Translators: Input help mode message for compare Selection To Clip  command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:691
+msgid "Compare selected text to text in clipboard"
+msgstr "Порівнює виділений текст із текстом у буфері обміну"
+
+#. Translators: this is the title of informationdialog box to show text differences.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:743
+msgid "Differences between selected text and text in clipboard"
+msgstr "Відмінності між виділеним текстом і текстом у буфері обміну"
+
+#. Translators: Input help mode message for import With Python command.
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:780
+msgid "Import document's text as a Python module"
+msgstr "Імпортує текст документа як модуль Python"
+
+#: addon\appModules\notepadPlusPlus\npp_editWindow.py:790
+msgid "python code imported without error"
+msgstr "код python імпортовано без помилок"
+
+#: addon\appModules\notepadPlusPlus\npp_quickNav.py:136
+msgid "Unable to determine document type: markdown or txt2tags"
+msgstr "Не вдається визначити тип документа: markdown або txt2tags"
+
+#. messages
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:48
+msgid "Unknow level"
+msgstr "Невідомий рівень"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:49
+msgid "Level"
+msgstr "Рівень"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:250
+msgid "Higher level"
+msgstr "Вищий рівень"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:252
+msgid "Lower level"
+msgstr "Нижчий рівень"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:263
+msgid "No indent"
+msgstr "Немає відступу"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:276
+msgid "Attention, mixture of spaces and tab"
+msgstr "Увага, поєднання пробілів і табуляцій"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:321
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:326
+#, python-format
+msgid "column %s"
+msgstr "стовпець %s"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:329
+msgid "After"
+msgstr "Після"
+
+#: addon\appModules\notepadPlusPlus\forPython\__init__.py:342
+msgid "Line cannot be reported"
+msgstr "Неможливо інформувати про рядок"
+
+#: addon\appModules\notepadPlusPlus\forPython\python.py:53
+msgid "No other class"
+msgstr "Немає іншого класу"
+
+#: addon\appModules\notepadPlusPlus\forPython\python.py:54
+msgid "No other method"
+msgstr "Немає іншого методу"
+
+#: addon\appModules\notepadPlusPlus\forPython\python.py:55
+msgid "No other class or method"
+msgstr "Немає іншого класу чи методу"
+
+#: addon\appModules\notepadPlusPlus\forPython\python.py:96
+msgid "No more long line "
+msgstr "Більше немає довгих рядків "
+
+#: addon\appModules\notepadPlusPlus\forPython\python.py:121
+msgid "No more line with only tab or space"
+msgstr "Більше немає рядків, що складаються лише з табуляцій або пробілів"
+
+#: addon\appModules\notepadPlusPlus\forPython\python.py:148
+msgid "No more line ending with tab or space"
+msgstr "Більше немає рядків, що закінчуються табуляцією чи пробілом"
+
+#. Translators: This is the label for the notepadPlusPlus general options panel
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:33
+msgid "General"
+msgstr "Загальні"
+
+#. Translators: A setting for enabling/disabling autocomplete suggestions in braille.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:38
+msgid "Show autocomplete &suggestions in braille"
+msgstr "Показувати &пропозиції автозаповнення шрифтом Брайля"
+
+#. Translators: This is the label for a group of editing options in the settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:43
+msgid "Documents's name"
+msgstr "Ім'я документа"
+
+#. Translators: A setting to activate saying file name before file path.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:49
+msgid "&Say file name before path"
+msgstr "&Промовляти спочатку ім'я файлу, потім шлях"
+
+#. Translators: A option to not to mention the backslashs.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:53
+msgid "&Don't say backslash of path"
+msgstr "&Не промовляти зворотних скісних рисок"
+
+#. Translators: This is the label for a group of editing options in the settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:57
+msgid "Reduced announcement of the files's path"
+msgstr "Стислий файловий шлях"
+
+#. Translators: A setting for enabling/disabling file path reduction.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:63
+msgid "&Reduce path"
+msgstr "&Зменшити шлях"
+
+#. Translators: Setting for previous hieararchical level to keep.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:67
+msgid "&Previous hierarchical levels to keep"
+msgstr "&Кількість попередніх рівнів, які зберігатимуться"
+
+#. Translators: A setting for enabling/disabling line and Number indentation announcement management.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:101
+msgid "&Let NVDA announce the line number and indentations"
+msgstr "&Дозволити NVDA оголошувати номери та відступи рядків"
+
+#. Translators: A setting for enabling/disabling report line number
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:109
+msgid "&Report line number"
+msgstr "&Інформувати про номер рядка"
+
+#. Translators: This is the label for a group of editing options in the settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:113
+msgid "Line indentation"
+msgstr "Відступ рядка"
+
+#. Translators: A setting for enabling/disabling line indentation announcement.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:119
+msgid "Report line &indentation"
+msgstr "Інформувати  про відступ &рядка"
+
+#. Translators: Setting for indent report mode.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:124
+msgid "St&yle:"
+msgstr "С&тиль:"
+
+#. Translators: This is the label for a group of editing options in the settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:133
+msgid "Long line"
+msgstr "Довгий рядок"
+
+#. Translators: A setting for enabling/disabling line length indicator.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:139
+msgid "Rep&ort long lines"
+msgstr "&Виявляти занадто довгі рядки"
+
+#. Translators: Setting for maximum line length used by line length indicator
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:143
+msgid "&Minimum line length:"
+msgstr "&Мінімальна довжина довгого рядка:"
+
+#. Translators: This is the label for the Update panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:191
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:112
+msgid "Update"
+msgstr "Оновлення"
+
+#. Translators: This is the label for a checkbox in the update settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:196
+msgid "Automatically check for &updates "
+msgstr "Автоматично перевіряти &оновлення "
+
+#. Translators: This is the label for a checkbox in the update settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:200
+msgid "Update also release versions to &developpement versions"
+msgstr "Оновлювати стабільні версії до версій у &розробці"
+
+#. translators: label for a button in update settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:206
+msgid "&Check for update"
+msgstr "&Перевірити оновлення"
+
+#. translators: this is a label for a button in update settings panel.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:211
+msgid "View &history"
+msgstr "Переглянути &історію"
+
+#. Translators: title of add-on parameters dialog.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:250
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:263
+msgid "Settings"
+msgstr "Налаштування"
+
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:63
+msgid ""
+"The update is not compatible with this version of NVDA. Minimum NVDA "
+"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+msgstr ""
+"Оновлення несумісне з цією версією NVDA. Мінімальна версія NVDA: {minYear}."
+"{minMajor}, Востаннє протестовано: {testedYear}.{testedMajor}."
+
+#. Translators: The progress message
+#. indicating the name of the add-on being downloaded.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:115
+msgid "Downloading {name}"
+msgstr "Завантаження {name}"
+
+#. Translators: A message indicating that an error occurred
+#. while downloading an update to NVDA.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:130
+msgid "Error downloading update for {name}."
+msgstr "Помилка завантаження оновлення для {name}."
+
+#. Translators: message to user
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:189
+msgid "Cannot update {name} - missing file or invalid file format"
+msgstr ""
+"Не вдалося оновити {name} - файл відсутній або має неприпустимий формат"
+
+#. Translators: The title of the dialog
+#. presented while an Addon is being updated.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:225
+msgid "Updating"
+msgstr "Оновлення"
+
+#. Translators: The message displayed while an addon is being updated.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:227
+msgid "Please wait while the add-on is being updated."
+msgstr "Будь ласка, зачекайте, доки додаток оновлюється."
+
+#. Translators: The message displayed when an error occurs
+#. when installing an add-on package.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:246
+msgid "Failed to update {name} add-on"
+msgstr "Не вдалося оновити додаток {name}"
+
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:306
+msgid "{summary} - update"
+msgstr "{summary} - оновлення"
+
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:316
+msgid "The service is temporarily under maintenance. Please, try again later."
+msgstr "Сервіс тимчасово не працює. Будь ласка, спробуйте пізніше."
+
+#. Translators: message to user to report a new version.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:369
+#, python-format
+msgid "New version%s is available. Do you want to download it now?"
+msgstr "Доступна нова версія%s. Бажаєте завантажити її зараз?"
+
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:386
+#, python-format
+msgid "You are up-to-date. %s is the latest version."
+msgstr "У вас актуальна версія. %s - остання версія."
+
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:393
+msgid "Oops! There was a problem checking for updates. Please retry later"
+msgstr ""
+"Упс! Виникла проблема з перевіркою оновлень. Будь ласка, спробуйте пізніше"
+
+#. Translators: This is a label of a button appearing
+#. on UpdateCheckResult dialog.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:548
+msgid "&Yes"
+msgstr "&Так"
+
+#. Translators: This is a label of a button appearing
+#. on UpdateCheckResult dialog.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:553
+msgid "&No"
+msgstr "&Ні"
+
+#. Translators: The label of a button to remind the user later
+#. about performing some action.
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:558
+msgid "&Later"
+msgstr "&Пізніше"
+
+#: addon\globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:562
+msgid "Wha&t's new"
+msgstr "Що &нового"

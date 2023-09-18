@@ -1,6 +1,6 @@
 # appModules/notepad++\npp_editWindow.py
 # A part of the NotepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2022 paulber19
+# Copyright (C) 2020-2023 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -42,14 +42,8 @@ del sys.path[-1]
 
 addonHandler.initTranslation()
 
-try:
-	# for nvda version >=2021.3
-	from controlTypes.outputReason import OutputReason
-	REASON_CARET = OutputReason.CARET
-except ImportError:
-	# for nvda version >= 2020.1 and < 2021.3
-	from controlTypes import OutputReason
-	REASON_CARET = OutputReason.CARET
+from controlTypes.outputReason import OutputReason
+
 
 _addonSummary = _curAddon.manifest['summary']
 _scriptCategory = _addonSummary
@@ -94,15 +88,13 @@ class ScintillaTextInfoEx (NVDAObjects.window.scintilla.ScintillaTextInfo):
 		return col
 
 
-# script prefix
-PRE_Line = _("Line")
-PRE_Document = _("Document")
-PRE_Python = _("Python")
-PRE_Markdown = _("Markdown")
-
-
-def makeDesc(pre, description):
-	return "%s: %s" % (pre, description)
+from .npp_scriptDesc import (
+	makeDesc,
+	PRE_Line,
+	PRE_Document,
+	PRE_Python,
+	PRE_Markdown,
+)
 
 
 # a part of buildin NVDA appmodule
@@ -127,11 +119,13 @@ class ScintillaTextInfoNpp83(ScintillaTextInfoEx):
 			('chrg', CharacterRangeStructLongLong),
 			('lpstrText', ctypes.c_char_p),
 		]
+
+
 import queueHandler
 _dSpellCheckReportDelay = None
 from keyboardHandler import KeyboardInputGesture
-_copyAllMisspelledWordsToClipboardGesture =  KeyboardInputGesture.fromName(_addonConfigManager.getCopyAllMisspelledWordsToClipboardShortCut())
-
+_copyAllMisspelledWordsToClipboardGesture = KeyboardInputGesture.fromName(
+	_addonConfigManager.getCopyAllMisspelledWordsToClipboardShortCut())
 
 
 class NPPDocument (
@@ -140,7 +134,7 @@ class NPPDocument (
 	"""An edit window that implements all of the scripts on the edit field for Notepad++"""
 	treeInterceptorClass = npp_browseMode.NPPDocumentTreeInterceptor
 	shouldCreateTreeInterceptor = False
-
+	overfflowingBeepTimer = None
 	__gestures = {
 		"kb:upArrow": "reportLineOverflow",
 		"kb:downArrow": "reportLineOverflow",
@@ -205,17 +199,20 @@ class NPPDocument (
 		super(NPPDocument, self).event_caret()
 		if not _addonConfigManager.toggleLineLengthIndicator(False):
 			return
-		caretInfo = self.makeTextInfo(textInfos.POSITION_CARET)
-		lineStartInfo = self.makeTextInfo(textInfos.POSITION_CARET).copy()
-		caretInfo.expand(textInfos.UNIT_CHARACTER)
-		lineStartInfo.expand(textInfos.UNIT_LINE)
-		caretPosition = caretInfo.bookmark.startOffset - lineStartInfo.bookmark.startOffset
-		# Is it not a blank line, and are we further in the line than the marker position?
-		if caretPosition >= _addonConfigManager.getMaxLineLength() and caretInfo.text not in ['\r', '\n']:
-			tones.beep(500, 50)
+		# stop overflowingBeepTimer if it's running
+		if self.overfflowingBeepTimer is not None:
+			self.overfflowingBeepTimer .Stop()
+			self.overfflowingBeepTimer  = None
+		pos = self._getStatusLineInfos()["Col"]
+		if int(pos) > _addonConfigManager.getMaxLineLength():
+			# after goToFirstOverflowingCharacter script, there are several event_caret
+			# so delay the emission of the beep
+			self.overfflowingBeepTimer = wx.CallLater(450, tones.beep, 500, 50)
+
 	def checkForDSpellCheckErrors(self, text):
-		global _dSpellCheckReportDelay 
-		def callback(prevClipData ):
+		global _dSpellCheckReportDelay
+
+		def callback(prevClipData):
 			clipdataText = api.getClipData()
 			if prevClipData != "":
 				api.copyToClip(prevClipData)
@@ -225,31 +222,26 @@ class NPPDocument (
 			if len(errors) > 200:
 				return
 			from nvwave import playWaveFile
-			words = text.split(" ")
-			print("words: %s"%words)
-			print("errors: %s"%errors)
 			for error in errors:
 				if error in text:
 					playWaveFile(os.path.join(globalVars.appDir, "waves", "textError.wav"))
 					return
 
-		if _dSpellCheckReportDelay  is not None:
+		if _dSpellCheckReportDelay is not None:
 			_dSpellCheckReportDelay .Stop()
-		_dSpellCheckReportDelay  = None
+		_dSpellCheckReportDelay = None
 		text = text.replace("\n", "")
 		text = text.replace("\r", "")
 		if text == "":
 			return
 		try:
 			prevClipData = api.getClipData()
-		except:
+		except Exception:
 			prevClipData = ""
-		#_copyAllMisspelledWordsToClipboardGesture .send()
 		queueHandler.queueFunction(
-				queueHandler.eventQueue,
-				_copyAllMisspelledWordsToClipboardGesture .send)
-		wx.CallLater(300, callback, prevClipData )
-
+			queueHandler.eventQueue,
+			_copyAllMisspelledWordsToClipboardGesture .send)
+		wx.CallLater(300, callback, prevClipData)
 
 	def _caretScriptPostMovedHelper(self, speakUnit, gesture, info=None):
 		if isScriptWaiting():
@@ -265,11 +257,11 @@ class NPPDocument (
 		if speakUnit and (not gesture or not willSayAllResume(gesture)):
 			info.expand(speakUnit)
 			if speakUnit == textInfos.UNIT_LINE and _addonConfigManager.toggleReportSpellingErrorsOption(False):
-				global _dSpellCheckReportDelay 
-				if _dSpellCheckReportDelay  is not None:
+				global _dSpellCheckReportDelay
+				if _dSpellCheckReportDelay is not None:
 					_dSpellCheckReportDelay .Stop()
-				_dSpellCheckReportDelay  = wx.CallLater(300, self.checkForDSpellCheckErrors, info.text)
-			forPython.mySpeakTextInfo(info, unit=speakUnit, reason=REASON_CARET)
+				_dSpellCheckReportDelay = wx.CallLater(300, self.checkForDSpellCheckErrors, info.text)
+			forPython.mySpeakTextInfo(info, unit=speakUnit, reason=OutputReason.CARET)
 		braille.handler.handleCaretMove(self)
 
 	def script_HomeKey(self, gesture):
@@ -554,6 +546,7 @@ class NPPDocument (
 	@script(
 		# Translators: Input help mode message for toggleLongLineindicatorcommand.
 		description=_("Toggle long line indicator"),
+		category=_scriptCategory,
 		gestures=("kb:windows+control+f4", )
 	)
 	def script_toggleLongLineIndicator(self, gesture):
@@ -591,6 +584,7 @@ class NPPDocument (
 		gestures=("kb:windows+control+o",)
 	)
 	def script_goToFirstOverflowingCharacter(self, gesture):
+		print("goToFirstOverflowingCharacter")
 		info = self.makeTextInfo(textInfos.POSITION_CARET)
 		info.expand(textInfos.UNIT_LINE)
 		if len(info.text) > _addonConfigManager.getMaxLineLength():
@@ -599,6 +593,16 @@ class NPPDocument (
 			info.collapse()
 			info.expand(textInfos.UNIT_CHARACTER)
 			speech.speakMessage(info.text)
+
+	def _getStatusLineInfos(self):
+		info = self.parent.next.next.firstChild.getChild(2).name
+		info = info.replace(chr(0xa0), "")
+		tempList = info.split("    ")
+		d = {}
+		for item in tempList:
+			(name, value) = item.strip().split(" : ")
+			d[name] = value
+		return d
 
 	@script(
 		# Translators: Input help mode message for report Line Info command.
@@ -614,18 +618,12 @@ class NPPDocument (
 		if _scriptTimer is not None:
 			_scriptTimer.Stop()
 			_scriptTimer = None
-		info = self.parent.next.next.firstChild.getChild(2).name
-		info = info.replace(chr(0xa0), "")
-		tempList = info.split("    ")
-		d = {}
-		for item in tempList:
-			(name, value) = item.strip().split(" : ")
-			d[name] = value
+		info = self._getStatusLineInfos()
 		if scriptHandler.getLastScriptRepeatCount() == 0:
 			# Translators: message to user to report current position.
-			msg = _("line {0}, column {1}") .format(d["Ln"], d["Col"])
+			msg = _("line {0}, column {1}") .format(info["Ln"], info["Col"])
 		else:
-			selection = d["Sel"].split(" | ")
+			selection = info["Sel"].split(" | ")
 			if int(selection[0]) == 0:
 				msg = _("no selection")
 			else:
@@ -658,7 +656,7 @@ class NPPDocument (
 				"Twice: treate with last selected parameters.")
 		),
 		category=_scriptCategory,
-		gestures=("kb:windows+control+f4",)
+		gestures=("kb:windows+control+f8",)
 	)
 	def script_convertToHTMLDialog(self, gesture):
 		global _scriptTimer

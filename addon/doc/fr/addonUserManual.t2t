@@ -6,8 +6,8 @@ Auteur: ADDON_AUTHOR_NAME
 %!includeconf: addon_informations.t2tconf
 %!includeconf: addon_keys.t2tconf
 
-URL: ADDON_AUTHOR_URL
-[Dépôt GitHub: ADDON_REPOSITORY ADDON_REPOSITORY]
+
+URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
 
 Téléchargement:
@@ -65,7 +65,7 @@ Et elle apporte les compléments suivants:
 
 [Compléments pour les fichiers Markdown ou txt2tags #hdr_Markdown]:
 - prévisualisation du résultat de la conversion en HTML dans le tampon virtuel de NVDA ou dans le navigateur par défaut,
-- mode navigation pour les titres, les liens et citations,
+- mode navigation pour les titres, les liens et les longues lignes,
 
 
 [Compléments pour le module d'extension DSpellCheck de Notepad++ #hdr_DSpellCheck]:
@@ -73,7 +73,7 @@ Et elle apporte les compléments suivants:
 
 
 ++ Compatibilité ++
-Cette extension a été testé avec Notepad++ version 8.4 32 et 64 bits.
+Cette extension a été testé avec Notepad++ version 8.4 et 8.5.6,  32 et 64 bits.
 
 ++ Précisions ++
 Cette extension utilise et intercepte les raccourcis de Notepad++ configuré par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de ne pas modifier ces raccourcis.
@@ -310,7 +310,7 @@ Le choix est sauvegarder dans la configuration de l'extension et repositionner l
 +++ Mise en retrait des lignes +++
 Les gestes de commandes suivants permettent de définir le retrait d'une ligne:
 - "Control" suivi d'un chiffre (de 1 à 9) du clavier alphanumérique pour insérer en début de ligne le nombre de tabulation correspondant au chiffre.
-- "control+²" ou "control+0" pour supprimer l'indentation de la ligne quelle soit en espace ou tabulation.
+- "control+²" ou "control+0" pour supprimer l'indentation de la ligne qu'elle soit en espace ou tabulation.
 
 
 Ces gestes de commandes sont modifiables à l'aide du dialogue "Gestes de commandes" de NVDA. En particulier pour modifier "control+²" qui est spécifique au clavier azerty. La touche "²" étant la touche la plus à gauche de la rangé alphanumériques de ce type de clavier.
@@ -365,8 +365,10 @@ Un double appui du geste de commande permet de visualiser directement le documen
 L'extension met en place le mode navigation pour se déplacer d'élément en élément dans les documents markdown ou txt2tag.
 
 Les éléments concernés sont:
--titre: chaîne de caractères encadrés par des "+" ou des "#".
-- lien: chaîne encadrée par "<" et ">".
+- titre: chaîne de caractères encadrés par des "+" ou des "#".
+- lien Markdown: chaîne encadrée par "<" et ">".
+- longue ligne: ligne dont la longueur dépasse la longueur maximale définie par configuration.
+
 
 Pour l'activer, tapez "NVDA+espace".
 
@@ -377,9 +379,8 @@ Les commandes possibles sont alors:
 - "majuscule+h" pour se déplacer au précédent titre.
 - "k" pour se déplacer au prochain lien.
 - "majuscule+k" pour se déplacer au précédent lien.
-
-
-
+- "j" pour se déplacer à la prochaine ligne longue.
+- "majuscule + j" pour se déplacer à la précédent longue ligne.
 
 
 + Compléments pour le module d'extension DSpellCheck de Notepad++ +[HDR_DSpellCheck]
@@ -430,6 +431,25 @@ Enfin fermer le dialogue.
 Le complément installe le script "Activer ou désactiver le signalement des fautes d'orthographe ", sans geste de commande,  pour  signaler ou non les fautes quand le curseur arrive sur une ligne de texte suite à un déplacement par flèche haut ou bas. Ce script apparaît dans le dialogue "Gestes de commande" sous la catégorie "Éditeur de texte Notepad++: compléments d'accessibilité " et un geste de commande peut lui être assigné.
 
 Si le son est joué, placer le curseur au début de la ligne et activer le sous-menu "Find Next Misspelling" pour aller à la première faute sur la ligne et la corriger.
+
++ Complément pour le dialogue Documents +
+Ce dialogue s'affiche lorsque le raccourci "Alt+d" suivi de "d" est tapé, ce qui conrespond au menu "Documents" et à son sous-menu "Documents...".
+
+Il présente la liste des documents ouverts.
+
+Pour chaque fichier, le nom du fichier est suivi de trois informations: son chemin, son type, sa taille.
+
+À l'ouverture du dialogue, l'extension empêche que le fichier sélectionné soit annoncé plusieurs fois.
+
+Le chemin sera annoncé sous une forme plus réduite suivant l'option "Réduire le chemin", c'est à dire en n'annonçant pas tous les niveaux de la hiérarchie des dossiers (Voir le chapitre "Arrangement du chemin").
+
+Par exemple, le chemin:
+	"F:\documents\temp\nvda 2023.1 beta\userConfig\addons\notepadPlusPlusAccessEnhancement\doc\fr\" sera annoncer comme ceci en  gardant les 3 derniers niveaux:
+"F:\...\notepadPlusPlusAccessEnhancement\doc\fr\"
+
+Le nombre de niveaux à conserver est configurable (voir le chapitre "Arrangement du chemin")
+
+Par configuration, chaque information associée au fichier peut ne pas être annoncée (voir le groupe "Dialogue Documents" de la catégorie "Général" des paramètres de l'extension). Par défaut, elles sont toutes annoncées.
 
 
 + Mise à jour +

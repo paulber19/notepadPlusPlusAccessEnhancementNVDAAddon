@@ -1,6 +1,6 @@
 # globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright 2020-2022 paulber19
+# Copyright 2020-2023 paulber19
 # This file is covered by the GNU General Public License.
 
 # manage add-on configuration dialog
@@ -10,6 +10,8 @@ import wx
 import gui
 from gui.settingsDialogs import MultiCategorySettingsDialog, SettingsPanel
 import os
+from gui.guiHelper import BoxSizerHelper
+import gui.nvdaControls
 import sys
 _curAddon = addonHandler.getCodeAddon()
 _addonSummary = _curAddon.manifest['summary']
@@ -17,13 +19,6 @@ sharedPath = os.path.join(_curAddon.path, "shared")
 sys.path.append(sharedPath)
 from npp_addonConfigManager import _addonConfigManager
 from npp_addonConfigManager import indentReportModeLabels
-from versionInfo import version_year, version_major
-NVDAVersion = [version_year, version_major]
-if NVDAVersion >= [2021, 1]:
-	from gui.guiHelper import BoxSizerHelper
-else:
-	# we need the 2021.1 guiHelper changes to maintain compatibility with nvda version < 2021.1
-	from npp_guiHelper import BoxSizerHelper
 del sys.path[-1]
 addonHandler.initTranslation()
 
@@ -49,25 +44,57 @@ class NPPGeneralOptionsPanel(SettingsPanel):
 		labelText = _("&Say file name before path")
 		self.sayFileNameBeforePathCheckBox = group.addItem(wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
 		self.sayFileNameBeforePathCheckBox.SetValue(_addonConfigManager.toggleSayFileNameBeforePathOption(False))
+		# Translators: A option to reverse path before reporting
+		labelText = _("Say the path &going up the folder tree")
+		self.reversePathCheckBox = group.addItem(wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
+		self.reversePathCheckBox .SetValue(_addonConfigManager.toggleReversePathOption(False))
+		# Translators: A setting for enabling/disabling file path reduction.
+		labelText = _("&Reduce path")
+		self.reduceFilePathCheckBox = group.addItem(wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
+		self.reduceFilePathCheckBox.SetValue(_addonConfigManager.toggleReduceFilePathOption(False))
 		# Translators: A option to not to mention the backslashs.
 		labelText = _("&Don't say backslash of path")
 		self.NoSayBackslashCheckBox = group.addItem(wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
 		self.NoSayBackslashCheckBox.SetValue(_addonConfigManager.toggleNoSayFilePathBackslashsOption(False))
 		# Translators: This is the label for a group of editing options in the settings panel.
-		groupText = _("Reduced announcement of the files's path")
+		groupText = _("Reduced path announcement")
 		groupSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label=groupText)
 		groupBox = groupSizer.GetStaticBox()
 		group = BoxSizerHelper(self, sizer=groupSizer)
 		sHelper.addItem(group)
-		# Translators: A setting for enabling/disabling file path reduction.
-		labelText = _("&Reduce path")
-		self.reduceFilePathCheckBox = group.addItem(wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
-		self.reduceFilePathCheckBox.SetValue(_addonConfigManager.toggleReduceFilePathOption(False))
 		# Translators: Setting for previous hieararchical level to keep.
 		labelText = _("&Previous hierarchical levels to keep")
 		self.previousHierarchicalLevelToKeep = group.addLabeledControl(
 			labelText, wx.Choice, choices=["-%s" % str(x)if x > 0 else str(x) for x in range(0, 11)])
 		self.previousHierarchicalLevelToKeep.SetSelection(_addonConfigManager.getPreviousHierarchicalLevelToKeep())
+		# Translators: This is the label for a group of editing options in the settings panel.
+		groupText = _("Reversed file path announcement")
+		groupSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label=groupText)
+		groupBox = groupSizer.GetStaticBox()
+		group = BoxSizerHelper(self, sizer=groupSizer)
+		sHelper.addItem(group)
+		# Translators: A option to reverse path with no level
+		labelText = _("Do not say the &hierarchical levels")
+		self.reportReversedPathWithNoLevelCheckBox = group.addItem(
+			wx.CheckBox(groupBox, wx.ID_ANY, label=labelText))
+		self.reportReversedPathWithNoLevelCheckBox .SetValue(
+			_addonConfigManager.toggleReportReversedPathWithNoLevelOption(False))
+		# Translators: This is the label for a group of editing options in the settings panel.
+		groupText = _("Documents dialog")
+		groupSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label=groupText)
+		groupBox = groupSizer.GetStaticBox()
+		group = BoxSizerHelper(self, sizer=groupSizer)
+		sHelper.addItem(group)
+		# Translators: This is the label for a list of checkboxes
+		# controlling which columns of the document name should not be spoken
+		labelText = _("&Select elements of the document that should be spoken with its name:")
+		from npp_addonConfigManager import documentColumnLabels
+		self.maskedColumnsChoices = documentColumnLabels
+		self.maskedColumnsList = group.addLabeledControl(
+			labelText, gui.nvdaControls.CustomCheckListBox, choices=self.maskedColumnsChoices)
+		columns = _addonConfigManager.getDocumentColumnsChoices()
+		self.maskedColumnsList.SetCheckedItems(columns)
+		self.maskedColumnsList.Select(0)
 
 	def postInit(self):
 		self.brailleAutocompleteSuggestionsCheckBox .SetFocus()
@@ -86,6 +113,14 @@ class NPPGeneralOptionsPanel(SettingsPanel):
 		if self.NoSayBackslashCheckBox.IsChecked() != (
 			_addonConfigManager.toggleNoSayFilePathBackslashsOption(False)):
 			_addonConfigManager.toggleNoSayFilePathBackslashsOption(True)
+		if self.reversePathCheckBox.IsChecked() != (
+			_addonConfigManager.toggleReversePathOption(False)):
+			_addonConfigManager.toggleReversePathOption(True)
+		if self.reportReversedPathWithNoLevelCheckBox.IsChecked() != (
+			_addonConfigManager.toggleReportReversedPathWithNoLevelOption(False)):
+			_addonConfigManager.toggleReportReversedPathWithNoLevelOption(True)
+		checkedColumns = self.maskedColumnsList.GetCheckedItems()
+		_addonConfigManager.setDocumentColumnsChoices(checkedColumns)
 
 	def onSave(self):
 		self.saveSettingChanges()
