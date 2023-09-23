@@ -44,6 +44,7 @@ Diversos:
 + v2.4 (20/02/2023) +
 - Compatibilidad con NVDA 2023.1
 
+
 Nuevas características:
 - anunciar errores de ortografía encontrados mediante el suplemento para el complemento DSpellCheck de Notepad++ (experimental).
 
