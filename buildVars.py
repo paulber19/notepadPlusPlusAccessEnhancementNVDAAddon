@@ -78,7 +78,7 @@ This extension uses and intercepts the shortcuts of Notepad++ configured by defa
 		"""It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
 """),
 	# version
-	"addon_version": "2.5.1",
+	"addon_version": "2.5.2",
 	# Author(s)
 	"addon_author": u"paulber19 (paulber19@laposte.net)",
 	# URL for the add-on documentation support

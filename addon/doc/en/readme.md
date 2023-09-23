@@ -2,11 +2,13 @@
 * Author: PaulBer19 (paulber19@laposte.net)
 * URL: [https://github.com/paulber19/notepadPlusPlusAccessEnhancementNVDAAddon.git] [3]
 * Download:
-* [stable version] [1]
-* [development version] [2]
+ * [stable version] [1]
+ * [development version] [2]
+
+
 * Compatibility:
-* Minimum NVDA version required: 2022.1
-* Latest version of NVDA tested: 2023.3
+ * Minimum NVDA version required: 2022.1
+ * Latest version of NVDA tested: 2023.3
 
 
 # Features #
@@ -66,6 +68,6 @@ This extension uses and intercepts the shortcuts of Notepad++ configured by defa
 
 
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.5.1.nvda-addon
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.5.2.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev
 [3]: https://github.com/paulber19/notepadPlusPlusAccessEnhancementNVDAAddon.git

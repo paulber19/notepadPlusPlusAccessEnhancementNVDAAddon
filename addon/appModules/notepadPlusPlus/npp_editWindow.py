@@ -202,7 +202,7 @@ class NPPDocument (
 		# stop overflowingBeepTimer if it's running
 		if self.overfflowingBeepTimer is not None:
 			self.overfflowingBeepTimer .Stop()
-			self.overfflowingBeepTimer  = None
+			self.overfflowingBeepTimer = None
 		pos = self._getStatusLineInfos()["Col"]
 		if int(pos) > _addonConfigManager.getMaxLineLength():
 			# after goToFirstOverflowingCharacter script, there are several event_caret

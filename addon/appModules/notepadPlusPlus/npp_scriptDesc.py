@@ -2,6 +2,8 @@
 # A part of the notepadPlusPlusAccessEnhancement add-on
 # Copyright (C) 2023 paulber19
 # This file is covered by the GNU General Public License.
+import addonHandler
+addonHandler.initTranslation()
 
 
 # script prefix
