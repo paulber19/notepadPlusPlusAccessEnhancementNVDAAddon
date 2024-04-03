@@ -93,7 +93,8 @@ class PythonDocument(object):
 			if len(temp) > _addonConfigManager.getMaxLineLength():
 				info.goToLine(lineID)
 				return
-		speech.speakMessage(_("No more long line "))
+		# Translators: message to user to say there no more long line
+		speech.speakMessage(_("No more long line"))
 
 	@classmethod
 	def moveToLineWithOnlyTabOrSpace(cls, info, next=True):

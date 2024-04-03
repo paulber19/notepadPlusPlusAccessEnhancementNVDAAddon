@@ -1,6 +1,6 @@
 # shared/npp_utils.py
 # A part of notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2022, paulber19
+# Copyright (C) 2020-2024, paulber19
 # This file is covered by the GNU General Public License.
 
 
@@ -13,6 +13,14 @@ import time
 import queueHandler
 import gui
 import config
+import ui
+try:
+	# NVDA >= 2024.1
+	speech.speech.SpeechMode.onDemand
+	speakOnDemand = {"speakOnDemand": True}
+except AttributeError:
+	# NVDA <= 2023.3
+	speakOnDemand = {}
 
 addonHandler.initTranslation()
 
@@ -78,3 +86,17 @@ def MouseWheelForward():
 
 def MouseWheelBack():
 	winUser.mouse_event(MOUSEEVENTF_WHEEL, 0, 0, -120, None)
+
+
+def executeWithSpeakOnDemand(func, *args, **kwargs):
+	from speech.speech import _speechState, SpeechMode
+	if not speakOnDemand or _speechState.speechMode != SpeechMode.onDemand:
+		return func(*args, **kwargs)
+	_speechState.speechMode = SpeechMode.talk
+	ret = func(*args, **kwargs)
+	_speechState.speechMode = SpeechMode.onDemand
+	return ret
+
+
+def messageWithSpeakOnDemand(msg):
+	executeWithSpeakOnDemand(ui.message, msg)

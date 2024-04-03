@@ -13,6 +13,13 @@ Téléchargement:
 - [versions de développement ADDON_DEV_URL]
 
 
++ v2.6 (02/04/2024) +
+
+Nouveautés : 
+- Compatibilité avec NVDA 2024.1 et abandon du support des versions de NVDA antérieures à la 2023.1.
+- prise en compte du mode "Parole à la demande" introduit dans nvda 2024.1: tous les scripts annonçant une information vocaliseront cette information. Dans ce mode, tous Les autres scripts resteront muets.
+
+
 + v2.5 (08/09/2023) +
 Nouveautés:
 - possibilité de faire annoncer le chemin du nom des fichiers en remontant dans la hiérarchie des dossiers.

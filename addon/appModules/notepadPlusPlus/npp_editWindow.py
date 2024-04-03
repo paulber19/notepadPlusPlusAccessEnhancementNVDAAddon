@@ -1,6 +1,6 @@
 # appModules/notepad++\npp_editWindow.py
 # A part of the NotepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2023 paulber19
+# Copyright (C) 2020-2024 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -38,6 +38,9 @@ sys.path.append(sharedPath)
 from npp_NVDAStrings import NVDAString
 from npp_addonConfigManager import _addonConfigManager
 from npp_informationDialog import InformationDialog
+from npp_utils import (
+	speakOnDemand, messageWithSpeakOnDemand, executeWithSpeakOnDemand,
+)
 del sys.path[-1]
 
 addonHandler.initTranslation()
@@ -597,7 +600,9 @@ class NPPDocument (
 	def _getStatusLineInfos(self):
 		info = self.parent.next.next.firstChild.getChild(2).name
 		info = info.replace(chr(0xa0), "")
+		print("info: %s" %info)
 		tempList = info.split("    ")
+		print("tempList: %s" %tempList)
 		d = {}
 		for item in tempList:
 			(name, value) = item.strip().split(" : ")
@@ -611,7 +616,8 @@ class NPPDocument (
 			" Twice: report number of selected characters"
 		)),
 		category=_scriptCategory,
-		gestures=("kb:windows+control+i",)
+		gestures=("kb:windows+control+i",),
+		**speakOnDemand
 	)
 	def script_reportLineInfo(self, gesture):
 		global _scriptTimer
@@ -623,13 +629,21 @@ class NPPDocument (
 			# Translators: message to user to report current position.
 			msg = _("line {0}, column {1}") .format(info["Ln"], info["Col"])
 		else:
-			selection = info["Sel"].split(" | ")
+			selection = info.get("Sel", None)
+			if not selection:
+				# Translators: message to user that there is no selection
+				msg = _("no selection")
+				ui.message(msg)
+				return
+			selection = selection.split(" | ")
 			if int(selection[0]) == 0:
+				# Translators: message to user that there is no selection
 				msg = _("no selection")
 			else:
 				nb = int(selection[0])
 				nbCharsMsg = _("%s characters selectionned") % nb if nb > 1 else _("one character selected")
 				nbLinesMsg = _("%s lines") % selection[1] if int(selection[1]) > 1 else _("one line")
+				# Translators: message to user to report selection
 				msg = _("{0} selected on {1}") .format(nbCharsMsg, nbLinesMsg)
 		ui.message(msg)
 

@@ -13,6 +13,13 @@ Descarga:
 - [Versiones de desarrollo ADDON_DEV_URL]
 
 
++ v2.6 (02/04/2024) +
+
+Nuevas características:
+- Compatibilidad con NVDA 2024.1 y las versiones de NVDA anteriores a la 2023.1 ya no son soportadas.
+- se toma en cuenta un nuevo modo de "voz a petición" introducido en nvda 2024.1:   todos los scripts que anuncien información verbalizarán esta información. En este modo, todos los demás scripts permanecerán en silencio.
+
+
 + v2.5 (08/09/2023) +
 Nuevas características:
 - posibilidad de anunciar la ruta del nombre de los archivos subiendo en la jerarquía de las carpetas.

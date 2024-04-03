@@ -1,0 +1,8 @@
+The files to be translated are:
+- addon_informations.t2tconf
+- addon_keys.t2tconf
+- addonUserManual.t2t
+- changes.t2t
+
+Changes from the previous version are listed in the diff.zip file.
+The readme.md file must not be translated. It is only used for the gitHub repository.

@@ -17,6 +17,13 @@ Download:
 Sorry, but this document is an automatic translation from french language.
 
 
++ v2.6 (April/02/2024) +
+
+What's new:
+- Compatibility with NVDA 2024.1 and dropping support for NVDA versions prior to 2023.1.
+- taking into account the "Speech on demand" mode introduced in nvda 2024.1: all scripts announcing information will vocalize this information. In this mode, all other scripts will remain silent.
+
+
 + v2.5 (September/086/2023) +
 New:
 - possibility to announce the path of the name of the files while going up in the hierarchy of the files.
