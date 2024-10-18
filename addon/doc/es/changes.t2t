@@ -13,6 +13,11 @@ Descarga:
 - [Versiones de desarrollo ADDON_DEV_URL]
 
 
++ v2.7 (18/10/2024) +
+compatibilidad con NVDA 2024.2, 2024.3 y 2024.4.
+
+las versiones de NVDA anteriores a la 2023.1 ya no son soportadas. 
+
 + v2.6 (02/04/2024) +
 
 Nuevas características:

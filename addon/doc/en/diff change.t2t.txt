@@ -1,0 +1,7 @@
+changes.t2t
+diff between version 2.6 (<) and version 2.7 (>)
+18a19,22
+> + v2.7 (October/18/2024) +
+> Compatibilité with NVDA 2024.2, NVDA 2024.3 and NVDA 2024.4.
+> 
+> NVDA versions prior to version 2023.1 are no longer supported.

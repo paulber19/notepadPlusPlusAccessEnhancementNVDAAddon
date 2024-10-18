@@ -114,7 +114,7 @@ def GetIndentations(sLine):
 
 	if iStopBoucle == 0:
 		# too many indents
-		return([], sLine)
+		return ([], sLine)
 
 	return (sIndent, sTemp)
 
@@ -342,7 +342,7 @@ from typing import (
 )
 
 
-def splitTextIndentation(line):
+def mySplitTextIndentation(line):
 	global GB_LastIndentList
 	text = ""
 	if _addonConfigManager.toggleReportLineNumberOption(False):
@@ -383,7 +383,7 @@ def mySpeakTextInfo(
 		NVDAReportLineIndentationOption = config.conf["documentFormatting"]["reportLineIndentation"]
 		NVDAReportLineNumberOption = config.conf["documentFormatting"]["reportLineNumber"]
 		NVDASpeechSplitTextIndentation = speech.speech.splitTextIndentation
-		speech.speech.splitTextIndentation = splitTextIndentation
+		speech.splitTextIndentation = speech.speech.splitTextIndentation = mySplitTextIndentation
 		config.conf["documentFormatting"]["reportLineIndentation"] = 1
 		config.conf["documentFormatting"]["reportLineNumber"] = False
 	res = speech.speakTextInfo(
@@ -399,7 +399,7 @@ def mySpeakTextInfo(
 	)
 	if _addonConfigManager.toggleManageLineNumberAndIndentationAnnouncementOption(False) and (
 		unit == textInfos.UNIT_LINE):
-		speech.speech.splitTextIndentation = NVDASpeechSplitTextIndentation
+		speech.splitTextIndentation = speech.speech.splitTextIndentation = NVDASpeechSplitTextIndentation
 		config.conf["documentFormatting"]["reportLineIndentation"] = NVDAReportLineIndentationOption
 		config.conf["documentFormatting"]["reportLineNumber"] = NVDAReportLineNumberOption
 	return res

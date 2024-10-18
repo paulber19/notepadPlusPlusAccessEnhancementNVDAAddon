@@ -45,10 +45,8 @@ del sys.path[-1]
 
 
 addonHandler.initTranslation()
-_addonSummary = _curAddon.manifest['summary']
-_addonVersion = _curAddon.manifest['version']
-_addonName = _curAddon.manifest['name']
-_scriptCategory = _addonSummary
+
+_scriptCategory = _curAddon.manifest['summary']
 
 
 class MainWindow(NVDAObjects.IAccessible.IAccessible):

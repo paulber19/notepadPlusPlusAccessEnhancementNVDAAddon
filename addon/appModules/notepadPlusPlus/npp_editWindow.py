@@ -39,7 +39,7 @@ from npp_NVDAStrings import NVDAString
 from npp_addonConfigManager import _addonConfigManager
 from npp_informationDialog import InformationDialog
 from npp_utils import (
-	speakOnDemand, messageWithSpeakOnDemand, executeWithSpeakOnDemand,
+	speakOnDemand,
 )
 del sys.path[-1]
 
@@ -587,7 +587,6 @@ class NPPDocument (
 		gestures=("kb:windows+control+o",)
 	)
 	def script_goToFirstOverflowingCharacter(self, gesture):
-		print("goToFirstOverflowingCharacter")
 		info = self.makeTextInfo(textInfos.POSITION_CARET)
 		info.expand(textInfos.UNIT_LINE)
 		if len(info.text) > _addonConfigManager.getMaxLineLength():
@@ -600,9 +599,7 @@ class NPPDocument (
 	def _getStatusLineInfos(self):
 		info = self.parent.next.next.firstChild.getChild(2).name
 		info = info.replace(chr(0xa0), "")
-		print("info: %s" %info)
 		tempList = info.split("    ")
-		print("tempList: %s" %tempList)
 		d = {}
 		for item in tempList:
 			(name, value) = item.strip().split(" : ")
