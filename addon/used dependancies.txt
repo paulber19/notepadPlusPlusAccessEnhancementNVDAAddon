@@ -1,0 +1,8 @@
+The following dependencies are embedded in the extension:
+for markdown compilation:
+- python markdown 3.7:  Copyright 2007-2023 The Python Markdown Project (v. 1.7 and later). License: BSD.
+- html: lib include in Python 311
+- _markupbase: include in Python 311
+
+for txt2tag compilation:
+-txt2tags 2.5: Copyright 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 Aurelio Jargas,  Copyright 2018, 2019 Takuya Nishimoto

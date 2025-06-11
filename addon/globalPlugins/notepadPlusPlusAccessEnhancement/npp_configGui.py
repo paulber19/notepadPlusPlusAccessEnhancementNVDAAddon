@@ -1,6 +1,6 @@
 # globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright 2020-2023 paulber19
+# Copyright 2020-2025 paulber19
 # This file is covered by the GNU General Public License.
 
 # manage add-on configuration dialog
@@ -20,6 +20,7 @@ sys.path.append(sharedPath)
 from npp_addonConfigManager import _addonConfigManager
 from npp_addonConfigManager import indentReportModeLabels
 del sys.path[-1]
+
 addonHandler.initTranslation()
 
 
@@ -270,6 +271,8 @@ class NPPUpdatePanel(SettingsPanel):
 	def saveSettingChanges(self):
 		if self.autoCheckForUpdatesCheckBox.IsChecked() != _addonConfigManager .toggleAutoUpdateCheck(False):
 			_addonConfigManager .toggleAutoUpdateCheck(True)
+			from . updateHandler.update_check import setCheckForUpdate
+			setCheckForUpdate(_addonConfigManager.toggleAutoUpdateCheck(False))
 		if self.updateReleaseVersionsToDevVersionsCheckBox.IsChecked() != (
 			_addonConfigManager .toggleUpdateReleaseVersionsToDevVersions(False)):
 			_addonConfigManager .toggleUpdateReleaseVersionsToDevVersions(True)

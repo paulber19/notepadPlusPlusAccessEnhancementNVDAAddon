@@ -1,6 +1,6 @@
 # appModules\notepad++\npp_browseMode.py
 # A part of notepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2023 paulber19
+# Copyright (C) 2020-2025 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -25,6 +25,7 @@ sharedPath = os.path.join(_curAddon.path, "shared")
 sys.path.append(sharedPath)
 from npp_NVDAStrings import NVDAString
 del sys.path[-1]
+del sys.modules["npp_NVDAStrings"]
 
 addonHandler.initTranslation()
 

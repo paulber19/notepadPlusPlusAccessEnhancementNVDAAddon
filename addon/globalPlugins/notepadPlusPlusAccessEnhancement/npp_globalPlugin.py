@@ -1,6 +1,6 @@
 # globalPlugins\notepadPlusPlusAccessEnhancement\npp_globalPlugin.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2021 Paulber19
+# Copyright (C) 2020-2025 Paulber19
 # This file is covered by the GNU General Public License.
 
 
@@ -15,6 +15,7 @@ sharedPath = os.path.join(addon.path, "shared")
 sys.path.append(sharedPath)
 from npp_addonConfigManager import _addonConfigManager
 del sys.path[-1]
+
 addonHandler.initTranslation()
 
 
@@ -22,9 +23,10 @@ class NotepadPlusPlusGlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self, *args, **kwargs):
 		super(NotepadPlusPlusGlobalPlugin, self).__init__(*args, **kwargs)
 		self.installSettingsMenu()
+		from .updateHandler.update_check import setCheckForUpdate
+		setCheckForUpdate(_addonConfigManager.toggleAutoUpdateCheck(False))
 		from . updateHandler import autoUpdateCheck
-		if _addonConfigManager.toggleAutoUpdateCheck(False):
-			autoUpdateCheck(releaseToDev=_addonConfigManager.toggleUpdateReleaseVersionsToDevVersions(False))
+		autoUpdateCheck(releaseToDev=_addonConfigManager.toggleUpdateReleaseVersionsToDevVersions(False))
 
 	def installSettingsMenu(self):
 		self.preferencesMenu = gui.mainFrame.sysTrayIcon.preferencesMenu

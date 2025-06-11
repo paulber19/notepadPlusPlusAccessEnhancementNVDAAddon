@@ -1,6 +1,6 @@
 # appModules/notepad++\npp_editWindow.py
 # A part of the NotepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2024 paulber19
+# Copyright (C) 2020-2025 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -42,6 +42,9 @@ from npp_utils import (
 	speakOnDemand,
 )
 del sys.path[-1]
+del sys.modules["npp_NVDAStrings"]
+del sys.modules["npp_informationDialog"]
+del sys.modules["npp_utils"]
 
 addonHandler.initTranslation()
 
@@ -670,20 +673,20 @@ class NPPDocument (
 		gestures=("kb:windows+control+f8",)
 	)
 	def script_convertToHTMLDialog(self, gesture):
+		# Translators: open the dialog to interprets the edit window content as markdown
+		# or t2tToTags document and shows it in the internal or in the external (default) Browser
 		global _scriptTimer
 
 		if _scriptTimer is not None:
 			_scriptTimer.Stop()
 			_scriptTimer = None
 		document = self.makeTextInfo(textInfos.POSITION_ALL).text
+		obj = api.getForegroundObject()
+		documentPath = obj.documentPath
 		if scriptHandler.getLastScriptRepeatCount() == 0:
-			_scriptTimer = wx.CallLater(250, npp_convert.ConvertToHTMLDialog.run, document)
+			_scriptTimer = wx.CallLater(250, npp_convert.ConvertToHTMLDialog.run, document, documentPath)
 		else:
-			conv = npp_convert.ConvertToHTML(document)
-			wx.CallLater(100, conv.convertAndDisplay, )
-
-	# Translators: open the dialog to interprets the edit window content as markdown
-	# or t2tToTags document and shows it in the internal or in the external (default) Browser
+			wx.CallLater(100, npp_convert.ConvertToHTMLDialog.convertAndDisplay, document, documentPath)
 
 	def script_tabChange(self, gesture):
 
@@ -803,3 +806,20 @@ class NPPDocument (
 			info.expand(textInfos.UNIT_STORY)
 			lineID = err.lineNumber - 1
 			info.goToLine(lineID)
+
+	@script(
+		# Translators: Input help mode message for import With Python command.
+		description=makeDesc(PRE_Document, _("Open the folder of the file as a workpace")),
+		category=_scriptCategory,
+		gestures=("kb:windows+control+f9",)
+	)
+	def script_OpenFileFolderAsWorkSpace(self, gesture):
+		focus = api.getFocusObject()
+		prev = focus.simplePrevious
+		if "Selected Tab" not in prev.name:
+			return
+		obj = prev.simpleLastChild
+		if obj.childCount == 1:
+			obj.firstChild.setFocus()
+		else:
+			obj.firstChild.next.setFocus()

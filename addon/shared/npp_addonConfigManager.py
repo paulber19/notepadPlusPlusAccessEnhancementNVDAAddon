@@ -1,13 +1,12 @@
 # shared\npp_addonConfigManager.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright 2020-2022,paulber19
+# Copyright 2020-2025,paulber19
 # This file is covered by the GNU General Public License.
 
 from logHandler import log
 import addonHandler
 import os
 import wx
-import gui
 import globalVars
 import config
 from configobj import ConfigObj
@@ -88,6 +87,16 @@ _curAddon = addonHandler.getCodeAddon()
 _addonName = _curAddon.manifest["name"]
 
 
+def renameFile(file, dest):
+	try:
+		if os.path.exists(dest):
+			os.remove(dest)
+		os.rename(file, dest)
+		log.debug("current configuration file: %s renamed to : %s" % (file, dest))
+	except Exception:
+		log.error("current configuration file: %s  cannot be renamed to: %s" % (file, dest))
+
+
 class BaseAddonConfiguration(ConfigObj):
 	_version = ""
 	""" Add-on configuration file. It contains metadata about add-on . """
@@ -110,7 +119,7 @@ class BaseAddonConfiguration(ConfigObj):
 		self._errors = []
 		val = Validator()
 		result = self.validate(val, copy=True, preserve_errors=True)
-		if type(result) == dict:
+		if type(result) is dict:
 			self._errors = self.getValidateErrorsText(result)
 		else:
 			self._errors = None
@@ -258,6 +267,10 @@ class AddonConfiguration11(BaseAddonConfiguration):
 	), list_values=False, encoding="UTF-8")
 
 
+PREVIOUSCONFIGURATIONFILE_SUFFIX = ".prev"
+DELETECONFIGURATIONFILE_SUFFIX = ".delete"
+
+
 class AddonConfigurationManager():
 	_currentConfigVersion = "1.1"
 	_versionToConfiguration = {
@@ -271,21 +284,28 @@ class AddonConfigurationManager():
 		config.post_configSave.register(self._handlePostConfigSave)
 
 	def warnConfigurationReset(self):
+		from messages import alert
 		wx.CallLater(
 			100,
-			gui.messageBox,
+			alert,
 			# Translators: A message warning configuration reset.
 			_(
 				"The configuration file of the add-on contains errors. "
 				"The configuration has been  reset to factory defaults"),
 			# Translators: title of message box
 			"{addon} - {title}" .format(addon=_curAddon.manifest["summary"], title=_("Warning")),
-			wx.OK | wx.ICON_WARNING
 		)
 
 	def loadSettings(self):
-		addonConfigFile = os.path.join(
-			globalVars.appArgs.configPath, self.configFileName)
+		userConfig = globalVars.appArgs.configPath
+		self.addonConfigFile = addonConfigFile = os.path.join(userConfig, self.configFileName)
+		self.oldConfigFile = addonConfigFile + PREVIOUSCONFIGURATIONFILE_SUFFIX
+		# after add-on installation and and the user does not want to keep the configuration
+		# the configuration has been renamed with .delete extension
+		# if this file exists, it must be deleted
+		self.deleteConfigFile = self.addonConfigFile + DELETECONFIGURATIONFILE_SUFFIX
+		if os.path.exists(self.deleteConfigFile):
+			os.remove(self.deleteConfigFile)
 		doMerge = True
 		if os.path.exists(addonConfigFile):
 			# there is allready a config file
@@ -331,11 +351,10 @@ class AddonConfigurationManager():
 				self._versionToConfiguration[self._currentConfigVersion](None)
 			self.addonConfig.filename = addonConfigFile
 		# merge step
-		oldConfigFile = os.path.join(_curAddon.path, self.configFileName)
-		if os.path.exists(oldConfigFile):
+		if os.path.exists(self.oldConfigFile):
 			if doMerge:
-				self.mergeSettings(oldConfigFile)
-			os.remove(oldConfigFile)
+				self.mergeSettings(self.oldConfigFile)
+			os.remove(self.oldConfigFile)
 		if not os.path.exists(addonConfigFile):
 			self.saveSettings(True)
 
@@ -354,13 +373,38 @@ class AddonConfigurationManager():
 				if sect in oldConfig.sections and k in oldConfig[sect]:
 					self.addonConfig[sect][k] = oldConfig[sect][k]
 
-	def saveSettings(self, force=False):
-		# We never want to save config if runing securely
-		if globalVars.appArgs.secure:
-			return
+	def canConfigurationBeSaved(self, force):
+		# Never save config or state if running securely or if running from the launcher.
+		try:
+			# for NVDA version >= 2023.2
+			from NVDAState import shouldWriteToDisk
+			writeToDisk = shouldWriteToDisk()
+		except ImportError:
+			# for NVDA version < 2023.2
+			writeToDisk = not (globalVars.appArgs.secure or globalVars.appArgs.launcher)
+		if not writeToDisk:
+			log.debug("Not writing add-on configuration, either --secure or --launcher args present")
+			return False
+		# after add-on installation and and the user does not want to keep the configuration
+		# the configuration has been renamed with .delete extension
+		# if this file exists, configuration should not be saved
+		if os.path.exists(self.deleteConfigFile):
+			return False
+		# after an add-on removing, configuration is deleted
+			# so  don't save configuration if there is no nvda restart
+		if _curAddon.isPendingRemove:
+			return False
+		# We don't save the configuration, in case the user
+			# would not have checked the "Save configuration on exit
+			# " checkbox in General settings and force is False
 		if not force and not config.conf['general']['saveConfigurationOnExit']:
-			return
+			return False
+		return True
+
+	def saveSettings(self, force=False):
 		if self.addonConfig is None:
+			return
+		if not self.canConfigurationBeSaved(force):
 			return
 		val = Validator()
 		try:
@@ -371,7 +415,11 @@ class AddonConfigurationManager():
 			return
 		try:
 			self.addonConfig.write()
-			log.warning("add-on configuration saved")
+			log.warning("%s: configuration saved" % _addonName)
+			# if an installation took place, the configuration file was renamed.
+			# so you have to do the same thing after saving
+			if os.path.exists(self.oldConfigFile):
+				renameFile(self.addonConfigFile, self.oldConfigFile)
 		except Exception:
 			log.warning("Could not save configuration - probably read only file system")
 

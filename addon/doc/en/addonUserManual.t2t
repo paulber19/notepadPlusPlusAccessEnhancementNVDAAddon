@@ -15,7 +15,7 @@ Download:
 
 
 Compatibility:
-- minimum NVDA version  supported: MINIMUM_NVDA_VERSION
+- minimum NVDA version supported: MINIMUM_NVDA_VERSION
 - last NVDA version tested: LAST_TESTED_NVDA_VERSION
 
 
@@ -195,6 +195,17 @@ This supplement therefore makes it possible to make them silent.
 The option "Do not say backslashes in the path" in the "Document name" group of the category activates or deactivates this operation.
 
 
+++ Access to the Folder as a workpace ++
+In its "File" menu, Notepad ++ offers the "Open the directory of the current file" and in which we find the "folder as a workpace" submenu ".
+By activating this submenu, the cursor is move to a dialogue where a file tree is located.
+The add-on brings a script to get there faster.
+
+This script is described: "Document: Open the folder of the current file as a workpace".
+
+He launches using the "Key_FolderasWorkspace" command gesture.
+
+When the cursor is in this tree structure, the "F8" shortcut of Notepad ++ allows you to return to the edition area of the current document.
+
 + Complements for lines + [hdr_Line]
 ++ Finds lines ending with tab or space ++
 The add-on installs two scripts to move to lines ending in a space or a tab:
@@ -336,22 +347,32 @@ In the event of an import error, the cursor is positioned on the line concerned.
 
 + Additions for markdown or txt2tags files + [HDR_Markdown]
 ++ Preview ++
-The add-on offers the possibility of visualizing the HTML result of the compilation of the text of a simple document by Markdown or txt2tags.
+The extension offers the possibility of viewing the HTML result of compiling the text of a simple document using Markdown or txt2tags.
 
-This visualization can be displayed in a window in browse mode or in the default browser.
-
-To obtain this visualization, the "KEY_Compil" input gesture must be used.
-
-This displays a dialog in which we find:
-- choice of compiler: "Markdown" or "Txt2tags",
-- display or not in the browser.
+the generated document can be viewed with:
+- the default viewer of html documents (in principle a browser),
+- an NVDA window in navigation mode,
+- the default viewer of txt documents to see the source (in principle notepad).
 
 
-Pressing the "OK" button starts the compilation and display of the result.
+the "KEY_Compil" command gesture opens the "Document Preview" dialog.
 
-The selected choices are remembered until NVDA is shut down.
+This dialogue presents:
+- the choice of compiler: "Markdown" or "Txt2tags",
+- the choice of display,
+- the “Preview” button.
+- the “Cancel” button.
 
-A double press of the control gesture allows you to view the document directly without going through a dialogue using the last stored choices.
+
+Pressing the “Preview” button starts the compilation and display of the result.
+
+The selected choices are remembered until NVDA is stopped.
+
+Double-pressing the command gesture allows you to directly view the document without going through the dialog, using the last stored choices.
+
+To display, the add-on uses a temporary file. This file is placed in the folder where the document is located or the user configuration folder if this document is not yet saved. It is deleted one minute after being created.
+
+Except for viewing in an NVDA window in navigation mode, it is possible to set the default header of the add-on. This header uses the add-on's document style files. These are copied to the same location as the temporary file and deleted like the temporary file.
 
 ++ Browse mode (in experimentation) ++
 
@@ -421,7 +442,7 @@ Open the "keyboard shortcut manager" dialog and go to the "plugin commands" tab.
 Then check "Ctrl", "shift", "alt" and select the "spacebar" key from the list. confirm with "OK"
 Finally close the dialog.
 
-The add-on installs the "Activate or deactivate the reporting of spelling errors" script, without a input gesture, to indicate or not the errors when the cursor arrives on a line of text following an up or down arrow move.This script appears in the "Input Gestures" dialog under the  "Notepad++ Text Editor: Accessibility enhancements" category and a input gesture can be assigned to it.
+The add-on installs the "Activate or deactivate the reporting of spelling errors" script, without a input gesture, to indicate or not the errors when the cursor arrives on a line of text following an up or down arrow move.This script appears in the "Input Gestures" dialog under the "Notepad++ Text Editor: Accessibility enhancements" category and a input gesture can be assigned to it.
 
 If the sound is played, place the cursor at the beginning of the line and activate the "Find Next Misspelling" sub-menu to go to the first fault on the line and correct it.
 

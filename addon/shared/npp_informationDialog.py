@@ -18,6 +18,7 @@ sys.path.append(sharedPath)
 from npp_NVDAStrings import NVDAString
 from npp_utils import isOpened, makeAddonWindowTitle
 del sys.path[-1]
+
 addonHandler.initTranslation()
 
 

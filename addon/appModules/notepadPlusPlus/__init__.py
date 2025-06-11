@@ -1,7 +1,7 @@
 # coding :utf-8
 # appModules\notepad++\__init__.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2023 paulber19
+# Copyright (C) 2020-2025 paulber19
 # Released under GPL2
 
 
@@ -43,7 +43,6 @@ sys.path.append(sharedPath)
 from npp_addonConfigManager import _addonConfigManager, Mode_SayLevel, indentReportModeLabels
 del sys.path[-1]
 
-
 addonHandler.initTranslation()
 
 _scriptCategory = _curAddon.manifest['summary']
@@ -55,9 +54,20 @@ class MainWindow(NVDAObjects.IAccessible.IAccessible):
 
 	def _get_name(self):
 		name = super(MainWindow, self)._get_name()
+		self.originalName = name
 		# name is often too long so reduce filename path in name
 		name = npp_application.reducePath(name)
 		return name
+
+	def _get_documentPath(self):
+		self.name
+		if "\\" in self.name:
+			path = "\\".join(self.originalName.split("\\")[:-1])
+			# notepad++ mark with "*" a modified document
+			if path[0] == "*":
+				path = path[1:]
+			return path
+		return None
 
 	def event_foreground(self, ):
 		super(MainWindow, self).event_foreground()
@@ -65,7 +75,7 @@ class MainWindow(NVDAObjects.IAccessible.IAccessible):
 		self.appModule.mainWindow = self
 
 
-class ListItem (NVDAObjects.IAccessible.IAccessible):
+class ListItem (NVDAObjects.NVDAObject):
 	def _get_name(self):
 		name = super(ListItem, self)._get_name()
 		if hasattr(self, "reducedName") or name is None:
@@ -390,6 +400,17 @@ class AppModule(AppModule):
 		printDebug("appModule notepadPlusPlus: event_appModuleLoseFocus")
 		if _winInputHookKeyDownCallback is not None:
 			winInputHook.setCallbacks(keyDown=_winInputHookKeyDownCallback)
+
+	def script_focusFolderAsWorkSpace(self, gesture):
+		focus = api.getFocusObject()
+		prev = focus.simplePrevious
+		if "Selected Tab" not in prev.name:
+			return
+		obj = prev.simpleLastChild
+		if obj.childCount == 1:
+			obj.firstChild.setFocus()
+		else:
+			obj.firstChild.next.setFocus()
 
 	def script_test(self, gesture):
 		print("Notepad ++ test")

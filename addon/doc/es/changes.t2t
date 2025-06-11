@@ -10,13 +10,47 @@ URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
 Descarga:
 - [Versión estable actual: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Versión anterior: ADDON_PREV_VERSION ADDON_DOWNLOAD_PREVIOUS]
 - [Versiones de desarrollo ADDON_DEV_URL]
+
+
+
+
++ v2.8 (05/06/2025) +
+Compatibilidad con NVDA 2025.1.
+
+Las versiones de NVDA anteriores a 2024.1 ya no son soportadas.
+
+Nuevas características:
+- se ha añadido el script "windows+control+f9" para abrir la carpeta de archivo actual como espacio de trabajo.
+- en el diálogo "Vista previa de documento", es posible elegir con cuál visor el documento debe mostrarse:
+ - el Visor predeterminado de documentos html (en principio un navegador),
+ - una Ventana en modo Exploración de NVDA,
+- el Visor predeterminado de documentos txt para ver la fuente del documento generado (en principio el Bloc de notas).
+
+
+Corrección de fallos:
+- la búsqueda de actualización ya no se realiza cuando la opción "Buscar automáticamente actualizaciones" esta sin marcar justo después de iniciar NVDA.
+- el número de línea se anuncia correctamente para archivos que usan solo "\r" como final de línea.
+
+
+Desarrolladores:
+- procesar el documento actual con el compilador markdown y todas sus extensiones en lugar del compilador markdown2.
+- uso de "NVDAState.shouldWriteToDisk" para guardar o no la configuración en el disco.
+- el archivo temporal para mostrar los documentos "markdown" o "txt2tags" ahora se coloca en la misma carpeta donde está el documento. Si este documento es un nuevo documento no registrado, entonces se coloca en la carpeta de configuración del usuario. Si el encabezado predeterminado se usa para la visualización, los archivos de estilos se colocan en el mismo lugar que el archivo temporal.
+- al instalar el complemento, la configuración actual ya no se guarda en la carpeta del complemento pero ahora se guarda en la carpeta de configuración del usuario. Esto permite si una instalación sale mal de conservar de todos modos la configuración actual.
+
+
+Puesta en conformidad con la API de NVDA:
+- Uso del método "ExecAndPump" del módulo "systemUtils".
+- se toma en cuenta la obsolescencia de gui.messageBox y gui.message.messageBox, reemplazado por MessageDialog:
+ - MessageDialog ahora se usa para todas las versiones de NVDA superiores a 2025.1.
 
 
 + v2.7 (18/10/2024) +
 compatibilidad con NVDA 2024.2, 2024.3 y 2024.4.
 
-las versiones de NVDA anteriores a la 2023.1 ya no son soportadas. 
+las versiones de NVDA anteriores a la 2023.1 ya no son soportadas.
 
 + v2.6 (02/04/2024) +
 

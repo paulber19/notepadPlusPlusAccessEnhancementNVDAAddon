@@ -198,6 +198,18 @@ Este suplemento te permite por lo tanto que se vuelvan mudas.
 La opción "No verbalizar las barras inversas de la ruta del archivo" en el grupo de parámetros  "Nombre de los documentos" en la categoría "Opciones" habilita o deshabilita esta funcionalidad.
 
 
+++ Acceso a la carpeta como un espacio de trabajo ++
+En su menú "Archivo", Notepad++ ofrece el submenú "Abrir carpeta contenedora en" y en el que encontramos el submenú "Carpeta como espacio de trabajo".
+Al activar este submenú, el cursor es traído a un diálogo donde esta una vista en árbol de archivos.
+El complemento trae un script para llegar más rápido.
+La descripción de este script es: "Documento: Abrir la carpeta de archivo actual como espacio de trabajo".
+
+El se lanza mediante el gesto de entrada "KEY_FolderASWorkSpace".
+
+Cuando el cursor está en esta vista en árbol, el atajo "f8" de Notepad++ te permite regresar al campo de edición del documento actual.
+
+
+
 + Suplementos para las líneas +[hdr_Line]
 ++ Búsqueda de líneas que terminan con tabulación o espacio ++
 El complemento instala dos scripts para desplazarse a las líneas que terminan con un espacio o una tabulación:
@@ -344,20 +356,31 @@ En el caso de un error de importación, el cursor se coloca en la línea corresp
 ++ Vista previa ++
 El complemento ofrece la posibilidad de visualizar el resultado  HTML de la compilación del texto de un simple documento por Markdown o txt2tags.
 
-Esta visualización se puede mostrar en una ventana en Modo Exploración o en el navegador predeterminado.
+El documento generado se puede visualizar con:
+- el Visor predeterminado de documentos html (en principio un navegador),
+- una Ventana en modo Exploración de NVDA,
+- el Visor predeterminado de documentos txt para ver la fuente del documento generado (en principio el Bloc de notas).
 
-Para obtener esta visualización, el gesto de entrada "KEY_Compil" debe ser usado.
 
-Esto muestra un diálogo en el que se encuentra:
+El gesto de entrada "KEY_Compil" abre el diálogo"Vista previa de documento".
+
+Este diálogo presenta:
 - la elección del compilador: "Markdown" o "Txt2tags",
-- la visualización o no en el navegador.
+- la elección del visor,
+- el botón "Vista previa".
+- el botón "Cancelar".
 
 
-Una pulsación en el botón "Aceptar" inicia la compilación y la visualización del resultado.
+Una pulsación en el botón "Vista previa" inicia la compilación y la visualización del resultado.
 
 Las opciones seleccionadas se almacenan hasta que se cierre NVDA.
 
 Una doble pulsación del gesto de entrada hace posible visualizar el documento directamente sin pasar por el cuadro de diálogo utilizando las últimas opciones memorizadas.
+
+Para visualizar, el complemento usa un archivo temporal. Este archivo se coloca en la carpeta donde se encuentra el documento o la carpeta de configuración del usuario si este documento aún no se guarda. Se borra un minuto después de ser creado.
+
+Salvo para la visualización en una Ventana en modo Exploración de NVDA, es posible colocar el encabezado predeterminado del complemento. Este encabezado utiliza el estilo de archivos de estilo de los documentos del complemento. Estos se copian en el mismo lugar que el archivo temporal y borrado como el archivo temporal.
+
 
 ++ Modo Exploración (en experimentación) ++
 

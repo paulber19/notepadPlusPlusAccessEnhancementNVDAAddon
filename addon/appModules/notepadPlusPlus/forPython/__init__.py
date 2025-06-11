@@ -1,6 +1,6 @@
 # appModules\notepad++\forPython\__init__.py
 # A part of the notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2023 paulber19
+# Copyright (C) 2020-2025 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -154,7 +154,8 @@ def GetLineAndColumnNumber():
 		return
 	start.setEndPoint(end, "endToStart")
 	text = start.text
-	line = len(text.split("\r"))
+	lines = text.splitlines()
+	line = len(lines) + 1
 	start = end  # Caret position
 	start.expand(textInfos.UNIT_LINE)
 	end = obj.makeTextInfo(textInfos.POSITION_CARET)

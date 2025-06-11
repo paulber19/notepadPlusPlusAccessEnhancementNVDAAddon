@@ -11,18 +11,61 @@ URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
 Download:
 - [Current stable version: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Previous stable Version: ADDON_PREV_VERSION ADDON_DOWNLOAD_PREVIOUS]
 - [Development's versions ADDON_DEV_URL]
 
 
 Sorry, but this document is an automatic translation from french language.
 
-+ v2.7 (October/18/2024) +
+
++ v2.8 (June/05/2025) +
+Compatibility with NVDA 2025.1.
+
+NVDA versions earlier than 2024.1 are no longer supported.
+
+
+What's new:
+- Addition of the "Windows+Control+F9" script to open the folder of the current file as a workpace.
+- in the "Document preview" dialog, it is possible to choose with which display the document should be viewed:
+ - the default viewer of html documents (in principle a browser)
+ - an NVDA window in navigation mode,
+ - the default viewer for txt documents to see the source of the generated document.
+
+
+Bug fixes:
+- the update search is no longer done when the "Automatically search for updates" option is unchecked just after starting NVDA.
+- The line number is properly announced for files using only "\ r" as the end of the line.
+
+
+Development :
+- process the current document with the markdown compiler and all its extensions instead of the markdown2 compiler.
+- use of the "ExecAndPump" method of the "systemUtils" module.
+- use of "NVDAState.shouldWriteToDisk" to save or not save the configuration to disk.
+- the temporary file for viewing "markdown" or "txt2tags" documents is now placed in the same folder where the document is located. If this document is a new, unsaved document, then it is placed in the user configuration folder. If the default header is used for viewing, the style files are placed in the same location as the temporary file.
+
+
+Compliance with the NVDA API:
+- Use of the "ExecandPump" method of the "Systemutils" module.
+- Take into account the obsolescence of Gui.messagebox and Gui.message.messagebox, replaced by messagedialog:
+ - Messagedialog is now used for all NVDA versions greater than 2025.1.
+
+
++ v2.7 (November/28/2024) +
 Compatibilité with NVDA 2024.2, NVDA 2024.3 and NVDA 2024.4.
 
 NVDA versions prior to version 2023.1 are no longer supported.
+What's new:
+- in the "Document preview" dialog, it is possible to see the generated HTML source.
+
+
+Development :
+- process the current document with the markdown compiler and all its extensions instead of the markdown2 compiler.
+- use of the "ExecAndPump" method of the "systemUtils" module.
+- use of "NVDAState.shouldWriteToDisk" to save or not save the configuration to disk.
+- the temporary file for viewing "markdown" or "txt2tags" documents is now placed in the same folder where the document is located. If this document is a new, unsaved document, then it is placed in the user configuration folder. If the default header is used for viewing, the style files are placed in the same location as the temporary file.
+
 
 + v2.6 (April/02/2024) +
-
 What's new:
 - Compatibility with NVDA 2024.1 and dropping support for NVDA versions prior to 2023.1.
 - taking into account the "Speech on demand" mode introduced in nvda 2024.1: all scripts announcing information will vocalize this information. In this mode, all other scripts will remain silent.

@@ -16,6 +16,7 @@ sharedPath = os.path.join(_curAddon.path, "shared")
 sys.path.append(sharedPath)
 from npp_addonConfigManager import _addonConfigManager
 del sys.path[-1]
+
 addonHandler.initTranslation()
 
 

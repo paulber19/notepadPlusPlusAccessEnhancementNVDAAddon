@@ -1,6 +1,6 @@
 # appModules\notepad++\npp_quickNav.py
 # A part of the notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2022 paulber19
+# Copyright (C) 2020-2025 paulber19
 # This file is covered by the GNU General Public License.
 
 
@@ -16,6 +16,7 @@ sharedPath = os.path.join(_curAddon.path, "shared")
 sys.path.append(sharedPath)
 from npp_addonConfigManager import _addonConfigManager
 del sys.path[-1]
+
 addonHandler.initTranslation()
 
 

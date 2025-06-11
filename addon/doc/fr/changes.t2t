@@ -10,7 +10,41 @@ URL: [ADDON_REPOSITORY ADDON_REPOSITORY]
 
 Téléchargement:
 - [Version stable actuelle: ADDON_CUR_VERSION ADDON_DOWNLOAD_SERVER1]
+- [Version stable précédente : ADDON_PREV_VERSION ADDON_DOWNLOAD_PREVIOUS]
 - [versions de développement ADDON_DEV_URL]
+
+
+
+
++ v2.8 (05/06/2025) +
+Compatibilité avec NVDA 2025.1.
+
+Les versions de NVDA antérieures à la version 2024.1 ne sont plus prises en charge.
+
+Nouveautés:
+- ajout du script "windows+control+f9" pour ouvrir le dossier du fichier courant en tant qu'espace de travail.
+- dans le dialogue "Prévisualisation du document", il est possible de choisir avec quel afficheur le document doit être visualiser:
+ - l'afficheur par défaut des documents html (en principe un navigateur)
+ - une fenêtre NVDA en mode navigation,
+ - l'afficheur par défaut des documents txt pour voir le source du document généré.
+
+
+Correction de bogues :
+- la recherche de mise à jour ne se fait plus lorsque l'option "Rechercher automatiquement les mises à jour " est décochée juste après le démarrage de NVDA.
+- le numéro de ligne est correctement annoncée pour les fichiers utilisant seulement "\r" comme fin de ligne.
+
+
+Développement :
+- traiter le document courant avec le compilateur markdown et toutes ses extensions en lieu et place du compilateur markdown2.
+- utilisation de "NVDAState.shouldWriteToDisk" pour enregistrer ou ne pas enregistrer la configuration sur le disque.
+- le fichier temporaire pour visualiser les documents "markdown" ou "txt2tags" est maintenant placé dans le même dossier où se trouve le document. Si ce document est un nouveau document non enregistré , il est alors placé dans le dossier de la configuration utilisateur. Si l'en-tête par défaut est utilisé pour la visualisation, les fichiers de styles sont placés au même endroit que le fichier temporaire.
+- lors de l'installation de l'extension, la configuration courante n'est plus sauvegardée dans le dossier de l'extension mais est maintenant sauvegardée dans le dossier de la configuration utilisateur. Cela permet si une installation se passe mal de conserver quand même la configuration courante.
+
+
+Mise en conformité avec l'API de NVDA :
+- utilisation de la méthode "ExecAndPump" du module "systemUtils ".
+- prise en compte de l'obsolescence de gui.messageBox et gui.message.messageBox, remplacés par MessageDialog:
+ - MessageDialog est maintenant utilisé pour toutes les versions de NVDA supérieures à 2025.1.
 
 
 + v2.7 (18/10/2024) +
@@ -41,9 +75,9 @@ Compatibilité:
 
 
 Correction de bogues:
-- quand une longue ligne contient des caractères accentués, le déplacement vers le premier caractère qui est après la longueur maximale  est maintenant correct.
+- quand une longue ligne contient des caractères accentués, le déplacement vers le premier caractère qui est après la longueur maximale est maintenant correct.
 - la signalisation d'une ligne longue est maintenant correcte lors de déplacement du curseur par flèche droite ou gauche autour de la limite maximale.
-- suppression du double bip sonore  lors d'du déplacement au premier caractère qui est après la longueur de ligne maximale.
+- suppression du double bip sonore lors d'du déplacement au premier caractère qui est après la longueur de ligne maximale.
 
 
 Divers:
@@ -63,7 +97,7 @@ Nouveautés:
 + v2.3 (27/09/2022) +
 - correction de l'impossibilité d'afficher l'historique de l'extension à l'aide du bouton "Voir l'historique".
 - correction de mauvais déplacements de méthodes en méthodes ou de class en class.
-- une ligne identifiant une méthode ou class est maintenant  seulement identifier par "def " ou "class " respectivement.
+- une ligne identifiant une méthode ou class est maintenant seulement identifier par "def " ou "class " respectivement.
 - compatibilité avec notepad++ 8.3 64 bits.
 
 

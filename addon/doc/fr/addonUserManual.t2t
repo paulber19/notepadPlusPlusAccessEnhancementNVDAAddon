@@ -73,7 +73,7 @@ Et elle apporte les compléments suivants:
 
 
 ++ Compatibilité ++
-Cette extension a été testé avec Notepad++ version 8.4 et 8.5.6,  32 et 64 bits.
+Cette extension a été testé avec Notepad++ version 8.4 et 8.5.6, 32 et 64 bits.
 
 ++ Précisions ++
 Cette extension utilise et intercepte les raccourcis de Notepad++ configuré par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de ne pas modifier ces raccourcis.
@@ -196,6 +196,18 @@ Il peut sembler pénible d'entendre toutes les barres obliques inversées du che
 Ce complément permet donc de les rendre muettes.
 
 L'option "Ne pas dire les barres obliques inversées du chemin" du groupe "Nom des documents" de la catégorie active ou désactive ce fonctionnement.
+
+
+
+++ Accès au dossier en tant qu'espace de travail ++
+Dans son menu "Fichier", Notepad++ propose le sous-menu "Ouvrir le répertoire du fichier en cours" et dans lequel nous trouvons le sous-menu "Dossier en tant qu'espace de travail".
+En activant ce sous-menu, le curseur est amené dans un dialogue où se trouve une arborescence de fichiers.
+L'extension apporte un script pour y arriver plus rapidement.
+Ce script a pour description: "Document: Ouvrir le dossier du fichier courant en tant qu'espace de travail".
+
+Il se lance à l'aide du geste de commande "KEY_FolderASWorkSpace".
+
+Quand le curseur est dans cette arborescence, le raccourci "f8" de Notepad++ permet de revenir dans la zone d'édition du document courant.
 
 
 + Compléments pour les lignes +[hdr_Line]
@@ -345,20 +357,31 @@ Dans le cas d'une erreur d'importation, le curseur est positionné sur la ligne 
 ++ Prévisualisation ++
 L'extension offre la possibilité de visualiser le résultat HTML de la compilation du texte d'un simple document par Markdown ou txt2tags.
 
-Cette visualisation peut être affichée dans une fenêtre en mode navigation ou dans le navigateur par défaut.
+Le document généré peut être visualiser avec :
+- l'afficheur par défaut des documents html (en principe un navigateur),
+- une fenêtre NVDA en mode navigation,
+- l'afficheur par défaut des documents txt pour voir le source (en principe le bloc-note).
 
-Pour obtenir cette visualisation, le geste de commande "KEY_Compil" doit être utilisé.
 
-Celui-ci affiche un dialogue dans lequel on trouve:
+Le geste de commande "KEY_Compil" ouvre le dialogue "Prévisualisation du document".
+
+Ce dialogue présente :
 - le choix du compilateur: "Markdown" ou "Txt2tags",
-- l'affichage ou non dans le navigateur.
+- le choix de l'afficheur,
+- le bouton "Prévisualiser".
+- le bouton "Annuler".
 
 
-L'appui sur le bouton "OK" lance la compilation et l'affichage du résultat.
+L'appui sur le bouton "Prévisualiser" lance la compilation et l'affichage du résultat.
 
 Les choix sélectionnés sont mémorisés jusqu'à l'arrêt de NVDA.
 
 Un double appui du geste de commande permet de visualiser directement le document sans passer par le dialogue en utilisant les derniers choix mémorisés.
+
+Pour visualiser, l'extension utilise un fichier temporaire. Ce fichier est placé dans le dossier où se trouve le document ou le dossier de la configuration utilisateur si ce document n'est pas encore enregistré. Il est effacé une minute après avoir été créé.
+
+Sauf pour la visualisation dans une fenêtre NVDA en mode navigation, il est possible de mettre l'en-tête par défaut de l'extension. Cette en-tête utilise les fichiers de style des documents de l'extension. Ceux-ci sont copiés au même endroit que le fichier temporaire et effacés comme le fichier temporaire.
+
 
 ++ Mode navigation (en expérimentation) ++
 
@@ -396,22 +419,22 @@ Pour la communauté française:
 - Le tutoriel de notre ami Rémy ([voir ici https://blindhelp.github.io/DSpellCheck/]).
 
 
-Une fois installé,  le sous-menu "DSpellCheck"  apparait sous le menu "Modules d'extension" de la barre de menu de Notepad++.
+Une fois installé, le sous-menu "DSpellCheck" apparait sous le menu "Modules d'extension" de la barre de menu de Notepad++.
 
 La détection automatique des fautes d'orthographes s'active ou désactive à l'aide du sous-menu "Spell Check Document Automatically".
 
-Les sous-menus "Find Next Misspelling" et "Find previous Misspelling"    permettent d'aller sélectionner la prochaine ou précédente fautes respectivement.
+Les sous-menus "Find Next Misspelling" et "Find previous Misspelling" permettent d'aller sélectionner la prochaine ou précédente fautes respectivement.
 
 Le menu contextuel permet alors de la corriger.
 
 Les fautes sont marquées en rouge dans le texte, mais NVDA ne signale pas les couleurs dans Notepad++.
 
-Ce complément tente de  les signaler par un son lors de déplacement ligne par ligne.
+Ce complément tente de les signaler par un son lors de déplacement ligne par ligne.
 
 Attention, c'est une fonctionnalité totalement expérimentale et n'est pas complètement opérationnelle à ce jour.
 Elle peut ne pas marcher dans certain cas, comme par exemple avec les fichiers avec l'extension "t2t" et qu'il faut changer en "txt" pour que DSpellCheck trouve les fautes.
 
-Pour le complément, le problème essentiel avec   DSpellCheck, c'est  comment récupérer les fautes d'orthographe qu'il a détectées afin de savoir s'il y en a une sur la ligne  sous le curseur.
+Pour le complément, le problème essentiel avec DSpellCheck, c'est comment récupérer les fautes d'orthographe qu'il a détectées afin de savoir s'il y en a une sur la ligne sous le curseur.
 
 En l'absence d'API connu, la seule solution possible est d'utiliser le presse-papier et de demander à DSpellCheck d'y copier toutes les fautes trouvées.
 
@@ -419,7 +442,7 @@ Le sous-menu "Copy All Misspelled Words to Clipboard" de DSpellCheck le permet.
 
 Ce sous-menu doit être activé par le complément à chaque changement de ligne par flèche haut ou bas. Pour des documents importants et avec un grand nombre de fautes, cela peut induire un délai qui peut être gênant.
 
-Pour activer ce sous-menu, le complément utilise le raccourci  "contrôle+shift+alt+espace".
+Pour activer ce sous-menu, le complément utilise le raccourci "contrôle+shift+alt+espace".
 
 Mais ce raccourci n'est pas défini par défaut et il faut le configurer dans Notepad++ pour que le complément marche.
 
@@ -428,12 +451,12 @@ Ouvrir le dialogue " gestionnaire de raccourcis clavier" et aller dans l'onglet 
 Puis cocher "Ctrl", "shift", "Alt" et sélectionner dans la liste la touche "spacebar". Valider par "OK"
 Enfin fermer le dialogue.
 
-Le complément installe le script "Activer ou désactiver le signalement des fautes d'orthographe ", sans geste de commande,  pour  signaler ou non les fautes quand le curseur arrive sur une ligne de texte suite à un déplacement par flèche haut ou bas. Ce script apparaît dans le dialogue "Gestes de commande" sous la catégorie "Éditeur de texte Notepad++: compléments d'accessibilité " et un geste de commande peut lui être assigné.
+Le complément installe le script "Activer ou désactiver le signalement des fautes d'orthographe ", sans geste de commande, pour signaler ou non les fautes quand le curseur arrive sur une ligne de texte suite à un déplacement par flèche haut ou bas. Ce script apparaît dans le dialogue "Gestes de commande" sous la catégorie "Éditeur de texte Notepad++: compléments d'accessibilité " et un geste de commande peut lui être assigné.
 
 Si le son est joué, placer le curseur au début de la ligne et activer le sous-menu "Find Next Misspelling" pour aller à la première faute sur la ligne et la corriger.
 
 + Complément pour le dialogue Documents +
-Ce dialogue s'affiche lorsque le raccourci "Alt+d" suivi de "d" est tapé, ce qui conrespond au menu "Documents" et à son sous-menu "Documents...".
+Ce dialogue s'affiche lorsque le raccourci "Alt+d" suivi de "d" est tapé, ce qui correspond au menu "Documents" et à son sous-menu "Documents...".
 
 Il présente la liste des documents ouverts.
 
@@ -444,7 +467,7 @@ Pour chaque fichier, le nom du fichier est suivi de trois informations: son chem
 Le chemin sera annoncé sous une forme plus réduite suivant l'option "Réduire le chemin", c'est à dire en n'annonçant pas tous les niveaux de la hiérarchie des dossiers (Voir le chapitre "Arrangement du chemin").
 
 Par exemple, le chemin:
-	"F:\documents\temp\nvda 2023.1 beta\userConfig\addons\notepadPlusPlusAccessEnhancement\doc\fr\" sera annoncer comme ceci en  gardant les 3 derniers niveaux:
+	"F:\documents\temp\nvda 2023.1 beta\userConfig\addons\notepadPlusPlusAccessEnhancement\doc\fr\" sera annoncer comme ceci en gardant les 3 derniers niveaux:
 "F:\...\notepadPlusPlusAccessEnhancement\doc\fr\"
 
 Le nombre de niveaux à conserver est configurable (voir le chapitre "Arrangement du chemin")
