@@ -105,7 +105,10 @@ class DocumentListItem (NVDAObjects.IAccessible.IAccessible):
 		name = super(DocumentListItem, self)._get_name()
 		if name and chr(0x21f5) in name:
 			name = name.replace("%s " % chr(0x21f5), "")
-		path = self.firstChild.next.name
+		try:
+			path = self.firstChild.next.name
+		except Exception:
+			return name
 		tempList = path.split("\\")
 		reducedPath = "\\".join(npp_application._reducePath(tempList))
 		name = name.replace(path, reducedPath)
@@ -400,17 +403,6 @@ class AppModule(AppModule):
 		printDebug("appModule notepadPlusPlus: event_appModuleLoseFocus")
 		if _winInputHookKeyDownCallback is not None:
 			winInputHook.setCallbacks(keyDown=_winInputHookKeyDownCallback)
-
-	def script_focusFolderAsWorkSpace(self, gesture):
-		focus = api.getFocusObject()
-		prev = focus.simplePrevious
-		if "Selected Tab" not in prev.name:
-			return
-		obj = prev.simpleLastChild
-		if obj.childCount == 1:
-			obj.firstChild.setFocus()
-		else:
-			obj.firstChild.next.setFocus()
 
 	def script_test(self, gesture):
 		print("Notepad ++ test")

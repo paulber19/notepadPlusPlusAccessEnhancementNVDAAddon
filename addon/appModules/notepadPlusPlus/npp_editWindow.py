@@ -180,7 +180,11 @@ class NPPDocument (
 
 	def event_gainFocus(self):
 		forPython.setLevelMark(self)
-		super(NPPDocument, self).event_gainFocus()
+		# when npp is closed, an error ocurs: permission error
+		try:
+			super(NPPDocument, self).event_gainFocus()
+		except Exception:
+			return
 		# Hack: finding the edit field from the foreground window is unreliable.
 		# If we previously cached an object, this will clean it up, allowing it to be garbage collected.
 		self.appModule.edit = None
@@ -809,7 +813,7 @@ class NPPDocument (
 
 	@script(
 		# Translators: Input help mode message for import With Python command.
-		description=makeDesc(PRE_Document, _("Open the folder of the file as a workpace")),
+		description=makeDesc(PRE_Document, _("Open the folder of the file as a workspace")),
 		category=_scriptCategory,
 		gestures=("kb:windows+control+f9",)
 	)

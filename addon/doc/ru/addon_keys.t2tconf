@@ -4,7 +4,7 @@
 %!PostProc (html): KEY_ReportLineIndentation windows+alt+F6
 %!PostProc (html): KEY_Compare windows+control+F2
 %!PostProc (html):  KEY_Compil windows+control+F8
-%!PostProc (html):  KEY_FolderAsWorkSpace windows+control+F9
+%!PostProc (html):  KEY_FolderASWorkSpace windows+control+F9
 % python
 %!PostProc (html): KEY_NextClass alt+f9
 %!PostProc (html): KEY_PreviousClass alt+f8

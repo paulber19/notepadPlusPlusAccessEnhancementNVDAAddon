@@ -199,12 +199,12 @@ La opción "No verbalizar las barras inversas de la ruta del archivo" en el grup
 
 
 ++ Acceso a la carpeta como un espacio de trabajo ++
-En su menú "Archivo", Notepad++ ofrece el submenú "Abrir carpeta contenedora en" y en el que encontramos el submenú "Carpeta como espacio de trabajo".
-Al activar este submenú, el cursor es traído a un diálogo donde esta una vista en árbol de archivos.
+En su menú "Archivo", Notepad++ ofrece el submenú "Abrir carpeta contenedora en" o el submenú "Abrir carpeta como espacio de trabajo" y en el que encontramos el submenú "Carpeta como espacio de trabajo".
+Activando uno u otro de estos submenús, el cursor es traído a un diálogo donde esta una vista en árbol de archivos.
 El complemento trae un script para llegar más rápido.
 La descripción de este script es: "Documento: Abrir la carpeta de archivo actual como espacio de trabajo".
 
-El se lanza mediante el gesto de entrada "KEY_FolderASWorkSpace".
+El se lanza mediante el gesto de entrada "KEY_FolderAsWorkSpace".
 
 Cuando el cursor está en esta vista en árbol, el atajo "f8" de Notepad++ te permite regresar al campo de edición del documento actual.
 

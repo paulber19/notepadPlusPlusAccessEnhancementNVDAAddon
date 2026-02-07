@@ -195,18 +195,21 @@ This supplement therefore makes it possible to make them silent.
 The option "Do not say backslashes in the path" in the "Document name" group of the category activates or deactivates this operation.
 
 
-++ Access to the Folder as a workpace ++
-In its "File" menu, Notepad ++ offers the "Open the directory of the current file" and in which we find the "folder as a workpace" submenu ".
-By activating this submenu, the cursor is move to a dialogue where a file tree is located.
+++ Access to the Folder as a workspace ++
+
+In its "File" menu, Notepad ++ offers the "Open Folder as Workspace" submenu  or "Folder as Workspace " in "Open Containing Folder " sub-menu.
+
+By activating one of thes sub-menus, the cursor is move to a dialogue where a file tree is located.
+
 The add-on brings a script to get there faster.
 
-This script is described: "Document: Open the folder of the current file as a workpace".
+This script is described: "Document: Open the folder of the current file as a workspace".
 
-He launches using the "Key_FolderasWorkspace" command gesture.
+He launches using the "KEY_FolderAsWorkSpace" input gesture.
 
 When the cursor is in this tree structure, the "F8" shortcut of Notepad ++ allows you to return to the edition area of the current document.
 
-+ Complements for lines + [hdr_Line]
++ Complements for lines +[hdr_Line]
 ++ Finds lines ending with tab or space ++
 The add-on installs two scripts to move to lines ending in a space or a tab:
 - "KEY_FindNextTabEnding" to go to the next line.

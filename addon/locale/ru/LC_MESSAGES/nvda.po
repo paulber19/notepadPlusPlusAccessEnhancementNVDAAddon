@@ -1,0 +1,1413 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NotepadPlusPlusAccessEnhancement\n"
+"POT-Creation-Date: 2025-06-12 09:59+0300\n"
+"PO-Revision-Date: 2025-06-12 10:09+0300\n"
+"Last-Translator: nvda.ru\n"
+"Language-Team: nvda.ru\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: appModules\n"
+"X-Poedit-SearchPath-1: globalPlugins\n"
+"X-Poedit-SearchPath-2: installTasks.py\n"
+"X-Poedit-SearchPath-3: shared\n"
+"X-Poedit-SearchPath-4: utilities\n"
+"X-Poedit-SearchPath-5: buildVars.py\n"
+
+#: appModules/notepadPlusPlus/__init__.py:252
+msgid "Toggle line number and indentation's announcement management by add-on"
+msgstr ""
+"Переключение управления номером строки и отступом объявления с помощью "
+"дополнения"
+
+#: appModules/notepadPlusPlus/__init__.py:257
+msgid "Line number and indentation's announcement by add-on"
+msgstr "Объявление номера строки и отступов с помощью дополнения"
+
+#: appModules/notepadPlusPlus/__init__.py:260
+msgid "Line number and indentation's announcement by NVDA"
+msgstr "Объявление номера строки и отступа NVDA"
+
+#: appModules/notepadPlusPlus/__init__.py:279
+#: appModules/notepadPlusPlus/npp_editWindow.py:711
+msgid "clipboard is empty"
+msgstr "буфер обмена пуст"
+
+#: appModules/notepadPlusPlus/__init__.py:283
+#: appModules/notepadPlusPlus/npp_editWindow.py:635
+#: appModules/notepadPlusPlus/npp_editWindow.py:641
+#: appModules/notepadPlusPlus/npp_editWindow.py:715
+msgid "no selection"
+msgstr "нет выбора"
+
+#: appModules/notepadPlusPlus/__init__.py:324
+msgid "Toggle line indentation reporting"
+msgstr "Переключение объявления об отступах строк"
+
+#: appModules/notepadPlusPlus/__init__.py:331
+#: appModules/notepadPlusPlus/__init__.py:347
+#: appModules/notepadPlusPlus/__init__.py:367
+msgid ""
+"Impossible, the number and the indentation of the lines are not announced by "
+"the extension"
+msgstr "Невозможно, номер и отступ строк не объявляются расширением"
+
+#: appModules/notepadPlusPlus/__init__.py:340
+msgid "Choose line indentation announcement's format"
+msgstr "Выберите формат объявления отступа строки"
+
+#: appModules/notepadPlusPlus/__init__.py:354
+#, python-format
+msgid "The increment is %s spaces"
+msgstr "Увеличение составляет %s пробелов"
+
+#: appModules/notepadPlusPlus/__init__.py:356
+#, python-format
+msgid "The increment is %s Tab"
+msgstr "Увеличение составляет %s Табуляции"
+
+#: appModules/notepadPlusPlus/__init__.py:360
+msgid "Activate/desactivate the line number's announcement"
+msgstr "Включение/отключение объявления номера строк"
+
+#: appModules/notepadPlusPlus/__init__.py:372
+msgid "Say line number"
+msgstr "Произносить номер строки"
+
+#: appModules/notepadPlusPlus/__init__.py:375
+msgid "Don't say line number"
+msgstr "Не произносить номер строки"
+
+#: appModules/notepadPlusPlus/__init__.py:379
+msgid "Toggle report spelling errors option"
+msgstr "Переключатель опции отчета об орфографических ошибках"
+
+#: appModules/notepadPlusPlus/__init__.py:385
+msgid "Report spelling errors"
+msgstr "Сообщать об орфографических ошибках"
+
+#: appModules/notepadPlusPlus/__init__.py:388
+msgid "Don't report spelling errors"
+msgstr "Не сообщать об орфографических ошибках"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:34
+msgid "Unknow level"
+msgstr "Неизвестный уровень"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:35
+msgid "Level"
+msgstr "Уровень"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:237
+msgid "Higher level"
+msgstr "Высокий уровень"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:239
+msgid "Lower level"
+msgstr "Нижний уровень"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:250
+msgid "No indent"
+msgstr "Без отступа"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:263
+msgid "Attention, mixture of spaces and tab"
+msgstr "Внимание, сочетание пробелов и табуляции"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:304
+#: appModules/notepadPlusPlus/npp_editWindow.py:85
+msgid "Start of line"
+msgstr "Начало строки"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:308
+#: appModules/notepadPlusPlus/forPython/__init__.py:313
+#, python-format
+msgid "column %s"
+msgstr "столбец %s"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:316
+msgid "After"
+msgstr "После"
+
+#: appModules/notepadPlusPlus/forPython/__init__.py:329
+msgid "Line cannot be reported"
+msgstr "Строка не может быть сообщена"
+
+#: appModules/notepadPlusPlus/forPython/python.py:53
+msgid "No other class"
+msgstr "Нет другого класса"
+
+#: appModules/notepadPlusPlus/forPython/python.py:54
+msgid "No other method"
+msgstr "Никакого другого метода"
+
+#: appModules/notepadPlusPlus/forPython/python.py:55
+msgid "No other class or method"
+msgstr "Никакого другого класса или метода"
+
+#: appModules/notepadPlusPlus/forPython/python.py:97
+msgid "No more long line"
+msgstr "Больше нет длинной строки"
+
+#: appModules/notepadPlusPlus/forPython/python.py:122
+msgid "No more line with only tab or space"
+msgstr "Больше нет строк с табуляцией или пробелом"
+
+#: appModules/notepadPlusPlus/forPython/python.py:149
+msgid "No more line ending with tab or space"
+msgstr "Больше не нужно заканчивать строку табуляцией или пробелом"
+
+#: appModules/notepadPlusPlus/npp_application.py:79
+#, python-brace-format
+msgid "Documents {index} on {total}"
+msgstr "Документы {index} в {total}"
+
+#: appModules/notepadPlusPlus/npp_browseMode.py:37
+msgid "block quote"
+msgstr "цитата"
+
+#: appModules/notepadPlusPlus/npp_browseMode.py:85
+msgid "Extended browse mode for Notepad++"
+msgstr "Расширенный режим просмотра в Notepad++"
+
+#: appModules/notepadPlusPlus/npp_browseMode.py:139
+#: appModules/notepadPlusPlus/npp_editWindow.py:568
+msgid "Go to next line that is exceeds the maximum line length"
+msgstr "Переход к следующей строке, превышающей максимальную длину строки"
+
+#: appModules/notepadPlusPlus/npp_browseMode.py:141
+msgid "no next long line"
+msgstr "нет следующей длинной линии"
+
+#: appModules/notepadPlusPlus/npp_browseMode.py:143
+#: appModules/notepadPlusPlus/npp_editWindow.py:578
+msgid "Go to previous line that is exceeds the maximum line length"
+msgstr "Переход к предыдущей строке, превышающей максимальную длину строки"
+
+#: appModules/notepadPlusPlus/npp_browseMode.py:145
+msgid "no previous long line"
+msgstr "нет предыдущей длинной линии"
+
+#: appModules/notepadPlusPlus/npp_convert.py:173
+msgid "Preview of MarkDown document"
+msgstr "Предварительный просмотр документа MarkDown"
+
+#: appModules/notepadPlusPlus/npp_convert.py:249
+msgid ""
+"It seems the document is a t2t document. Do you want to continue to treate "
+"as markdown ?"
+msgstr ""
+"Похоже, что документ является документом t2t. Хотите ли вы продолжить работу "
+"в формате markdown?"
+
+#: appModules/notepadPlusPlus/npp_convert.py:251
+#: appModules/notepadPlusPlus/npp_convert.py:345
+#: appModules/notepadPlusPlus/npp_convert.py:364
+#, python-format
+msgid "%s - warning"
+msgstr "%s - предупреждение"
+
+#: appModules/notepadPlusPlus/npp_convert.py:258
+#: appModules/notepadPlusPlus/npp_convert.py:349
+msgid "please wait"
+msgstr "пожалуйста подождите"
+
+#: appModules/notepadPlusPlus/npp_convert.py:278
+msgid "Preview of txt2tags  document"
+msgstr "Предварительный просмотр документа txt2tags"
+
+#: appModules/notepadPlusPlus/npp_convert.py:343
+#, python-format
+msgid "The target(%s) is not HTML"
+msgstr "Объект(%s) не является HTML"
+
+#: appModules/notepadPlusPlus/npp_convert.py:362
+msgid "Cannot compile text with txt2tags"
+msgstr "Невозможно скомпилировать текст с помощью txt2tags"
+
+#: appModules/notepadPlusPlus/npp_convert.py:439
+msgid "Preview the document"
+msgstr "Предварительный просмотр документа"
+
+#: appModules/notepadPlusPlus/npp_convert.py:460
+msgid "&Treate with:"
+msgstr "&Обработайте с:"
+
+#: appModules/notepadPlusPlus/npp_convert.py:472
+msgid "&Display with:"
+msgstr "&Показать с помощью:"
+
+#: appModules/notepadPlusPlus/npp_convert.py:475
+msgid "Default html documents viewer"
+msgstr "Стандартный просмотрщик HTML-документов"
+
+#: appModules/notepadPlusPlus/npp_convert.py:477
+msgid "Browsable window"
+msgstr "Окно просмотра"
+
+#: appModules/notepadPlusPlus/npp_convert.py:479
+msgid "Default txt document viewer"
+msgstr "Стандартный просмотрщик текстовых документов"
+
+#: appModules/notepadPlusPlus/npp_convert.py:493
+msgid "&Use of default HTML header"
+msgstr "&Использовать HTML-заголовок по умолчанию"
+
+#: appModules/notepadPlusPlus/npp_convert.py:496
+msgid "&Preview"
+msgstr "&Предварительный просмотр"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:296
+msgid "Move to previous line with only tab or space"
+msgstr "Переход на предыдущую строку только с помощью табуляции или пробела"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:306
+msgid "Move to next line with only tab or space"
+msgstr ""
+"Переход на следующую строку с использованием только табуляции или пробела"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:316
+msgid "Move to next line ending with tab or space character"
+msgstr ""
+"Переход к следующей строке, заканчивающейся символом табуляции или пробела"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:326
+msgid "Move to previous line ending with tab or space character"
+msgstr ""
+"Переход к предыдущей строке, заканчивающуюся символом табуляции или пробела"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:336
+msgid "Move to next python class"
+msgstr "Переход к следующему классу python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:346
+msgid "Move to previous python class"
+msgstr "Переход к предыдущему классу python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:356
+msgid "Move to next python method"
+msgstr "Переход к следующему методу python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:366
+msgid "Move to previous python method"
+msgstr "Переход к предыдущему методу python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:376
+msgid "Move to next python class or method"
+msgstr "Переход к следующему классу или методу python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:386
+msgid "Move to previous python class or method"
+msgstr "Переход к предыдущему классу или методу python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:422
+msgid "Delete indentation"
+msgstr "Удалить отступы"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:430
+#, python-brace-format
+msgid "Set the indentation to level {level} ({level} tabs)"
+msgstr "Установите отступ на уровень {level} ({level} табуляции)"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:434
+msgid "Set the indentation to level 1(1 tab)"
+msgstr "Установите отступ на уровень 1 (1 табуляция)"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:538
+msgid "No more bookmark"
+msgstr "Закладок больше нет"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:554
+msgid "Toggle long line indicator"
+msgstr "Переключение индикатора длинной строки"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:561
+msgid "Report  Long lines"
+msgstr "Сообщать о Длинных строках"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:564
+msgid "Don't report long lines"
+msgstr "Не сообщать о Длинных строках"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:588
+msgid "Moves to the first character that is after the maximum line length"
+msgstr ""
+"Перемещается к первому символу, который находится после максимальной длины "
+"строки"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:615
+msgid ""
+"Report current caret position. Twice: report number of selected characters"
+msgstr ""
+"Сообщить текущее положение каретки. Дважды: сообщить количество выбранных "
+"символов"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:630
+#, python-brace-format
+msgid "line {0}, column {1}"
+msgstr "строка {0}, столбец {1}"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:644
+#, python-format
+msgid "%s characters selectionned"
+msgstr "%s символов выделено"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:644
+msgid "one character selected"
+msgstr "выбран один символ"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:645
+#, python-format
+msgid "%s lines"
+msgstr "%s строк"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:645
+msgid "one line"
+msgstr "одна строка"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:647
+#, python-brace-format
+msgid "{0} selected on {1}"
+msgstr "{0} выбран на {1}"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:661
+msgid "No more search results in this direction"
+msgstr "Больше нет результатов поиска в этом направлении"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:668
+msgid ""
+"Open the dialog to Treat the edit window content as MarkDown or txt2tags "
+"document and display it as webpage in the internal or external default "
+"browserTwice: treate with last selected parameters."
+msgstr ""
+"Открыть диалог Обработать содержимое окна редактирования как документ "
+"MarkDown или txt2tags и отобразить его как веб-страницу во внутреннем или "
+"внешнем браузере по умолчаниюДва раза: обработать с последними выбранными "
+"параметрами."
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:703
+msgid "Compare selected text to text in clipboard"
+msgstr "Сравнить выделенный текст с текстом в буфере обмена"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:755
+msgid "Differences between selected text and text in clipboard"
+msgstr "Различия между выделенным текстом и текстом в буфере обмена"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:792
+msgid "Import document's text as a Python module"
+msgstr "Импортировать текст документа как модуль Python"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:802
+msgid "python code imported without error"
+msgstr "код python импортируется без ошибок"
+
+#: appModules/notepadPlusPlus/npp_editWindow.py:812
+msgid "Open the folder of the file as a workpace"
+msgstr "Открыть папку с файлом в качестве рабочей области."
+
+#: appModules/notepadPlusPlus/npp_quickNav.py:137
+msgid "Unable to determine document type: markdown or txt2tags"
+msgstr "Невозможно определить тип документа: markdown или txt2tags"
+
+#: appModules/notepadPlusPlus/npp_scriptDesc.py:10
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:132
+msgid "Line"
+msgstr "Строка"
+
+#: appModules/notepadPlusPlus/npp_scriptDesc.py:11
+msgid "Document"
+msgstr "Документ"
+
+#: appModules/notepadPlusPlus/npp_scriptDesc.py:12
+msgid "Python"
+msgstr "Питон"
+
+#: appModules/notepadPlusPlus/npp_scriptDesc.py:13
+msgid "Markdown"
+msgstr "Markdown"
+
+#: buildVars.py:22
+msgid "Notepad++ text's editor : accessibility enhancement"
+msgstr "Текстовый редактор Notepad++: улучшение доступности"
+
+#: buildVars.py:26
+msgid ""
+"\n"
+"1- Features #\n"
+"\n"
+"This extension aims to improve the accessibility of the Notepad++ text "
+"editor and add functionalities to facilitate the editing of files used in "
+"Python language and files written in markdown language.\n"
+"\n"
+"It includes most of the additions made by NVDA_notepadPlusPlus add-on "
+"created by Derek Riemer and Tuukka Ojala, then modified by Robert Hanggi and "
+"Andre9642 <https://github.com/derekriemer/nvda-notepadPlusPlus>.\n"
+"\n"
+"To know:\n"
+"\n"
+"* vocalization of the result of the \"control + b\" command which allows you "
+"to move to the symmetric delimiter,\n"
+"* vocalization of the movement to the next or previous bookmark with \"F2\" "
+"or \"capital letter + f2\",\n"
+"* reporting of lines that are too long,\n"
+"* accessibility to autocomplete,\n"
+"* accessibility to incremental search,\n"
+"* Support for previous / next search function.\n"
+"\n"
+"\n"
+"For Python files, it provides:\n"
+"\n"
+"* move to the next class or method,\n"
+"* importing the code from the editing window.\n"
+"\n"
+"\n"
+"For Markdown or txt2tags files:\n"
+"\n"
+"* preview of the result of the conversion to HTML in the virtual buffer of "
+"NVDA or in the default browser,\n"
+"* added browse mode commands for title, link, blocquote.\n"
+"\n"
+"\n"
+"\n"
+"And finally:\n"
+"\n"
+"* Announcement of the number and indentation of each line,\n"
+"* scripts to set the indentation,\n"
+"* Focus movement displacement by \"home\" key,\n"
+"* Comparison of the selected text with that of the clipboard,\n"
+"* go to the next line ending with at least one tab or one space,\n"
+"* format of the announcement of the name of the documents:\n"
+"\t* reduced file path announcement,\n"
+"\t* announcement of the name of the file before its path,\n"
+"\t* no diction of path's backslashs.\n"
+"\n"
+"\n"
+"2- Compatibility\n"
+"This extension has been tested with Notepad++ version 8.4.2.\n"
+"\n"
+"\n"
+"3- Constraints\n"
+"This extension uses and intercepts the shortcuts of Notepad++ configured by "
+"default. It is therefore strongly advised, for its proper functioning, not "
+"to modify these shortcuts.\n"
+msgstr ""
+"\n"
+"1- Особенности #\n"
+"\n"
+"Это дополнение направлено на улучшение доступности текстового редактора "
+"Notepad++ и добавление функций, облегчающих редактирование файлов, "
+"используемых в языке Python, и файлов, написанных на языке Markdown.\n"
+"\n"
+"Оно включает в себя большинство дополнений, сделанных в дополнении "
+"NVDA_notepadPlusPlus, созданном Дереком Римером и Тууккой Оялой, а затем "
+"модифицированном Робертом Хангги и Andre9642 <https://github.com/derekriemer/"
+"nvda-notepadPlusPlus>.\n"
+"\n"
+"Что нужно знать:\n"
+"\n"
+"* озвучивание результата команды «control + b», которая позволяет перейти к "
+"симметричному разделителю,\n"
+"* озвучивание перехода к следующей или предыдущей закладке с помощью «F2» "
+"или «заглавная буква + f2»,\n"
+"* сообщение о слишком длинных строках,\n"
+"* доступность автозаполнения,\n"
+"* доступность инкрементального поиска,\n"
+"* поддержка функции предыдущего/следующего поиска.\n"
+"\n"
+"\n"
+"Для файлов Python он предоставляет:\n"
+"\n"
+"* переход к следующему классу или методу,\n"
+"* импорт кода из окна редактирования.\n"
+"\n"
+"\n"
+"Для файлов Markdown или txt2tags:\n"
+"\n"
+"* предварительный просмотр результата преобразования в HTML в виртуальном "
+"буфере NVDA или в браузере по умолчанию,\n"
+"* добавлены команды режима просмотра для заголовка, ссылки, блочного "
+"цитаты.\n"
+"\n"
+"\n"
+"\n"
+"И, наконец:\n"
+"\n"
+"* объявление номера и отступа каждой строки,\n"
+"* скрипты для установки отступа,\n"
+"* смещение фокуса с помощью клавиши «home»,\n"
+"* сравнение выделенного текста с текстом в буфере обмена,\n"
+"* переход к следующей строке, заканчивающейся как минимум одним табулятором "
+"или одним пробелом,\n"
+"* формат объявления имени документов:\n"
+"* сокращенное объявление пути к файлу,\n"
+"* объявление имени файла перед его путем,\n"
+"* отсутствие произношения обратных косых черт в пути.\n"
+"\n"
+"\n"
+"2- Совместимость\n"
+"Это расширение было протестировано с Notepad++ версии 8.4.2.\n"
+"\n"
+"\n"
+"3- Ограничения\n"
+"Это дополнение использует и перехватывает горячие клавиши Notepad++, "
+"настроенные по умолчанию. Поэтому для его правильной работы настоятельно "
+"рекомендуется не изменять эти горячие клавиши.\n"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:29
+msgid "General"
+msgstr "Общее"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:34
+msgid "Show autocomplete &suggestions in braille"
+msgstr "&Показывать предложения автозаполнения шрифтом Брайля"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:39
+msgid "Documents's name"
+msgstr "Название документа"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:45
+msgid "&Say file name before path"
+msgstr "&Укажите имя файла перед путем"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:49
+msgid "Say the path &going up the folder tree"
+msgstr "&Произнести путь, ведущий вверх по дереву папок"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:53
+msgid "&Reduce path"
+msgstr "& Сократить путь"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:57
+msgid "&Don't say backslash of path"
+msgstr "&Не указывайте обратную косую черту в пути"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:61
+msgid "Reduced path announcement"
+msgstr "Объявление сокращенного пути"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:67
+msgid "&Previous hierarchical levels to keep"
+msgstr "&Предыдущие иерархические уровни для сохранения"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:72
+msgid "Reversed file path announcement"
+msgstr "Объявление обратного пути к файлу"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:78
+msgid "Do not say the &hierarchical levels"
+msgstr "&Не произносить иерархические уровни"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:84
+msgid "Documents dialog"
+msgstr "Диалог документов"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:91
+msgid "&Select elements of the document that should be spoken with its name:"
+msgstr "&Выделить элементы документа, которые должны быть озвучены его именем:"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:137
+msgid "&Let NVDA announce the line number and indentations"
+msgstr "&Пусть NVDA сообщает номер строки и отступы"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:145
+msgid "&Report line number"
+msgstr "&Сообщать номер строки"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:149
+msgid "Line indentation"
+msgstr "Отступ в строке"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:155
+msgid "Report line &indentation"
+msgstr "&Сообщать отступ в строке"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:160
+msgid "St&yle:"
+msgstr "&Стиль:"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:169
+msgid "Long line"
+msgstr "Длинная строка"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:175
+msgid "Rep&ort long lines"
+msgstr "&Сообщать длинную строку"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:179
+msgid "&Minimum line length:"
+msgstr "&Минимальная длина строки:"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:227
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:99
+msgid "Update"
+msgstr "Обновление"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:232
+msgid "Automatically check for &update"
+msgstr "&Автоматическая проверка обновлений"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:236
+msgid "Update also release versions to &developpement versions"
+msgstr "Обновлять также до &разрабатываемых версий"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:242
+msgid "&Check for update"
+msgstr "Проверить &обновление"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:247
+msgid "View &history"
+msgstr "&Просмотр истории"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:288
+#: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:301
+msgid "Settings"
+msgstr "Настройки"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:102
+#, python-brace-format
+msgid "Downloading {name}"
+msgstr "загрузка {name}"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:117
+#, python-brace-format
+msgid "Error downloading update for {name}."
+msgstr "Ошибка загрузки обновления для  {name}."
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:171
+#, python-brace-format
+msgid "Cannot update {name} - missing file or invalid file format"
+msgstr "Невозможно обновить {name} - отсутствует файл или недопустимый формат"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:188
+msgid "Updating"
+msgstr "Обновление"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:190
+msgid "Please wait while the add-on is being updated."
+msgstr "Пожалуйста, подождите, пока обновляется дополнение."
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:212
+#, python-brace-format
+msgid "Failed to update {name} add-on"
+msgstr "не удалось обновить {name} дополнения"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:256
+#, python-brace-format
+msgid "{summary} - update"
+msgstr "{summary} - обновление"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:269
+msgid "The service is temporarily under maintenance. Please, try again later."
+msgstr "Сервис временно на обслуживании. Пожалуйста, попробуйте позже."
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:297
+#, python-brace-format
+msgid ""
+"The update is not compatible with this version of NVDA. Minimum NVDA "
+"version: {minYear}.{minMajor}, last tested: {testedYear}.{testedMajor}."
+msgstr ""
+"Обновление несовместимо с этой версией NVDA. Минимальная версия NVDA: "
+"{minYear}.{minMajor}, последнее тестируемая: {testedYear}.{testedMajor}."
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:357
+#, python-format
+msgid "New version%s is available. Do you want to download it now?"
+msgstr "Доступна новая версия%s. Вы хотите загрузить его прямо сейчас?"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:361
+#, python-brace-format
+msgid ""
+"New version{0} is available.\n"
+"But it is not compatible with this version of NVDA: minimum version requred "
+"= {1}, last version tested  = {2}.\n"
+"Do you want to ignore this incompatibility and still download it now?"
+msgstr ""
+"Доступна новая версия{0}.\n"
+"Но она несовместима с этой версией NVDA: минимальная требуемая версия = {1}, "
+"последняя протестированная версия = {2}.\n"
+"Вы хотите проигнорировать эту несовместимость и все равно загрузить ее "
+"сейчас?"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:382
+#, python-format
+msgid "You are up-to-date. %s is the latest version."
+msgstr "Обновление не требуется. %s это самая последняя версия."
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:389
+msgid "Oops! There was a problem checking for updates. Please retry later"
+msgstr ""
+"Ой!! Произошла проблема проверки обновлений. Пожалуйста, повторите попытку "
+"позже"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:544
+msgid "&Yes"
+msgstr "&Да"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:549
+msgid "&No"
+msgstr "&Нет"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:554
+msgid "&Later"
+msgstr "&Позже"
+
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:558
+msgid "Wha&t's new"
+msgstr "&Что нового"
+
+#: installTasks.py:42
+msgid "Do you want to keep current add-on configuration settings ?"
+msgstr "Вы хотите сохранить настройки дополнения?"
+
+#: installTasks.py:44 installTasks.py:49
+#, python-format
+msgid "%s - installation"
+msgstr "%s - установка"
+
+#: installTasks.py:47
+msgid ""
+"Are you sure you don't want to keep the current add-on configuration "
+"settings?"
+msgstr ""
+"Вы уверены, что не хотите сохранить текущие настройки конфигурации "
+"дополнения?"
+
+#: shared/npp_addonConfigManager.py:53
+msgid "Say indent"
+msgstr "Говорить отступ"
+
+#: shared/npp_addonConfigManager.py:55
+msgid "Say indent changes"
+msgstr "Говорить изменения отступа"
+
+#: shared/npp_addonConfigManager.py:57
+msgid "Say level"
+msgstr "Говорить уровень"
+
+#: shared/npp_addonConfigManager.py:59
+msgid "Say level changes"
+msgstr "Говорить изменения уровня"
+
+#: shared/npp_addonConfigManager.py:61
+msgid "Say nothing"
+msgstr "Ничего не говорить"
+
+#: shared/npp_addonConfigManager.py:78
+msgid "Path"
+msgstr "Путь"
+
+#: shared/npp_addonConfigManager.py:80
+msgid "Type"
+msgstr "Тип"
+
+#: shared/npp_addonConfigManager.py:82
+msgid "Size"
+msgstr "Размер"
+
+#: shared/npp_addonConfigManager.py:293
+msgid ""
+"The configuration file of the add-on contains errors. The configuration has "
+"been  reset to factory defaults"
+msgstr ""
+"Конфигурационный файл дополнения содержит ошибки. Конфигурация была сброшена "
+"к заводским настройкам "
+
+#: shared/npp_addonConfigManager.py:296
+msgid "Warning"
+msgstr "Предупреждение"
+
+#: shared/npp_informationDialog.py:40
+msgid "Informations"
+msgstr "Информация"
+
+#: shared/npp_informationDialog.py:59
+msgid "Co&py to Clipboard"
+msgstr "С&копировать в буфер обмена"
+
+#: shared/npp_informationDialog.py:77
+msgid "Copied"
+msgstr "Скопированно"
+
+#: shared/npp_informationDialog.py:83
+msgid "Error, the information cannot be copied to the clipboard"
+msgstr "Ошибка, информация не может быть скопирована в буфер обмена"
+
+#: shared/npp_utils.py:35
+#, python-format
+msgid "%s dialog is allready open"
+msgstr "Диалог %s уже открыт"
+
+#: shared/npp_utils.py:44
+#, python-brace-format
+msgid "{addonSummary}'s add-on - {dialogTitle}"
+msgstr "'{addonSummary} дополнение - {dialogTitle}"
+
+#: utilities/txt2tags.py:166
+msgid "HTML page"
+msgstr "HTML-страница"
+
+#: utilities/txt2tags.py:167
+msgid "XHTML page"
+msgstr "Страница XHTML"
+
+#: utilities/txt2tags.py:168
+msgid "SGML document"
+msgstr "Документ SGML"
+
+#: utilities/txt2tags.py:169
+msgid "LaTeX document"
+msgstr "Документ LaTeX"
+
+#: utilities/txt2tags.py:170
+msgid "Lout document"
+msgstr "Документ \"Lout"
+
+#: utilities/txt2tags.py:171
+msgid "UNIX Manual page"
+msgstr "Страница руководства по UNIX"
+
+#: utilities/txt2tags.py:172
+msgid "MagicPoint presentation"
+msgstr "Презентация MagicPoint"
+
+#: utilities/txt2tags.py:173
+msgid "Wikipedia page"
+msgstr "Страница в Википедии"
+
+#: utilities/txt2tags.py:174
+msgid "Google Wiki page"
+msgstr "Вики-страница Google"
+
+#: utilities/txt2tags.py:175
+msgid "DokuWiki page"
+msgstr "Страница DokuWiki"
+
+#: utilities/txt2tags.py:176
+msgid "MoinMoin page"
+msgstr "Страница MoinMoin"
+
+#: utilities/txt2tags.py:177
+msgid "PageMaker document"
+msgstr "Документ PageMaker"
+
+#: utilities/txt2tags.py:178
+msgid "Plain Text"
+msgstr "Обычный текст"
+
+#: utilities/txt2tags.py:208
+#, python-format
+msgid "%s version %s <%s>"
+msgstr "%s версия %s <%s>"
+
+#: utilities/txt2tags.py:212
+#, python-format
+msgid "Usage: %s [OPTIONS] [infile.t2t ...]"
+msgstr "Использование: %s [ПАРАМЕТРЫ] [файл.t2t ...]"
+
+#: utilities/txt2tags.py:214
+msgid "  -t, --target=TYPE   set target document type. currently supported:"
+msgstr ""
+"  -t, --target=ТИП задайте тип целевого документа. в настоящее время "
+"поддерживается:"
+
+#: utilities/txt2tags.py:217
+msgid "  -i, --infile=FILE   set FILE as the input file name ('-' for STDIN)"
+msgstr ""
+"  -i, --infile=FILE установить ФАЙЛ в качестве имени входного файла ('-' для "
+"STDIN)"
+
+#: utilities/txt2tags.py:218
+msgid "  -o, --outfile=FILE  set FILE as the output file name ('-' for STDOUT)"
+msgstr ""
+"  -o, --outfile=FILE установить ФАЙЛ в качестве имени выходного файла ('-' "
+"для STDOUT)"
+
+#: utilities/txt2tags.py:219
+msgid "  -H, --no-headers    suppress header, title and footer contents"
+msgstr ""
+"  -H, --no-headers подавляет содержимое заголовков, титулов и колонтитулов"
+
+#: utilities/txt2tags.py:220
+msgid ""
+"      --headers       show header, title and footer contents (default ON)"
+msgstr ""
+"      --headers показать содержимое заголовка, названия и нижнего "
+"колонтитула (по умолчанию включено)"
+
+#: utilities/txt2tags.py:221
+msgid "      --encoding=ENC  set target file encoding (utf-8, iso-8859-1, etc)"
+msgstr ""
+"      --encoding=ENC установить целевую кодировку файла (utf-8, iso-8859-1 и "
+"т.д.)"
+
+#: utilities/txt2tags.py:222
+msgid "      --style=FILE    use FILE as the document style (like HTML CSS)"
+msgstr ""
+"      --style=FILE используйте ФАЙЛ в качестве стиля документа (например, "
+"HTML CSS)"
+
+#: utilities/txt2tags.py:223
+msgid ""
+"      --css-sugar     insert CSS-friendly tags for HTML and XHTML targets"
+msgstr ""
+"      --css-sugar вставлять CSS-дружественные теги для целей HTML и XHTML"
+
+#: utilities/txt2tags.py:224
+msgid ""
+"      --css-inside    insert CSS file contents inside HTML/XHTML headers"
+msgstr ""
+"      --css-inside вставить содержимое файла CSS в заголовки HTML/XHTML"
+
+#: utilities/txt2tags.py:225
+msgid ""
+"      --mask-email    hide email from spam robots. x@y.z turns <x (a) y z>"
+msgstr ""
+"      --mask-email скрыть почту от спам-роботов. x@y.z turns <x (a) y z>."
+
+#: utilities/txt2tags.py:226
+msgid "      --toc           add TOC (Table of Contents) to target document"
+msgstr "      --toc добавить TOC (оглавление) в целевой документ"
+
+#: utilities/txt2tags.py:227
+msgid "      --toc-only      print document TOC and exit"
+msgstr "      --toc-only печать TOC документа и выход"
+
+#: utilities/txt2tags.py:228
+msgid "      --toc-level=N   set maximum TOC level (depth) to N"
+msgstr "      --toc-level=N установить максимальный уровень (глубину) ТОС на N"
+
+#: utilities/txt2tags.py:229
+msgid "  -n, --enum-title    enumerate all titles as 1, 1.1, 1.1.1, etc"
+msgstr "  -n, --enum-title перечислить все названия как 1, 1.1, 1.1.1 и т.д."
+
+#: utilities/txt2tags.py:230
+msgid "  -C, --config-file=F read config from file F"
+msgstr "  -C, --config-file=F чтение конфигурации из файла F"
+
+#: utilities/txt2tags.py:231
+msgid "      --rc            read user config file ~/.txt2tagsrc (default ON)"
+msgstr ""
+"      --rc читать пользовательский файл конфигурации ~/.txt2tagsrc (по "
+"умолчанию включенN)"
+
+#: utilities/txt2tags.py:232
+msgid "      --gui           invoke Graphical Tk Interface"
+msgstr "      --gui вызвать графический интерфейс Tk"
+
+#: utilities/txt2tags.py:233
+msgid "  -q, --quiet         quiet mode, suppress all output (except errors)"
+msgstr "  -q, --quiet тихий режим, подавление всего вывода (кроме ошибок)"
+
+#: utilities/txt2tags.py:234
+msgid "  -v, --verbose       print informative messages during conversion"
+msgstr "  -v, --verbose печать информативных сообщений во время преобразования"
+
+#: utilities/txt2tags.py:235
+msgid "  -h, --help          print this help information and exit"
+msgstr "  -h, --help вывести эту справочную информацию и выйти"
+
+#: utilities/txt2tags.py:236
+msgid "  -V, --version       print program version and exit"
+msgstr "  -V, --version вывести версию программы и выйти"
+
+#: utilities/txt2tags.py:237
+msgid "      --dump-config   print all the config found and exit"
+msgstr "      --dump-config вывести все найденные конфигурации и выйти"
+
+#: utilities/txt2tags.py:238
+msgid "      --dump-source   print the document source, with includes expanded"
+msgstr ""
+"      --dump-source вывести источник документа, с расширенными включениями"
+
+#: utilities/txt2tags.py:240
+msgid "Turn OFF options:"
+msgstr "Отключите опции:"
+
+#: utilities/txt2tags.py:246
+#, python-format
+msgid ""
+"Example:\n"
+"     %s -t html --toc myfile.t2t"
+msgstr ""
+"Пример:\n"
+"     %s -t html --toc myfile.t2t"
+
+#: utilities/txt2tags.py:248
+msgid "By default, converted output is saved to 'infile.<target>'."
+msgstr "По умолчанию, преобразованный вывод сохраняется в 'infile.<target>'."
+
+#: utilities/txt2tags.py:249
+msgid "Use --outfile to force an output file name."
+msgstr ""
+"Используйте --outfile для принудительного указания имени выходного файла."
+
+#: utilities/txt2tags.py:250
+msgid "If  input file is '-', reads from STDIN."
+msgstr "Если входной файл имеет значение '-', чтение происходит из STDIN."
+
+#: utilities/txt2tags.py:251
+msgid "If output file is '-', dumps output to STDOUT."
+msgstr "Если выходной файл имеет значение '-', вывод сбрасывается в STDOUT."
+
+#: utilities/txt2tags.py:1569
+#, python-format
+msgid "%s: Error: "
+msgstr "%s: Ошибка: "
+
+#: utilities/txt2tags.py:1579
+msgid "Sorry! Txt2tags aborted by an unknown error."
+msgstr "Извините! Txt2tags прерван из-за неизвестной ошибки."
+
+#: utilities/txt2tags.py:1580
+msgid "Please send the following Error Traceback to the author"
+msgstr "Пожалуйста, отправьте автору следующее сообщение об ошибке"
+
+#: utilities/txt2tags.py:1607
+msgid "You must feed me with data on STDIN!"
+msgstr "Вы должны предоставить мне данные о STDIN!"
+
+#: utilities/txt2tags.py:1615
+msgid "Cannot read file:"
+msgstr "Не удается прочитать файл:"
+
+#: utilities/txt2tags.py:1618
+#, python-format
+msgid "File read (%d lines): %s"
+msgstr "Прочитан файл (%d строк): %s"
+
+#: utilities/txt2tags.py:1622
+msgid "Cannot open file for writing:"
+msgstr "Невозможно открыть файл для записи:"
+
+#: utilities/txt2tags.py:1757
+#, python-format
+msgid "%s (try --help)"
+msgstr "%s (попробуйте --help)"
+
+#: utilities/txt2tags.py:1935
+msgid "Loading source document"
+msgstr "Загрузка исходного документа"
+
+#: utilities/txt2tags.py:1943
+#, python-format
+msgid "The input file is empty: %s"
+msgstr "Входной файл пуст: %s"
+
+#: utilities/txt2tags.py:1980
+#, python-format
+msgid "Areas found: %s"
+msgstr "Найдено областей: %s"
+
+#: utilities/txt2tags.py:1985
+msgid "Scanning source document CONF area"
+msgstr "Сканирование исходного документа Область CONF"
+
+#: utilities/txt2tags.py:2138
+#, python-format
+msgid "Added config %s : %s"
+msgstr "Добавлена конфигурация %s : %s"
+
+#: utilities/txt2tags.py:2169
+msgid "No target specified (try --help)"
+msgstr "Не указана цель (попробуйте --help)"
+
+#: utilities/txt2tags.py:2171
+msgid "Maybe trying to convert an old v1.x file?"
+msgstr "Может быть, пытаетесь конвертировать старый файл версии 1.x?"
+
+#: utilities/txt2tags.py:2174 utilities/txt2tags.py:4973
+msgid "Missing input file (try --help)"
+msgstr "Отсутствует входной файл (попробуйте --help)"
+
+#: utilities/txt2tags.py:2177
+#, python-format
+msgid "Invalid target '%s' (try --help)"
+msgstr "'Недопустимая цель %s' (попытка --help)"
+
+#: utilities/txt2tags.py:2186
+#, python-format
+msgid "--%s value must be a number"
+msgstr "--%s значение должно быть числом"
+
+#: utilities/txt2tags.py:2190
+msgid "Option --split must be 0, 1 or 2"
+msgstr "Параметр --split должен быть равен 0, 1 или 2"
+
+#: utilities/txt2tags.py:2207
+#, python-format
+msgid "Input and Output files are the same: %s"
+msgstr "Входной и выходной файлы одинаковы: %s"
+
+#: utilities/txt2tags.py:2216
+#, python-format
+msgid "Added the following keys: %s"
+msgstr "Добавлены следующие ключи: %s"
+
+#: utilities/txt2tags.py:2273
+#, python-format
+msgid "Invalid CONFIG line on %s"
+msgstr "Недопустимая строка КОНФИГУРАЦИИ в %s"
+
+#: utilities/txt2tags.py:2299
+#, python-format
+msgid "Processing line %03d: %s"
+msgstr "Обработка строки %03d: %s"
+
+#: utilities/txt2tags.py:2303 utilities/txt2tags.py:4260
+msgid "A file cannot include itself (loop!)"
+msgstr "Файл не может включать сам себя (цикл!)"
+
+#: utilities/txt2tags.py:2309
+#, python-format
+msgid "Finished Config file inclusion: %s"
+msgstr "Завершено включение файла конфигурации: %s"
+
+#: utilities/txt2tags.py:2313
+#, python-format
+msgid "Added %s"
+msgstr "Добавлено %s"
+
+#: utilities/txt2tags.py:3326 utilities/txt2tags.py:3338
+msgid "ON"
+msgstr "ВКЛ"
+
+#: utilities/txt2tags.py:3326
+msgid "OFF"
+msgstr "отключен"
+
+#: utilities/txt2tags.py:3328
+msgid "RC file"
+msgstr "RC-файл"
+
+#: utilities/txt2tags.py:3329
+msgid "source document"
+msgstr "исходный документ"
+
+#: utilities/txt2tags.py:3330
+msgid "command line"
+msgstr "командная строка"
+
+#: utilities/txt2tags.py:3334
+#, python-format
+msgid "RAW config for %s"
+msgstr "ИСХОДНАЯ конфигурация для %s"
+
+#: utilities/txt2tags.py:3342
+msgid "Full PARSED config"
+msgstr "Полная ПРОАНАЛИЗИРОВАННАЯ конфигурация"
+
+#: utilities/txt2tags.py:3359
+msgid "Active filters"
+msgstr "Активные фильтры"
+
+#: utilities/txt2tags.py:3380
+msgid "Invalid PostProc filter regex"
+msgstr "Недопустимое регулярное выражение фильтра PostProc"
+
+#: utilities/txt2tags.py:3382
+msgid "Invalid PostProc filter replacement"
+msgstr "Недопустимая замена фильтра PostProc"
+
+#: utilities/txt2tags.py:3400
+#, python-format
+msgid "%s wrote %s"
+msgstr "%s написал %s"
+
+#: utilities/txt2tags.py:3898
+msgid "Source document contents stored"
+msgstr "Сохранение содержимого исходного документа"
+
+#: utilities/txt2tags.py:3904
+#, python-format
+msgid "Parsing and saving all config found (%03d items)"
+msgstr ""
+"Синтаксический анализ и сохранение всех найденных конфигураций (элементы "
+"%03d)"
+
+#: utilities/txt2tags.py:3954
+msgid "Composing target Headers"
+msgstr "Составление целевых заголовков"
+
+#: utilities/txt2tags.py:3958
+msgid "Composing target Body"
+msgstr "Составление целевого тела"
+
+#: utilities/txt2tags.py:3967
+msgid "Composing target TOC"
+msgstr "Составление целевого ТОС"
+
+#: utilities/txt2tags.py:3973
+msgid "Composing target Footer"
+msgstr "Составление целевого нижнего колонтитула"
+
+#: utilities/txt2tags.py:3985
+msgid "Saving results to the output file"
+msgstr "Сохранение результатов в выходной файл"
+
+#: utilities/txt2tags.py:4081
+msgid "Invalid PreProc filter regex"
+msgstr "Недопустимое регулярное выражение фильтра предварительной обработки"
+
+#: utilities/txt2tags.py:4098
+msgid "Invalid PreProc filter replacement"
+msgstr "Недопустимая замена фильтра предварительной обработки"
+
+#: utilities/txt2tags.py:4666
+msgid "txt2tags files"
+msgstr "файлы txt2tags"
+
+#: utilities/txt2tags.py:4667
+msgid "All files"
+msgstr "Все файлы"
+
+#: utilities/txt2tags.py:4689
+msgid "Close"
+msgstr "Закрыть"
+
+#: utilities/txt2tags.py:4704
+msgid "You must select a target type!"
+msgstr "Вы должны выбрать тип цели!"
+
+#: utilities/txt2tags.py:4708
+msgid "You must provide the source file location!"
+msgstr "Вы должны указать расположение исходного файла!"
+
+#: utilities/txt2tags.py:4761
+#, python-format
+msgid "%s: %s converted to %s"
+msgstr "%s: %s преобразуется в %s"
+
+#: utilities/txt2tags.py:4768
+msgid "Conversion done!"
+msgstr "Преобразование завершено!"
+
+#: utilities/txt2tags.py:4769
+msgid "FROM:"
+msgstr "от"
+
+#: utilities/txt2tags.py:4770
+msgid "TO:"
+msgstr "НА"
+
+#: utilities/txt2tags.py:4777
+#, python-format
+msgid "%s FATAL ERROR!"
+msgstr "%s Фатальная ошибка!"
+
+#: utilities/txt2tags.py:4784
+msgid "-- select one --"
+msgstr "-- выберите один..."
+
+#: utilities/txt2tags.py:4791
+msgid "Enter the source file location:"
+msgstr "Введите расположение исходного файла:"
+
+#: utilities/txt2tags.py:4792
+msgid "Choose the target document type:"
+msgstr "Выберите тип целевого документа:"
+
+#: utilities/txt2tags.py:4793
+msgid "Some options you may check:"
+msgstr "Некоторые варианты вы можете проверить:"
+
+#: utilities/txt2tags.py:4794
+msgid "Some extra options:"
+msgstr "Некоторые дополнительные опции:"
+
+#: utilities/txt2tags.py:4796
+msgid "Include headers on output"
+msgstr "Включить заголовки на выходе"
+
+#: utilities/txt2tags.py:4797
+msgid "Number titles (1, 1.1, 1.1.1, etc)"
+msgstr "Названия чисел (1, 1.1, 1.1.1 и т.д.)"
+
+#: utilities/txt2tags.py:4798
+msgid "Do TOC also (Table of Contents)"
+msgstr "Делайте также TOC (оглавление)"
+
+#: utilities/txt2tags.py:4799
+msgid "Hide e-mails from SPAM robots"
+msgstr "Скрывать электронные письма от роботов СПАМ"
+
+#: utilities/txt2tags.py:4801
+msgid "Just do TOC, nothing more"
+msgstr "Просто сделайте TOC, ничего больше"
+
+#: utilities/txt2tags.py:4802
+msgid "Dump to screen (Don't save target file)"
+msgstr "Вывод на экран (Не сохранять целевой файл)"
+
+#: utilities/txt2tags.py:4809
+msgid "ONE source, MULTI targets"
+msgstr "ОДИН источник, МНОЖЕСТВО целей"
+
+#: utilities/txt2tags.py:4817
+msgid "Browse"
+msgstr "Обзор"
+
+#: utilities/txt2tags.py:4823
+msgid "<screen>"
+msgstr "<Экран>"
+
+#: utilities/txt2tags.py:4824
+msgid "Output: "
+msgstr "Вывод:"
+
+#: utilities/txt2tags.py:4857
+msgid "Quit"
+msgstr "Уйти"
+
+#: utilities/txt2tags.py:4859
+msgid "Convert!"
+msgstr "Конвертировать!"
+
+#: utilities/txt2tags.py:4889
+#, python-format
+msgid "Txt2tags %s processing begins"
+msgstr "Начинается обработка Txt2tags %s"
+
+#: utilities/txt2tags.py:4897
+#, python-format
+msgid "Option --%s can't be used with multiple input files"
+msgstr "Опция --%s не может быть использована с несколькими входными файлами"
+
+#: utilities/txt2tags.py:4910
+msgid "Ignoring user configuration file"
+msgstr "Игнорирование файла конфигурации пользователя"
+
+#: utilities/txt2tags.py:4914
+msgid "Loading user configuration file"
+msgstr "Загрузка файла конфигурации пользователя"
+
+#: utilities/txt2tags.py:4946
+msgid "We are on GUI interface"
+msgstr "Мы работаем с графическим интерфейсом"
+
+#: utilities/txt2tags.py:4950
+msgid "txt2tags ERROR!"
+msgstr "txt2tags ОШИБКА!"
+
+#: utilities/txt2tags.py:4970
+msgid "We are on Command Line interface"
+msgstr "Мы находимся в интерфейсе командной строки"
+
+#: utilities/txt2tags.py:4977
+msgid "Txt2tags finished sucessfuly"
+msgstr "Txt2tags завершен успешно"
+
+#~ msgid "Convert to HTML"
+#~ msgstr "Конвертировать в HTML"
+
+#~ msgid "&Display the result in the navigator"
+#~ msgstr "&Показать результат в навигаторе"
+
+#~ msgid "Reduced announcement of the files's path"
+#~ msgstr "Сокращение объявления пути файлов"

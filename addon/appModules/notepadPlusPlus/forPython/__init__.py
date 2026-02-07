@@ -187,11 +187,12 @@ def GetIndentText(sIndentList):
 	for sIndent in sIndentList:
 		sTemp = sTemp + " " + sIndent[:-1]
 		if sIndent[-1] == "E":
-			sTemp = sTemp + " espaces"
+			s = _("spaces") if int(sIndent[:-1]) > 1 else _("space")
 		else:
-			sTemp = sTemp + " Tab "
+			s = "tabs" if int(sIndent[:-1]) > 1 else "tab"
+		sTemp = sTemp + " " + s
 
-	return sTemp
+	return sTemp[1:]
 
 
 def FormatLine(sLine):

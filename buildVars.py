@@ -78,7 +78,7 @@ This extension uses and intercepts the shortcuts of Notepad++ configured by defa
 		"""It is therefore strongly advised, for its proper functioning, not to modify these shortcuts.
 """),
 	# version
-	"addon_version": "2.8",
+	"addon_version": "2.8.4",
 	# Author(s)
 	"addon_author": u"paulber19 (paulber19@laposte.net)",
 	# URL for the add-on documentation support
@@ -90,7 +90,7 @@ This extension uses and intercepts the shortcuts of Notepad++ configured by defa
 	# Minimum NVDA version supported (e.g. "2018.3")
 	"addon_minimumNVDAVersion": "2024.1",
 	# Last NVDA version supported/tested (e.g. "2018.4", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": "2025.1",
+	"addon_lastTestedNVDAVersion": "2025.3",
 	# Add-on update channel (default is stable or None)
 	"addon_updateChannel": None,
 	# Add-on license such as GPL 2

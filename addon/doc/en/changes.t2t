@@ -25,7 +25,7 @@ NVDA versions earlier than 2024.1 are no longer supported.
 
 
 What's new:
-- Addition of the "Windows+Control+F9" script to open the folder of the current file as a workpace.
+- Addition of the "Windows+Control+F9" script to open the folder of the current file as a workspace.
 - in the "Document preview" dialog, it is possible to choose with which display the document should be viewed:
  - the default viewer of html documents (in principle a browser)
  - an NVDA window in navigation mode,

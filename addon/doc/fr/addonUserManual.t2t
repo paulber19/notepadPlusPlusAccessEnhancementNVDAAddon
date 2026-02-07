@@ -200,12 +200,14 @@ L'option "Ne pas dire les barres obliques inversées du chemin" du groupe "Nom d
 
 
 ++ Accès au dossier en tant qu'espace de travail ++
-Dans son menu "Fichier", Notepad++ propose le sous-menu "Ouvrir le répertoire du fichier en cours" et dans lequel nous trouvons le sous-menu "Dossier en tant qu'espace de travail".
-En activant ce sous-menu, le curseur est amené dans un dialogue où se trouve une arborescence de fichiers.
+Dans son menu "Fichier", Notepad++ propose le sous-menu "Ouvrir le dossier en tant qu’espace de travail" ou le sous-menu "Ouvrir le répertoire du fichier en cours" et dans lequel nous trouvons le sous-menu "Dossier en tant qu'espace de travail".
+
+En activant l'un ou l'autre de ces sous-menus, le curseur est amené dans un dialogue où se trouve une arborescence de fichiers.
+
 L'extension apporte un script pour y arriver plus rapidement.
 Ce script a pour description: "Document: Ouvrir le dossier du fichier courant en tant qu'espace de travail".
 
-Il se lance à l'aide du geste de commande "KEY_FolderASWorkSpace".
+Il se lance à l'aide du geste de commande "KEY_FolderAsWorkSpace".
 
 Quand le curseur est dans cette arborescence, le raccourci "f8" de Notepad++ permet de revenir dans la zone d'édition du document courant.
 
