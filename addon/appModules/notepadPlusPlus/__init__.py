@@ -1,7 +1,7 @@
 # coding :utf-8
 # appModules\notepad++\__init__.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2025 paulber19
+# Copyright (C) 2020-2026 paulber19
 # Released under GPL2
 
 
@@ -10,7 +10,6 @@ import core
 import wx
 import os
 from scriptHandler import script
-
 from controlTypes.role import Role
 import eventHandler
 import speech
@@ -396,13 +395,17 @@ class AppModule(AppModule):
 	def event_appModule_gainFocus(self):
 		printDebug("appModule notePadPlusPlus: event_appModulegainFocus")
 		global _winInputHookKeyDownCallback
+		if _winInputHookKeyDownCallback is not None:
+			return
 		_winInputHookKeyDownCallback = winInputHook.keyDownCallback
 		winInputHook.setCallbacks(keyDown=internal_keyDownEventEx)
 
 	def event_appModule_loseFocus(self):
 		printDebug("appModule notepadPlusPlus: event_appModuleLoseFocus")
+		global _winInputHookKeyDownCallback
 		if _winInputHookKeyDownCallback is not None:
 			winInputHook.setCallbacks(keyDown=_winInputHookKeyDownCallback)
+			_winInputHookKeyDownCallback  = None
 
 	def script_test(self, gesture):
 		print("Notepad ++ test")

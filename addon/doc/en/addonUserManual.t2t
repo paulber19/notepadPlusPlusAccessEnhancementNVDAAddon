@@ -1,4 +1,4 @@
-ADDON_SUMMARY - manuel utilisateur
+ADDON_SUMMARY - manuel utilisateur
 Author: ADDON_AUTHOR_NAME
 
 
@@ -72,7 +72,7 @@ And it brings the following complements:
 
 
 ++ Compatibility ++
-This add-on has been tested with Notepad++ version 8.4 32 and 64 bits.
+This add-on has been tested with Notepad++ version 8.9.2 and 8.8.3 64 bits.
 
 ++ Details ++
 This add-on uses and intercepts the Notepad++ shortcuts configured by default. It is therefore strongly recommended, for its proper functioning, not to modify these shortcuts.
@@ -325,6 +325,7 @@ These input gestures can be changed using the NVDA "Input Gestures" dialog. In p
 ++ Move with the Home key ++
 This add-in allows NVDA to announce the cursor position after using the "Home" key, ie either at the start of the line or after the indentation.
 
+This functionality, activated by default, can be deactivated with the option "Report cursor position after  home keypress" in the "Line" category.
 
 + Add-ins for Python files + [hdr_Python]
 ++ Move from class to class or from method to method ++

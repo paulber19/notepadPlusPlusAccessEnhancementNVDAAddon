@@ -18,6 +18,35 @@ Download:
 Sorry, but this document is an automatic translation from french language.
 
 
++ V2.9 (March/16/2026) +
+Compatibility with NVDA 2026.1.
+
+NVDA versions prior to the 2025.1 version are no longer supported.
+
+
+What's new:
+- added an option to enable or disable the report  of the cursor position after pressing the "home" key.
+
+
+Reminder of bug corrections made in versions 2.8.x:
+- Indentation with spaces is now properly announced in other languages ​​than French as well as singular or plural.
+- Correction of the bad spelling of the word "workspace".
+- Correction of the error that occurred are the closure of the program.
+- correction of some malfunctions concerning the detection and reporting of lines that are too long.
+
+
+Development:
+- removal of code regarding NVDA versions lower than 2025.1.
+- to display the "What's new" of a new version of the add-on, the "changes.html" document is no longer opened by "urlopen", but is downloaded, saved momentarily in the "appData\local\temp" folder and opened in the browser.
+- taking into account the closure of the rawgit.com site.
+- use of json instead of pickle to store the add-on update status.
+
+
+Compliance with the NVDA API: 
+- Take into account the movement of the NVDA version in the Buildversion.Py module.
+- Taking into account the deletion of the MODULE "imp" in Python 3.13.
+
+
 + v2.8 (June/05/2025) +
 Compatibility with NVDA 2025.1.
 
@@ -25,7 +54,7 @@ NVDA versions earlier than 2024.1 are no longer supported.
 
 
 What's new:
-- Addition of the "Windows+Control+F9" script to open the folder of the current file as a workspace.
+- Addition of the "Windows+Control+F9" script to open the folder of the current file as a workpace.
 - in the "Document preview" dialog, it is possible to choose with which display the document should be viewed:
  - the default viewer of html documents (in principle a browser)
  - an NVDA window in navigation mode,

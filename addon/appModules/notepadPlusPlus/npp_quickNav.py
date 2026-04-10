@@ -1,6 +1,6 @@
 # appModules\notepad++\npp_quickNav.py
 # A part of the notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2025 paulber19
+# Copyright (C) 2020-2026 paulber19
 # This file is covered by the GNU General Public License.
 
 
@@ -251,11 +251,13 @@ class NPPDocumentLongLinesQuickNavIterator(NPPDocumentNodesQuickNavIterator):
 
 	def getSearchPattern(self):
 		if self.reverse:
-			return r"\s+>(?=\s)+"
+			return r"\s+(?=\s)+"
 		else:
 			return r"^^."
 
 	def isValid(self, item):
+		from tones import beep
+		beep(100, 50)
 		info = item.textInfo.copy()
 		info.expand(textInfos.UNIT_LINE)
 		text = info.text

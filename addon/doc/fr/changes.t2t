@@ -16,6 +16,35 @@ Téléchargement:
 
 
 
++ v2.9 (16/03/2026) +
+Compatibilité avec NVDA 2026.1.
+
+Les versions de NVDA antérieures à la version 2025.1 ne sont plus prises en charge.
+
+
+Nouveautés:
+- ajout d'une option pour activer ou désactiver l'annonce de la position du curseur après l'appui sur la touche "home".
+
+
+Rappel des corrections de bogues faites dans les versions 2.8.x :
+- l'indentation avec des espaces est maintenant correctement annoncée dans d'autres langues que le français ainsi que le singulier ou le pluriel.
+- correction de la mauvaise orthographe du mot "workspace".
+- correction de l'erreur qui se produisait souent à la fermeture du programme.
+- correction de quelques disfonctionnement concernant la détection et le signalement des lignes trop longues.
+
+
+Développement :
+- suppression du code concernant les versions de NVDA inférieures à la 2025.1.
+- pour afficher le "Quoi de neuf" d'une nouvelle version de l'extension, le document "changes.html" n'est plus ouvert par"urlopen", mais est téléchargé , enregistré momentanément dans le dossier "appData\local\temp" et ouvert dans le navigateur.
+- prise en compte de la fermeture du  site rawgit.com.
+- utilisation de json en lieu et place de pickle pour stoquer l'état de la mise à jour de l'extension.
+
+
+Mise en conformité avec l'API de NVDA :
+- prise en compte du déplacement de la version de NVDA dans le module buildVersion.py.
+- prise en compte de la suppression du module "imp" dans python 3.13.
+
+
 + v2.8 (05/06/2025) +
 Compatibilité avec NVDA 2025.1.
 

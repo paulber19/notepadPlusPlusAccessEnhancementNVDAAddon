@@ -55,21 +55,12 @@ class PythonDocument(object):
 	msgNoOtherClassOrMethod = _("No other class or method")
 
 	@classmethod
-	def importCode(self, code, name, add_to_sys_modules=0):
-		""" code can be any object containing code -- string, file object, or
-		compiled code object. Returns a new module object initialized
-		by dynamically importing the given code and optionally adds it
-		to sys.modules under the given name.
-		"""
-		import imp
-		module = imp.new_module(name)
-		if add_to_sys_modules:
-			sys.modules[name] = module
+	def importCode(self, code, name):
 		try:
 			my_exec(code)
 		except InterpreterError as e:
 			raise e
-		return module
+		return
 
 	@classmethod
 	def goToLongLine(self, info, next=True):
@@ -88,9 +79,7 @@ class PythonDocument(object):
 		for id in r:
 			lineID = id + dec
 			line = textList[lineID]
-			temp = line.replace("\t", "")
-			temp = temp.replace(" ", "")
-			if len(temp) > _addonConfigManager.getMaxLineLength():
+			if len(line.strip("\r\n")) > _addonConfigManager.getMaxLineLength():
 				info.goToLine(lineID)
 				return
 		# Translators: message to user to say there no more long line

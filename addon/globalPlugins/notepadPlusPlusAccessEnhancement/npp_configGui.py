@@ -1,6 +1,6 @@
 # globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright 2020-2025 paulber19
+# Copyright 2020-2026 paulber19
 # This file is covered by the GNU General Public License.
 
 # manage add-on configuration dialog
@@ -17,8 +17,7 @@ _curAddon = addonHandler.getCodeAddon()
 _addonSummary = _curAddon.manifest['summary']
 sharedPath = os.path.join(_curAddon.path, "shared")
 sys.path.append(sharedPath)
-from npp_addonConfigManager import _addonConfigManager
-from npp_addonConfigManager import indentReportModeLabels
+from npp_addonConfigManager import _addonConfigManager, indentReportModeLabels
 del sys.path[-1]
 
 addonHandler.initTranslation()
@@ -145,6 +144,10 @@ class NPPLineOptionsPanel(SettingsPanel):
 		labelText = _("&Report line number")
 		self.reportLineNumberCheckBox = sHelper.addItem(wx.CheckBox(self, wx.ID_ANY, label=labelText))
 		self.reportLineNumberCheckBox.SetValue(_addonConfigManager.toggleReportLineNumberOption(False))
+		# Translators: A setting for enabling/disabling report cursor position after home key press
+		labelText = _("Report cursor &position after home key press")
+		self.reportPositionAfterHomeKeyPressCheckBox = sHelper.addItem(wx.CheckBox(self, wx.ID_ANY, label=labelText))
+		self.reportPositionAfterHomeKeyPressCheckBox.SetValue(_addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False))
 		# Translators: This is the label for a group of editing options in the settings panel.
 		groupText = _("Line indentation")
 		groupSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label=groupText)
@@ -205,6 +208,8 @@ class NPPLineOptionsPanel(SettingsPanel):
 	def saveSettingChanges(self):
 		if self.reportLineNumberCheckBox .IsChecked() != _addonConfigManager.toggleReportLineNumberOption(False):
 			_addonConfigManager.toggleReportLineNumberOption(True)
+		if self.reportPositionAfterHomeKeyPressCheckBox .IsChecked() != _addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False):
+			_addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(True)
 		if self.reportLineIndentationCheckBox .IsChecked() != (
 			_addonConfigManager.toggleReportLineIndentationOption(False)):
 			_addonConfigManager.toggleReportLineIndentationOption(True)

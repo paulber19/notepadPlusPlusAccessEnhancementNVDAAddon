@@ -1,6 +1,6 @@
 # appModules/notepad++\npp_editWindow.py
 # A part of the NotepadPlusPlusAccessEnhancement addon
-# Copyright (C) 2020-2025 paulber19
+# Copyright (C) 2020-2026 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -194,30 +194,36 @@ class NPPDocument (
 		# Hack: finding the edit field from the foreground window is unreliable, so cache it here.
 		# We can't use the weakref cache, because NVDA probably (?) kill this object off when it loses focus.
 		# Also, derek is too lazy to verify this when it already works.
-		self.appModule.edit = self
-
-	def event_typedCharacter(self, ch):
-		super(NPPDocument, self).event_typedCharacter(ch)
-		if not _addonConfigManager.toggleLineLengthIndicator(False):
-			return
-		textInfo = self.makeTextInfo(textInfos.POSITION_CARET)
-		textInfo.expand(textInfos.UNIT_LINE)
-		if textInfo.bookmark.endOffset - textInfo.bookmark.startOffset >= _addonConfigManager.getMaxLineLength():
+		if self.appModule is not None:
+			self.appModule.edit = self
+	def alertOverflowing(self):
+		def callback():
 			tones.beep(500, 50)
-
-	def event_caret(self):
-		super(NPPDocument, self).event_caret()
-		if not _addonConfigManager.toggleLineLengthIndicator(False):
-			return
+			self.overfflowingBeepTimer = None
 		# stop overflowingBeepTimer if it's running
 		if self.overfflowingBeepTimer is not None:
 			self.overfflowingBeepTimer .Stop()
 			self.overfflowingBeepTimer = None
-		pos = self._getStatusLineInfos()["Col"]
-		if int(pos) > _addonConfigManager.getMaxLineLength():
+		if not _addonConfigManager.toggleLineLengthIndicator(False):
+			return
+		textInfo = self.makeTextInfo(textInfos.POSITION_CARET)
+		textInfo.expand(textInfos.UNIT_LINE)
+		if len(textInfo.text.strip("\r\n")) > _addonConfigManager.getMaxLineLength():
 			# after goToFirstOverflowingCharacter script, there are several event_caret
 			# so delay the emission of the beep
-			self.overfflowingBeepTimer = wx.CallLater(450, tones.beep, 500, 50)
+			self.overfflowingBeepTimer = wx.CallLater(450, callback)
+
+
+
+	def event_typedCharacter(self, ch):
+		super(NPPDocument, self).event_typedCharacter(ch)
+		self.alertOverflowing()
+
+	def event_caret(self):
+		super(NPPDocument, self).event_caret()
+		self.alertOverflowing()
+
+
 
 	def checkForDSpellCheckErrors(self, text):
 		global _dSpellCheckReportDelay
@@ -278,7 +284,8 @@ class NPPDocument (
 		gesture.send()
 		time.sleep(0.3)
 		api.processPendingEvents()
-		forPython.SayPosition()
+		if _addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False):
+			forPython.SayPosition()
 		obj = api.getFocusObject()
 		info = obj.makeTextInfo(textInfos.POSITION_CARET)
 		info.expand(textInfos.UNIT_CHARACTER)
@@ -546,12 +553,7 @@ class NPPDocument (
 			gesture.send()
 			return
 		self.script_caret_moveByLine(gesture)
-		if not _addonConfigManager.toggleLineLengthIndicator(False):
-			return
-		info = self.makeTextInfo(textInfos.POSITION_CARET)
-		info.expand(textInfos.UNIT_LINE)
-		if len(info.text.strip('\r\n\t ')) > _addonConfigManager.getMaxLineLength():
-			tones.beep(500, 50)
+		self.alertOverflowing()
 
 	@script(
 		# Translators: Input help mode message for toggleLongLineindicatorcommand.
@@ -609,8 +611,9 @@ class NPPDocument (
 		tempList = info.split("    ")
 		d = {}
 		for item in tempList:
-			(name, value) = item.strip().split(" : ")
-			d[name] = value
+			item = item.strip().split(": ")
+			if len(item) ==2:
+				d[item[0].strip()] = item[1].strip()
 		return d
 
 	@script(

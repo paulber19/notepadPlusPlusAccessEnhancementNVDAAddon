@@ -72,7 +72,7 @@ Y proporciona los siguientes suplementos:
 
 
 ++ Compatibilidad ++
-Este complemento ha sido probado con  Notepad++ versión 8.4 y 8.5.6, 32 y 64 bits.
+Este complemento ha sido probado con  Notepad++ versión 8.9.2 y 8.8.3 64 bits.
 
 ++ Precisión ++
 Este complemento usa e intercepta los atajos de Notepad++ configurados por defecto. Por lo tanto, se recomienda encarecidamente, por su correcto funcionamiento, no modificar estos atajos.
@@ -199,8 +199,10 @@ La opción "No verbalizar las barras inversas de la ruta del archivo" en el grup
 
 
 ++ Acceso a la carpeta como un espacio de trabajo ++
-En su menú "Archivo", Notepad++ ofrece el submenú "Abrir carpeta contenedora en" o el submenú "Abrir carpeta como espacio de trabajo" y en el que encontramos el submenú "Carpeta como espacio de trabajo".
+En su menú "Archivo", Notepad++ ofrece el submenú "Abrir carpeta como espacio de trabajo" o el submenú "Abrir carpeta contenedora en" y en el cual encontramos el submenú "Carpeta como espacio de trabajo".
+
 Activando uno u otro de estos submenús, el cursor es traído a un diálogo donde esta una vista en árbol de archivos.
+
 El complemento trae un script para llegar más rápido.
 La descripción de este script es: "Documento: Abrir la carpeta de archivo actual como espacio de trabajo".
 
@@ -329,6 +331,7 @@ Estos gestos de entrada son modificables mediante el cuadro de diálogo "Gestos 
 ++ Desplazamiento con la tecla de Inicio ++
 Este suplemento hace posible anunciar por NVDA la posición del cursor después de usar la tecla "Inicio", es decir, al inicio de la línea o después de la sangría.
 
+Esta funcionalidad, activada por defecto, se puede desactivar con la opción "Anunciar la posición del cursor después de pulsar la tecla de inicio" de la categoría "Línea".
 
 + Suplementos para los archivos Python +[hdr_Python]
 ++ Desplazamiento de clase en clase o método en método ++

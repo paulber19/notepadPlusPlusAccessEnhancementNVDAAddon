@@ -23,11 +23,8 @@ sharedPath = os.path.join(_curAddon.path, "shared")
 sys.path.append(sharedPath)
 from npp_py3Compatibility import getCommonUtilitiesPath
 from npp_utils import isOpened
-from messages import confirm_YesNo, alert, ReturnCode
+from npp_messages import confirm_YesNo, alert, ReturnCode
 del sys.path[-1]
-del sys.modules["npp_py3Compatibility"]
-del sys.modules["npp_utils"]
-del sys.modules["messages"]
 
 addonHandler.initTranslation()
 
@@ -231,16 +228,7 @@ class ConvertMarkdownToHtml(ConvertToHTML):
 			log.error(": %s file cannot be copied to %s" % (numberedHeadingsCss, numberedHeadingsCss_tmp))
 
 	def convert(self, external=False):
-		commonUtilitiesPath = getCommonUtilitiesPath()
-		markdownExPath = os.path.join(commonUtilitiesPath, "markdownEx")
-		sys.path.append(commonUtilitiesPath)
-		sys.path.append(markdownExPath)
-		# import htmlEx.parser
-		# import markdown
-		from markdownEx import markdown
-		del sys.path[-1]
-		del sys.modules["markdownEx"]
-
+		import markdown
 		mdText = self.document
 		t2tTarget = self.getT2tTarget(mdText)
 		if t2tTarget is not None:
@@ -253,7 +241,7 @@ class ConvertMarkdownToHtml(ConvertToHTML):
 				return
 		extensions = []
 		for ext in markdown_extensions:
-			extensions.append("markdownEx.markdown.extensions.%s" % ext)
+			extensions.append("markdown.extensions.%s" % ext)
 		speech.speech.cancelSpeech()
 		speech.speech.speakMessage(_("please wait"), priority=SpeechPriority.NOW)
 		htmlText = markdown.markdown(mdText, extensions=extensions, extension_configs=EXTENSIONS_CONFIG)

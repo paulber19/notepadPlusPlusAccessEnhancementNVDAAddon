@@ -1,4 +1,4 @@
-ADDON_SUMMARY - manuel utilisateur
+ADDON_SUMMARY - manuel utilisateur
 Auteur: ADDON_AUTHOR_NAME
 
 
@@ -73,7 +73,7 @@ Et elle apporte les compléments suivants:
 
 
 ++ Compatibilité ++
-Cette extension a été testé avec Notepad++ version 8.4 et 8.5.6, 32 et 64 bits.
+Cette extension a été testé avec Notepad++ version 8.9.2 et 8.8.3 64 bits.
 
 ++ Précisions ++
 Cette extension utilise et intercepte les raccourcis de Notepad++ configuré par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de ne pas modifier ces raccourcis.
@@ -332,6 +332,7 @@ Ces gestes de commandes sont modifiables à l'aide du dialogue "Gestes de comman
 ++ Déplacement avec la touche Début ++
 Ce complément permet de faire annoncer par NVDA la position du curseur après l'utilisation de la touche "Début", c'est à dire soit en début de ligne, soit après l'indentation.
 
+Cette fonctionnalité, activé par défaut, pe être désactivé avec l'option "Annoncer la position du curseur après l'appui sur la touche début" de la catégorie "Ligne".
 
 + Compléments pour les fichiers Python +[hdr_Python]
 ++ Déplacement de class en class ou de méthode en méthode ++

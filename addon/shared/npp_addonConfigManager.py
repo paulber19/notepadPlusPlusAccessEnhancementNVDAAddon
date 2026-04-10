@@ -1,6 +1,6 @@
 # shared\npp_addonConfigManager.py
 # a part of notepadPlusPlusAccessEnhancement add-on
-# Copyright 2020-2025,paulber19
+# Copyright 2020-2026,paulber19
 # This file is covered by the GNU General Public License.
 
 from logHandler import log
@@ -40,6 +40,7 @@ ID_ReversePath = "reversePath"
 ID_ReportReversedPathWithNoLevel = "ID_ReversedPathWithNoLevel"
 ID_DocumentColumnsChoices = "DocumentColumnsChoices"
 ID_ReportSpellingErrors = "ReportSpellingErrors"
+ID_ReportPositionAfterHomeKeyPress = "ReportPositionAfterHomeKeyPress"
 
 # header line mode
 Mode_SayIndent = 0
@@ -260,11 +261,83 @@ class AddonConfiguration11(BaseAddonConfiguration):
 	configspec = ConfigObj(StringIO(
 		"""# addon Configuration File
 {general}{options}{DspellCheck}
-	""".format(
+""".format(
 			general=_GeneralConfSpec,
 			options=_OptionsConfSpec,
 			DspellCheck=_DSpellCheckConfSpec)
 	), list_values=False, encoding="UTF-8")
+
+class AddonConfiguration12(BaseAddonConfiguration):
+	_version = "1.2"
+	_GeneralConfSpec = """[{section}]
+	{configVersion} = string(default = {version})
+	{autoUpdateCheck} = boolean(default=True)
+	{updateReleaseVersionsToDevVersions} = boolean(default=False)
+	""".format(
+		section=SCT_General,
+		configVersion=ID_ConfigVersion,
+		version=_version,
+		autoUpdateCheck=ID_AutoUpdateCheck,
+		updateReleaseVersionsToDevVersions=ID_UpdateReleaseVersionsToDevVersions)
+
+	_OptionsConfSpec = """[{section}]
+	{maxLineLength} = integer(default=80)
+	{lineLengthIndicator} = boolean(default=False)
+	{brailleAutocompleteSuggestions} = boolean(default=False)
+	{reportLineNumber} = boolean(default=False)
+	{manageLineNumberAndIndentationAnnouncement} = boolean(default=True)
+	{reportLineIndentation} = boolean(default=True)
+	{indentReportMode} = integer(default=0)
+	{reduceFilePath} = boolean(default=False)
+	{previousHierarchicalLevelToKeep} = integer(default=2)
+	{sayFileNameBeforePath} = boolean(default=True)
+	{noSayFilePathBackslashs} = boolean(default=False)
+	{reversePath} = boolean(default=False)
+	{reportReversedPathWithNoLevel} = boolean(default=False)
+	{reportSpellingErrors} = boolean(default=False)
+	{documentColumnsChoices} =  string(default="path"),
+	{reportPositionAfterHomeKeyPress} = boolean(default=True)
+	""".format(
+		section=SCT_Options,
+		maxLineLength=ID_MaxLineLength,
+		lineLengthIndicator=ID_LineLengthIndicator,
+		brailleAutocompleteSuggestions=ID_BrailleAutocompleteSuggestions,
+		reportLineNumber=ID_ReportLineNumber,
+		reportLineIndentation=ID_ReportLineIndentation,
+		manageLineNumberAndIndentationAnnouncement=ID_ManageLineNumberAndIndentationAnnouncement,
+		indentReportMode=ID_IndentReportMode,
+		reduceFilePath=ID_ReduceFilePath,
+		previousHierarchicalLevelToKeep=ID_PreviousHierarchicalLevelToKeep,
+		sayFileNameBeforePath=ID_SayFileNameBeforePath,
+		noSayFilePathBackslashs=ID_NoSayFilePathBackslashs,
+		reversePath=ID_ReversePath,
+		reportReversedPathWithNoLevel=ID_ReportReversedPathWithNoLevel,
+		documentColumnsChoices=ID_DocumentColumnsChoices,
+		reportSpellingErrors=ID_ReportSpellingErrors,
+		reportPositionAfterHomeKeyPress=ID_ReportPositionAfterHomeKeyPress,
+	)
+		
+
+	_DSpellCheckConfSpec = """[{section}]
+	{copyAllMisspelledWordsToClipboardShortCut} = string(default = "control+shift+alt+space")
+""".format(
+		section=SCT_DSpellCheck,
+		copyAllMisspelledWordsToClipboardShortCut=ID_CopyAllMisspelledWordsToClipboardShortCut
+	)
+
+	#: The configuration specification
+	configspec = ConfigObj(StringIO(
+		"""# addon Configuration File
+{general}{options}{DspellCheck}
+""".format(
+			general=_GeneralConfSpec,
+			options=_OptionsConfSpec,
+			DspellCheck=_DSpellCheckConfSpec)
+	), list_values=False, encoding="UTF-8")
+
+
+
+
 
 
 PREVIOUSCONFIGURATIONFILE_SUFFIX = ".prev"
@@ -272,10 +345,11 @@ DELETECONFIGURATIONFILE_SUFFIX = ".delete"
 
 
 class AddonConfigurationManager():
-	_currentConfigVersion = "1.1"
+	_currentConfigVersion = "1.2"
 	_versionToConfiguration = {
 		"1.0": AddonConfiguration10,
 		"1.1": AddonConfiguration11,
+		"1.2": AddonConfiguration12,
 	}
 
 	def __init__(self):
@@ -284,7 +358,7 @@ class AddonConfigurationManager():
 		config.post_configSave.register(self._handlePostConfigSave)
 
 	def warnConfigurationReset(self):
-		from messages import alert
+		from npp_messages import alert
 		wx.CallLater(
 			100,
 			alert,
@@ -540,6 +614,9 @@ class AddonConfigurationManager():
 	def getCopyAllMisspelledWordsToClipboardShortCut(self):
 		conf = self.addonConfig
 		return conf[SCT_DSpellCheck][ID_CopyAllMisspelledWordsToClipboardShortCut]
+
+	def toggleReportPositionAfterHomeKeyPressOption(self, toggle=True):
+		return self.toggleOption(ID_ReportPositionAfterHomeKeyPress, toggle)
 
 
 # singleton for addon config manager

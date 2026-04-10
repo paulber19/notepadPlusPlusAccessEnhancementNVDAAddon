@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: notepadPlusPlusAccessEnhancement 2.8.4\n"
-"Report-Msgid-Bugs-To: paulber19 (paulber19@laposte.net)\n"
-"POT-Creation-Date: 2026-02-06 17:39+0100\n"
+"Project-Id-Version: notepadPlusPlusAccessEnhancement 2.9\n"
+"Report-Msgid-Bugs-To: paulber19 <paulber19@laposte.net>\n"
+"POT-Creation-Date: 2026-04-01 15:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,18 +86,18 @@ msgid ""
 msgstr ""
 
 #. Translators: the label of a message box dialog.
-#: installTasks.py:42
+#: installTasks.py:40
 msgid "Do you want to keep current add-on configuration settings ?"
 msgstr ""
 
 #. Translators: the title of a message box dialog.
-#: installTasks.py:44 installTasks.py:49
+#: installTasks.py:42 installTasks.py:47
 #, python-format
 msgid "%s - installation"
 msgstr ""
 
 #. Translators: the label of a message box dialog.
-#: installTasks.py:47
+#: installTasks.py:45
 msgid ""
 "Are you sure you don't want to keep the current add-on configuration "
 "settings?"
@@ -105,57 +105,57 @@ msgstr ""
 
 #. labels for indent report mode: order is important
 #. Translators: say indents.
-#: shared\npp_addonConfigManager.py:53
+#: shared\npp_addonConfigManager.py:54
 msgid "Say indent"
 msgstr ""
 
 #. Mode_SayIndent:
 #. Translators: say indent changes.
-#: shared\npp_addonConfigManager.py:55
+#: shared\npp_addonConfigManager.py:56
 msgid "Say indent changes"
 msgstr ""
 
 #. Mode_SayIndentChange
 #. Translators: say level.
-#: shared\npp_addonConfigManager.py:57
+#: shared\npp_addonConfigManager.py:58
 msgid "Say level"
 msgstr ""
 
 #. Mode_SayLevel
 #. Translators: say indent changes.
-#: shared\npp_addonConfigManager.py:59
+#: shared\npp_addonConfigManager.py:60
 msgid "Say level changes"
 msgstr ""
 
 #. Mode_SayLevelChange
 #. Translators: no indent report.
-#: shared\npp_addonConfigManager.py:61
+#: shared\npp_addonConfigManager.py:62
 msgid "Say nothing"
 msgstr ""
 
 #. Translators: path column name
-#: shared\npp_addonConfigManager.py:78
+#: shared\npp_addonConfigManager.py:79
 msgid "Path"
 msgstr ""
 
 #. Translators: type column name
-#: shared\npp_addonConfigManager.py:80
+#: shared\npp_addonConfigManager.py:81
 msgid "Type"
 msgstr ""
 
 #. Translators: size column name
-#: shared\npp_addonConfigManager.py:82
+#: shared\npp_addonConfigManager.py:83
 msgid "Size"
 msgstr ""
 
-#: shared\npp_addonConfigManager.py:293
+#: shared\npp_addonConfigManager.py:367
 msgid ""
 "The configuration file of the add-on contains errors. The configuration has "
 "been  reset to factory defaults"
 msgstr ""
 
 #. Translators: title of message box
-#: shared\npp_addonConfigManager.py:296
+#: shared\npp_addonConfigManager.py:370
 msgid "Warning"
 msgstr ""
 
@@ -180,13 +180,13 @@ msgid "Error, the information cannot be copied to the clipboard"
 msgstr ""
 
 #. Translators: the label of a dialog box message.
-#: shared\npp_utils.py:35
+#: shared\npp_utils.py:26
 #, python-format
 msgid "%s dialog is allready open"
 msgstr ""
 
 #. Translators: title of all add-on dialog boxs.
-#: shared\npp_utils.py:44
+#: shared\npp_utils.py:35
 msgid "{addonSummary}'s add-on - {dialogTitle}"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 #. Translators: Input help message for a quick navigation command in browse mode.
 #. Translators: Input help mode message for go to next long line command.
 #: appModules\notepadPlusPlus\npp_browseMode.py:139
-#: appModules\notepadPlusPlus\npp_editWindow.py:572
+#: appModules\notepadPlusPlus\npp_editWindow.py:574
 msgid "Go to next line that is exceeds the maximum line length"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 #. Translators: Input help message for a quick navigation command in browse mode.
 #. Translators: Input help mode message for go to previous long line command.
 #: appModules\notepadPlusPlus\npp_browseMode.py:143
-#: appModules\notepadPlusPlus\npp_editWindow.py:582
+#: appModules\notepadPlusPlus\npp_editWindow.py:584
 msgid "Go to previous line that is exceeds the maximum line length"
 msgstr ""
 
@@ -227,230 +227,231 @@ msgid "no previous long line"
 msgstr ""
 
 #. Translators: document Title
-#: appModules\notepadPlusPlus\npp_convert.py:173
+#: appModules\notepadPlusPlus\npp_convert.py:170
 msgid "Preview of MarkDown document"
 msgstr ""
 
 #. Translators: the label of a message box dialog.
-#: appModules\notepadPlusPlus\npp_convert.py:249
+#: appModules\notepadPlusPlus\npp_convert.py:237
 msgid ""
 "It seems the document is a t2t document. Do you want to continue to treate "
 "as markdown ?"
 msgstr ""
 
 #. Translators: the title of a message box dialog.
-#: appModules\notepadPlusPlus\npp_convert.py:251
-#: appModules\notepadPlusPlus\npp_convert.py:345
-#: appModules\notepadPlusPlus\npp_convert.py:364
+#: appModules\notepadPlusPlus\npp_convert.py:239
+#: appModules\notepadPlusPlus\npp_convert.py:333
+#: appModules\notepadPlusPlus\npp_convert.py:352
 #, python-format
 msgid "%s - warning"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_convert.py:258
-#: appModules\notepadPlusPlus\npp_convert.py:349
+#: appModules\notepadPlusPlus\npp_convert.py:246
+#: appModules\notepadPlusPlus\npp_convert.py:337
 msgid "please wait"
 msgstr ""
 
 #. Translators: The title of the browseable message
-#: appModules\notepadPlusPlus\npp_convert.py:278
+#: appModules\notepadPlusPlus\npp_convert.py:266
 msgid "Preview of txt2tags  document"
 msgstr ""
 
 #. Translators: the label of a message box dialog.
-#: appModules\notepadPlusPlus\npp_convert.py:343
+#: appModules\notepadPlusPlus\npp_convert.py:331
 #, python-format
 msgid "The target(%s) is not HTML"
 msgstr ""
 
 #. Translators: the label of a message box dialog.
-#: appModules\notepadPlusPlus\npp_convert.py:362
+#: appModules\notepadPlusPlus\npp_convert.py:350
 msgid "Cannot compile text with txt2tags"
 msgstr ""
 
 #. Translators: This is the title of convert to html dialog window
-#: appModules\notepadPlusPlus\npp_convert.py:439
+#: appModules\notepadPlusPlus\npp_convert.py:427
 msgid "Preview the document"
 msgstr ""
 
 #. markdown or txt2tags
 #. Translators: This is a label appearing on convert to html dialog
-#: appModules\notepadPlusPlus\npp_convert.py:460
+#: appModules\notepadPlusPlus\npp_convert.py:448
 msgid "&Treate with:"
 msgstr ""
 
 #. the display choice
 #. Translators: This is a label appearing on convert to html dialog
-#: appModules\notepadPlusPlus\npp_convert.py:472
+#: appModules\notepadPlusPlus\npp_convert.py:460
 msgid "&Display with:"
 msgstr ""
 
 #. Translators:  display converted document with default .html file viewer
-#: appModules\notepadPlusPlus\npp_convert.py:475
+#: appModules\notepadPlusPlus\npp_convert.py:463
 msgid "Default html documents viewer"
 msgstr ""
 
 #. display converted document withNVDA browsable message
-#: appModules\notepadPlusPlus\npp_convert.py:477
+#: appModules\notepadPlusPlus\npp_convert.py:465
 msgid "Browsable window"
 msgstr ""
 
 #. Translators: display converted document source with default .txt viewer
-#: appModules\notepadPlusPlus\npp_convert.py:479
+#: appModules\notepadPlusPlus\npp_convert.py:467
 msgid "Default txt document viewer"
 msgstr ""
 
 #. Translators:  label of a check box.
-#: appModules\notepadPlusPlus\npp_convert.py:493
+#: appModules\notepadPlusPlus\npp_convert.py:481
 msgid "&Use of default HTML header"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_convert.py:496
+#: appModules\notepadPlusPlus\npp_convert.py:484
 msgid "&Preview"
 msgstr ""
 
+#. ui.message(_("Start of line"))
 #: appModules\notepadPlusPlus\npp_editWindow.py:85
-#: appModules\notepadPlusPlus\forPython\__init__.py:305
+#: appModules\notepadPlusPlus\forPython\__init__.py:307
 msgid "Start of line"
 msgstr ""
 
 #. Translators: Input help mode message for move To previous Line With Only Tab Or Space command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:300
+#: appModules\notepadPlusPlus\npp_editWindow.py:307
 msgid "Move to previous line with only tab or space"
 msgstr ""
 
 #. Translators: Input help mode message for move To Next Line With Only Tab Or Space command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:310
+#: appModules\notepadPlusPlus\npp_editWindow.py:317
 msgid "Move to next line with only tab or space"
 msgstr ""
 
 #. Translators: Input help mode message for move To Next Line Ending With Tab Or Space command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:320
+#: appModules\notepadPlusPlus\npp_editWindow.py:327
 msgid "Move to next line ending with tab or space character"
 msgstr ""
 
 #. Translators: Input help mode message for move To previous Line Ending With Tab Or Space command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:330
+#: appModules\notepadPlusPlus\npp_editWindow.py:337
 msgid "Move to previous line ending with tab or space character"
 msgstr ""
 
 #. Translators: Input help mode message for move To next Class command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:340
+#: appModules\notepadPlusPlus\npp_editWindow.py:347
 msgid "Move to next python class"
 msgstr ""
 
 #. Translators: Input help mode message for move To Previous Class command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:350
+#: appModules\notepadPlusPlus\npp_editWindow.py:357
 msgid "Move to previous python class"
 msgstr ""
 
 #. Translators: Input help mode message for move To Next Method command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:360
+#: appModules\notepadPlusPlus\npp_editWindow.py:367
 msgid "Move to next python method"
 msgstr ""
 
 #. Translators: Input help mode message for move To Previous Method command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:370
+#: appModules\notepadPlusPlus\npp_editWindow.py:377
 msgid "Move to previous python method"
 msgstr ""
 
 #. Translators: Input help mode message for move To Next Class Or Method command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:380
+#: appModules\notepadPlusPlus\npp_editWindow.py:387
 msgid "Move to next python class or method"
 msgstr ""
 
 #. Translators: Input help mode message for move To Previous Class Or Method command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:390
+#: appModules\notepadPlusPlus\npp_editWindow.py:397
 msgid "Move to previous python class or method"
 msgstr ""
 
 #. Translators: Input help mode message for delete indentation command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:426
+#: appModules\notepadPlusPlus\npp_editWindow.py:433
 msgid "Delete indentation"
 msgstr ""
 
 #. Translators: Input help mode message for set  indentation level command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:434
+#: appModules\notepadPlusPlus\npp_editWindow.py:441
 msgid "Set the indentation to level {level} ({level} tabs)"
 msgstr ""
 
 #. Translators: Input help mode message for set  indentation level command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:438
+#: appModules\notepadPlusPlus\npp_editWindow.py:445
 msgid "Set the indentation to level 1(1 tab)"
 msgstr ""
 
 #. Translators: message to the user to report no more bookmark.
-#: appModules\notepadPlusPlus\npp_editWindow.py:542
+#: appModules\notepadPlusPlus\npp_editWindow.py:549
 msgid "No more bookmark"
 msgstr ""
 
 #. Translators: Input help mode message for toggleLongLineindicatorcommand.
-#: appModules\notepadPlusPlus\npp_editWindow.py:558
+#: appModules\notepadPlusPlus\npp_editWindow.py:560
 msgid "Toggle long line indicator"
 msgstr ""
 
 #. Translators: message to user to report long lines.
-#: appModules\notepadPlusPlus\npp_editWindow.py:565
+#: appModules\notepadPlusPlus\npp_editWindow.py:567
 msgid "Report  Long lines"
 msgstr ""
 
 #. Translators: message to user to  long line report desactivated.
-#: appModules\notepadPlusPlus\npp_editWindow.py:568
+#: appModules\notepadPlusPlus\npp_editWindow.py:570
 msgid "Don't report long lines"
 msgstr ""
 
 #. Translators: Input help mode message for go To First Overflowing Character command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:592
+#: appModules\notepadPlusPlus\npp_editWindow.py:594
 msgid "Moves to the first character that is after the maximum line length"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:619
+#: appModules\notepadPlusPlus\npp_editWindow.py:622
 msgid ""
 "Report current caret position. Twice: report number of selected characters"
 msgstr ""
 
 #. Translators: message to user to report current position.
-#: appModules\notepadPlusPlus\npp_editWindow.py:634
+#: appModules\notepadPlusPlus\npp_editWindow.py:637
 msgid "line {0}, column {1}"
 msgstr ""
 
 #. Translators: message to user that there is no selection
-#: appModules\notepadPlusPlus\npp_editWindow.py:639
-#: appModules\notepadPlusPlus\npp_editWindow.py:645
-#: appModules\notepadPlusPlus\npp_editWindow.py:719
-#: appModules\notepadPlusPlus\__init__.py:286
+#: appModules\notepadPlusPlus\npp_editWindow.py:642
+#: appModules\notepadPlusPlus\npp_editWindow.py:648
+#: appModules\notepadPlusPlus\npp_editWindow.py:722
+#: appModules\notepadPlusPlus\__init__.py:285
 msgid "no selection"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:648
+#: appModules\notepadPlusPlus\npp_editWindow.py:651
 #, python-format
 msgid "%s characters selectionned"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:648
+#: appModules\notepadPlusPlus\npp_editWindow.py:651
 msgid "one character selected"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:649
+#: appModules\notepadPlusPlus\npp_editWindow.py:652
 #, python-format
 msgid "%s lines"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:649
+#: appModules\notepadPlusPlus\npp_editWindow.py:652
 msgid "one line"
 msgstr ""
 
 #. Translators: message to user to report selection
-#: appModules\notepadPlusPlus\npp_editWindow.py:651
+#: appModules\notepadPlusPlus\npp_editWindow.py:654
 msgid "{0} selected on {1}"
 msgstr ""
 
 #. Translators: Message shown when there are no more search results in this direction
 #. using the notepad++ find command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:665
+#: appModules\notepadPlusPlus\npp_editWindow.py:668
 msgid "No more search results in this direction"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:672
+#: appModules\notepadPlusPlus\npp_editWindow.py:675
 msgid ""
 "Open the dialog to Treat the edit window content as MarkDown or txt2tags "
 "document and display it as webpage in the internal or external default "
@@ -458,31 +459,31 @@ msgid ""
 msgstr ""
 
 #. Translators: Input help mode message for compare Selection To Clip  command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:707
+#: appModules\notepadPlusPlus\npp_editWindow.py:710
 msgid "Compare selected text to text in clipboard"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:715
-#: appModules\notepadPlusPlus\__init__.py:282
+#: appModules\notepadPlusPlus\npp_editWindow.py:718
+#: appModules\notepadPlusPlus\__init__.py:281
 msgid "clipboard is empty"
 msgstr ""
 
 #. Translators: this is the title of informationdialog box to show text differences.
-#: appModules\notepadPlusPlus\npp_editWindow.py:759
+#: appModules\notepadPlusPlus\npp_editWindow.py:762
 msgid "Differences between selected text and text in clipboard"
 msgstr ""
 
 #. Translators: Input help mode message for import With Python command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:796
+#: appModules\notepadPlusPlus\npp_editWindow.py:799
 msgid "Import document's text as a Python module"
 msgstr ""
 
-#: appModules\notepadPlusPlus\npp_editWindow.py:806
+#: appModules\notepadPlusPlus\npp_editWindow.py:809
 msgid "python code imported without error"
 msgstr ""
 
 #. Translators: Input help mode message for import With Python command.
-#: appModules\notepadPlusPlus\npp_editWindow.py:816
+#: appModules\notepadPlusPlus\npp_editWindow.py:819
 msgid "Open the folder of the file as a workspace"
 msgstr ""
 
@@ -493,7 +494,7 @@ msgstr ""
 #. script prefix
 #. Translators: This is the label for the notepadPlusPlus settings dialog.
 #: appModules\notepadPlusPlus\npp_scriptDesc.py:10
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:132
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:131
 msgid "Line"
 msgstr ""
 
@@ -510,75 +511,75 @@ msgid "Markdown"
 msgstr ""
 
 #. Translators: Input help mode message for toggle Manage Line Number And Indentation Announcement command.
-#: appModules\notepadPlusPlus\__init__.py:255
+#: appModules\notepadPlusPlus\__init__.py:254
 msgid "Toggle line number and indentation's announcement management by add-on"
 msgstr ""
 
 #. Translators: message to user to report line number and indentation's announcement by add-on")
-#: appModules\notepadPlusPlus\__init__.py:260
+#: appModules\notepadPlusPlus\__init__.py:259
 msgid "Line number and indentation's announcement by add-on"
 msgstr ""
 
 #. Translators: message to user to report line indentation 'sannouncement by NVDA.
-#: appModules\notepadPlusPlus\__init__.py:263
+#: appModules\notepadPlusPlus\__init__.py:262
 msgid "Line number and indentation's announcement by NVDA"
 msgstr ""
 
 #. Translators: Input help mode message for toggle Report Line Indentation command.
-#: appModules\notepadPlusPlus\__init__.py:327
+#: appModules\notepadPlusPlus\__init__.py:326
 msgid "Toggle line indentation reporting"
 msgstr ""
 
-#: appModules\notepadPlusPlus\__init__.py:334
-#: appModules\notepadPlusPlus\__init__.py:350
-#: appModules\notepadPlusPlus\__init__.py:370
+#: appModules\notepadPlusPlus\__init__.py:333
+#: appModules\notepadPlusPlus\__init__.py:349
+#: appModules\notepadPlusPlus\__init__.py:369
 msgid ""
 "Impossible, the number and the indentation of the lines are not announced by "
 "the extension"
 msgstr ""
 
 #. Translators: Input help mode message for toggle Indent Report Mode command.
-#: appModules\notepadPlusPlus\__init__.py:343
+#: appModules\notepadPlusPlus\__init__.py:342
 msgid "Choose line indentation announcement's format"
 msgstr ""
 
-#: appModules\notepadPlusPlus\__init__.py:357
+#: appModules\notepadPlusPlus\__init__.py:356
 #, python-format
 msgid "The increment is %s spaces"
 msgstr ""
 
-#: appModules\notepadPlusPlus\__init__.py:359
+#: appModules\notepadPlusPlus\__init__.py:358
 #, python-format
 msgid "The increment is %s Tab"
 msgstr ""
 
 #. Translators: Input help mode message for toggle Report Line Number Option command.
-#: appModules\notepadPlusPlus\__init__.py:363
+#: appModules\notepadPlusPlus\__init__.py:362
 msgid "Activate/desactivate the line number's announcement"
 msgstr ""
 
 #. Translators: message to the user to report line number' announcement indicator state.
-#: appModules\notepadPlusPlus\__init__.py:375
+#: appModules\notepadPlusPlus\__init__.py:374
 msgid "Say line number"
 msgstr ""
 
 #. Translators: message to the user to report line number' announcement indicator state.
-#: appModules\notepadPlusPlus\__init__.py:378
+#: appModules\notepadPlusPlus\__init__.py:377
 msgid "Don't say line number"
 msgstr ""
 
 #. Translators: Input help mode message for toggle report spelling errors option command.
-#: appModules\notepadPlusPlus\__init__.py:382
+#: appModules\notepadPlusPlus\__init__.py:381
 msgid "Toggle report spelling errors option"
 msgstr ""
 
 #. Translators: message to the user to report spelling errors reporting.
-#: appModules\notepadPlusPlus\__init__.py:388
+#: appModules\notepadPlusPlus\__init__.py:387
 msgid "Report spelling errors"
 msgstr ""
 
 #. Translators: message to the user to don't report spelling errors.
-#: appModules\notepadPlusPlus\__init__.py:391
+#: appModules\notepadPlusPlus\__init__.py:390
 msgid "Don't report spelling errors"
 msgstr ""
 
@@ -595,15 +596,15 @@ msgid "No other class or method"
 msgstr ""
 
 #. Translators: message to user to say there no more long line
-#: appModules\notepadPlusPlus\forPython\python.py:97
+#: appModules\notepadPlusPlus\forPython\python.py:86
 msgid "No more long line"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\python.py:122
+#: appModules\notepadPlusPlus\forPython\python.py:111
 msgid "No more line with only tab or space"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\python.py:149
+#: appModules\notepadPlusPlus\forPython\python.py:138
 msgid "No more line ending with tab or space"
 msgstr ""
 
@@ -616,179 +617,184 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:190
+#: appModules\notepadPlusPlus\forPython\__init__.py:191
 msgid "spaces"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:190
+#: appModules\notepadPlusPlus\forPython\__init__.py:191
 msgid "space"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:238
+#: appModules\notepadPlusPlus\forPython\__init__.py:239
 msgid "Higher level"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:240
+#: appModules\notepadPlusPlus\forPython\__init__.py:241
 msgid "Lower level"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:251
+#: appModules\notepadPlusPlus\forPython\__init__.py:252
 msgid "No indent"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:264
+#: appModules\notepadPlusPlus\forPython\__init__.py:265
 msgid "Attention, mixture of spaces and tab"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:309
-#: appModules\notepadPlusPlus\forPython\__init__.py:314
+#: appModules\notepadPlusPlus\forPython\__init__.py:311
+#: appModules\notepadPlusPlus\forPython\__init__.py:316
 #, python-format
 msgid "column %s"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:317
+#: appModules\notepadPlusPlus\forPython\__init__.py:319
 msgid "After"
 msgstr ""
 
-#: appModules\notepadPlusPlus\forPython\__init__.py:330
+#: appModules\notepadPlusPlus\forPython\__init__.py:332
 msgid "Line cannot be reported"
 msgstr ""
 
 #. Translators: This is the label for the notepadPlusPlus general options panel
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:29
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:28
 msgid "General"
 msgstr ""
 
 #. Translators: A setting for enabling/disabling autocomplete suggestions in braille.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:34
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:33
 msgid "Show autocomplete &suggestions in braille"
 msgstr ""
 
 #. Translators: This is the label for a group of editing options in the settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:39
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:38
 msgid "Documents's name"
 msgstr ""
 
 #. Translators: A setting to activate saying file name before file path.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:45
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:44
 msgid "&Say file name before path"
 msgstr ""
 
 #. Translators: A option to reverse path before reporting
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:49
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:48
 msgid "Say the path &going up the folder tree"
 msgstr ""
 
 #. Translators: A setting for enabling/disabling file path reduction.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:53
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:52
 msgid "&Reduce path"
 msgstr ""
 
 #. Translators: A option to not to mention the backslashs.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:57
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:56
 msgid "&Don't say backslash of path"
 msgstr ""
 
 #. Translators: This is the label for a group of editing options in the settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:61
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:60
 msgid "Reduced path announcement"
 msgstr ""
 
 #. Translators: Setting for previous hieararchical level to keep.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:67
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:66
 msgid "&Previous hierarchical levels to keep"
 msgstr ""
 
 #. Translators: This is the label for a group of editing options in the settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:72
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:71
 msgid "Reversed file path announcement"
 msgstr ""
 
 #. Translators: A option to reverse path with no level
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:78
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:77
 msgid "Do not say the &hierarchical levels"
 msgstr ""
 
 #. Translators: This is the label for a group of editing options in the settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:84
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:83
 msgid "Documents dialog"
 msgstr ""
 
 #. Translators: This is the label for a list of checkboxes
 #. controlling which columns of the document name should not be spoken
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:91
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:90
 msgid "&Select elements of the document that should be spoken with its name:"
 msgstr ""
 
 #. Translators: A setting for enabling/disabling line and Number indentation announcement management.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:137
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:136
 msgid "&Let NVDA announce the line number and indentations"
 msgstr ""
 
 #. Translators: A setting for enabling/disabling report line number
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:145
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:144
 msgid "&Report line number"
 msgstr ""
 
+#. Translators: A setting for enabling/disabling report cursor position after home key press
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:148
+msgid "Report cursor &position after home key press"
+msgstr ""
+
 #. Translators: This is the label for a group of editing options in the settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:149
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:152
 msgid "Line indentation"
 msgstr ""
 
 #. Translators: A setting for enabling/disabling line indentation announcement.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:155
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:158
 msgid "Report line &indentation"
 msgstr ""
 
 #. Translators: Setting for indent report mode.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:160
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:163
 msgid "St&yle:"
 msgstr ""
 
 #. Translators: This is the label for a group of editing options in the settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:169
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:172
 msgid "Long line"
 msgstr ""
 
 #. Translators: A setting for enabling/disabling line length indicator.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:175
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:178
 msgid "Rep&ort long lines"
 msgstr ""
 
 #. Translators: Setting for maximum line length used by line length indicator
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:179
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:182
 msgid "&Minimum line length:"
 msgstr ""
 
 #. Translators: This is the label for the Update panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:227
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:232
 #: globalPlugins\notepadPlusPlusAccessEnhancement\updateHandler\update_check.py:98
 msgid "Update"
 msgstr ""
 
 #. Translators: This is the label for a checkbox in the update settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:232
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:237
 msgid "Automatically check for &update"
 msgstr ""
 
 #. Translators: This is the label for a checkbox in the update settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:236
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:241
 msgid "Update also release versions to &developpement versions"
 msgstr ""
 
 #. translators: label for a button in update settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:242
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:247
 msgid "&Check for update"
 msgstr ""
 
 #. translators: this is a label for a button in update settings panel.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:247
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:252
 msgid "View &history"
 msgstr ""
 
 #. Translators: title of add-on parameters dialog.
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:288
-#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:301
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:293
+#: globalPlugins\notepadPlusPlusAccessEnhancement\npp_configGui.py:306
 msgid "Settings"
 msgstr ""
 

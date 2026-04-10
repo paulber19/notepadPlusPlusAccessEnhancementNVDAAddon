@@ -1,6 +1,6 @@
 # appModules\notepad++\forPython\__init__.py
 # A part of the notepadPlusPlusAccessEnhancement add-on
-# Copyright (C) 2020-2025 paulber19
+# Copyright (C) 2020-2026 paulber19
 # This file is covered by the GNU General Public License.
 
 import addonHandler
@@ -148,18 +148,19 @@ def GetLineAndColumnNumber():
 	obj = api.getFocusObject()
 	start = obj.makeTextInfo(textInfos.POSITION_ALL)
 	try:
-		end = obj.makeTextInfo(textInfos.POSITION_CARET)
+		caretInfo = obj.makeTextInfo(textInfos.POSITION_CARET)
 	except (NotImplementedError, RuntimeError):
 		log.error("Position can not be reported")
 		return
-	start.setEndPoint(end, "endToStart")
-	text = start.text
+	info =caretInfo.copy()
+	info.expand(textInfos.UNIT_LINE)
+	start.setEndPoint(info, "endToStart")
+	text = start.text.replace("\r", "")
 	lines = text.splitlines()
 	line = len(lines) + 1
-	start = end  # Caret position
+	start = caretInfo  # Caret position
 	start.expand(textInfos.UNIT_LINE)
-	end = obj.makeTextInfo(textInfos.POSITION_CARET)
-	start.setEndPoint(end, "endToStart")
+	start.setEndPoint(caretInfo, "endToStart")
 	column = len(start.text) + 1
 	return (line, column)
 
@@ -302,7 +303,8 @@ def SayPosition():
 	sLine = GetLineToCursor()
 	(sIndentList, sLineWithoutIndent) = GetIndentations(sLine)
 	if sIndentList == ["0E"]:
-		ui.message(_("Start of line"))
+		#ui.message(_("Start of line"))
+		speech.speakMessage(_("Start of line"))
 		return
 	indentReportMode = _addonConfigManager.getIndentReportMode()
 	if len(sLineWithoutIndent) > 0:
@@ -311,13 +313,13 @@ def SayPosition():
 		info.expand(textInfos.UNIT_CHARACTER)
 		speech.speakTextInfo(info, unit=textInfos.UNIT_CHARACTER, reason=OutputReason.CARET)
 	elif indentReportMode == Mode_SayNothing:
-		ui.message(_("column %s") % (len(sLine) + 1))
+		speech.speakMessage(_("column %s") % (len(sLine) + 1))
 	elif indentReportMode in [Mode_SayIndent, Mode_SayIndentChange, Mode_SayLevelChange]:
 		text = GetIndentText(sIndentList)
-		ui.message(_("After") + " " + text)
+		speech.speakMessage(_("After") + " " + text)
 	elif indentReportMode in [Mode_SayLevel]:
 		GB_LastIndentList = []
-		ui.message(GetLevelToSay(sIndentList))
+		speech.SpeakMessage(GetLevelToSay(sIndentList))
 	GB_LastIndentList = sIndentList
 
 

@@ -7,8 +7,8 @@
 
 
 * Compatibility:
- * Minimum NVDA version required: 2024.1
- * Latest version of NVDA tested: 2025.3
+ * Minimum NVDA version required: 2025.1
+ * Latest version of NVDA tested: 2026.1
 
 
 # Features #
@@ -59,7 +59,7 @@ And the others complements:
 
 
 # Compatibility #
-This extension has been tested with Notepad++ version 8.4 and 8.5.6.
+This extension has been tested with Notepad++ version 8.9.2 and 8.8.3 64 bits
 
 
 
@@ -68,6 +68,6 @@ This extension uses and intercepts the shortcuts of Notepad++ configured by defa
 
 
 
-[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/master/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.8.4.nvda-addon
+[1]: https://github.com/paulber007/AllMyNVDAAddons/raw/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement/notepadPlusPlusAccessEnhancement-2.9.nvda-addon
 [2]: https://github.com/paulber007/AllMyNVDAAddons/tree/master/notepadPlusPlusAccessEnhancement/dev
 [3]: https://github.com/paulber19/notepadPlusPlusAccessEnhancementNVDAAddon.git

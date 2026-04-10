@@ -16,6 +16,35 @@ Descarga:
 
 
 
++ v2.9 (16/03/2026) +
+Compatibilidad con NVDA 2026.1.
+
+Las versiones de NVDA anteriores a 2025.1 ya no son soportadas.
+
+
+Nuevas características:
+- se ha añadido una opción para habilitar o deshabilitar el anuncio de la posición del cursor después de pulsar la tecla de "inicio".
+
+
+Recordatorio de correcciones de errores realizadas en las versiones 2.8.x:
+- la sangría con espacios ahora se anuncia correctamente en idiomas distintos del francés, así como en singular o plural.
+- se corrigió el error de ortografía de la palabra "workspace".
+- se corrigió el error que ocurría a menudo al cerrar el programa.
+- se corrigió algunas fallas relativas a la detección y el anunciado de líneas demasiado largas.
+
+
+Desarrolladores:
+- eliminado código relativo a las versiones de NVDA anteriores a 2025.1.
+- para mostrar el"Qué hay de nuevo" de una nueva versión del complemento, el documento"changes.html" ya no se abre por"urlopen", pero se descarga, se guarda momentáneamente en la carpeta "appData\local\temp" y se abre en el navegador.
+- se toma en cuenta del cierre del sitio rawgit.com para actualizar el complemento.
+- uso de json en lugar de pickle para almacenar el estado de actualización del complemento.
+
+
+Puesta en conformidad con la API de NVDA:
+- se toma en cuenta el desplazamiento de la versión de NVDA en el módulo "buildVersion.py".
+- se toma en cuenta la eliminación del módulo "imp" en python 3.13.
+
+
 + v2.8 (05/06/2025) +
 Compatibilidad con NVDA 2025.1.
 

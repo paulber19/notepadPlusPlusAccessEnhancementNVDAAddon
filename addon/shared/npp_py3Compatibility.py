@@ -8,8 +8,6 @@ import addonHandler
 import os
 import sys
 
-py3 = sys.version.startswith("3")
-
 
 def getCommonUtilitiesPath():
 	curAddonPath = getAddonPath()

@@ -1,67 +1,273 @@
-﻿@charset "utf-8";
-body { 
-margin : 0 5% 0 5%; 
-font-family : Verdana, Arial, Helvetica, Sans-serif;
-font-size: 0.9em;
-background-color : #dce4ed;
-} 
-h1 {
-margin-bottom:1.65em;
-text-align: center;
-font-size: 1.9em;
-color : #cc0000;
-text-decoration : underline;}
-h2 {
-margin : 1.4em 0 1.4em 0;
-text-align: left;
-font-weight: bold;
-font-size: 1.15em;
-text-indent:20px;
-padding-top:0.3em;
-padding-bottom:0.3em;
-background-color : #cccccc;
-color : #0c419a;}
-
-h3 {
-  font-family: Verdana,Arial,Helvetica,sans-serif;
-  font-size: 1.05em;
-  font-weight: bold;
-  text-align: left;
-  color: #000066;
-  margin-left: 40px;
+body {
+	margin : 0 5% 0 5%; 
+	font-family : Verdana, Arial, Helvetica, Sans-serif;
+	font-size: 0.9em;
+	background-color : #dce4ed;
+	counter-reset: h1
 }
 
-h4 {
-  list-style-type: none;
-  font-size: 1em;
-  list-style-position: outside;
-  font-family: Verdana,Arial,Helvetica,sans-serif;
-  text-indent: 100px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+h1 {
+	margin-bottom:1.65em;
+	text-align: center;
+	font-size: 1.9em;
+	color : #cc0000;
+	text-decoration : underline;
+	counter-reset: h2
+}
+
+h2 {
+	margin : 1.4em 0 1.4em 0;
+	text-align: left;
+	font-weight: bold;
+	font-size: 1.15em;
+	text-indent:20px;
+	padding-top:0.15em;
+	padding-bottom:0.3em;
+	background-color : #cccccc;
+	color : #0c419a;
+	counter-reset: h3
+}
+
+h3 {
+	font-size: 0.95em;
+	text-indent:70px;
+	color : #0c419a;
+	counter-reset: h4
+	}
+
+
+h2:before {
+	counter-increment: h2;
+	content:  counter(h2) ". "
+}
+
+h3:before {
+	counter-increment: h3;
+	content: counter(h2) "." counter(h3) ". "
+}
+
+h4:before {
+	counter-increment: h4;
+	content: counter(h2) "." counter(h3) "." counter(h4) ". "
 }
 
 dt { 
-font-weight : bold; 
-float : left; 
-width: 10%;
-clear: left
-} 
+	font-weight : bold; 
+	float : left; 
+	width: 10%;
+	clear: left
+	} 
 dd { 
-margin : 0 0 0.4em 0; 
-float : left;
-width: 90%;
-display: block;
+	margin : 0 0 0.4em 0; 
+	float : left;
+	width: 90%;
+	display: block;
 } 
-p { clear : both; 
-font-size: 0.9em;
+p {
+	clear : both; 
+	font-size: 0.9em;
 } 
-li {font-size: 0.9em;} 
-a { text-decoration : none; 
-font-weight : bold;
+li {
+	font-size: 0.9em;
+	} 
+a {
+	text-decoration : none; 
+	font-weight : bold;
 } 
 :active { 
 text-decoration : none; 
 }
-a:focus, a:hover {color: red}
-:link {color: rgb(110,110,110}
+a:focus, a:hover {color: red)}
+:link {color: rgb(110,110,110)}
+
+/* Numbering for table of contents.
+.toc > ul > li is used as the base for the numbering.
+This is because the first and only first level TOC element is the heading for the page, so it should be skipped.
+*/
+.toc > ul > li > ul {
+  list-style-type: none;
+  counter-reset: toc1-counter;
+}
+
+.toc > ul > li > ul > li a:before {
+  counter-increment: toc1-counter;
+  content: counter(toc1-counter) ". ";
+}
+
+.toc > ul > li > ul > li > ul {
+  list-style-type: none;
+  counter-reset: toc2-counter;
+}
+
+.toc > ul > li > ul > li > ul > li a:before {
+  counter-increment: toc2-counter;
+  content: counter(toc1-counter) "." counter(toc2-counter) ". ";
+}
+
+.toc > ul > li > ul > li > ul > li > ul {
+  list-style-type: none;
+  counter-reset: toc3-counter;
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li a:before {
+  counter-increment: toc3-counter;
+  content: counter(toc1-counter) "." counter(toc2-counter) "." counter(toc3-counter) ". ";
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li > ul {
+  list-style-type: none;
+  counter-reset: toc4-counter;
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li > ul > li a:before {
+  counter-increment: toc4-counter;
+  content: counter(toc1-counter) "." counter(toc2-counter) "." counter(toc3-counter) "." counter(toc4-counter) ". ";
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li > ul > li > ul {
+  list-style-type: none;
+  counter-reset: toc5-counter;
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li a:before {
+  counter-increment: toc5-counter;
+  content: counter(toc1-counter) "." counter(toc2-counter) "." counter(toc3-counter) "." counter(toc4-counter) "." counters(toc5-counter) ". ";
+}
+
+/* Eastern Arabic */
+
+:lang(fa) .toc > ul > li > ul > li a:before {
+  content: counter(toc1-counter, arabic-indic) ". ";
+}
+
+:lang(fa) .toc > ul > li > ul > li > ul > li a:before {
+  content: counter(toc2-counter, arabic-indic) "." counter(toc1-counter, arabic-indic) ". ";
+}
+
+:lang(fa) .toc > ul > li > ul > li > ul > li > ul > li a:before {
+  content: counter(toc3-counter, arabic-indic) "." counter(toc2-counter, arabic-indic) "." counter(toc1-counter, arabic-indic) ". ";
+}
+
+:lang(fa) .toc > ul > li > ul > li > ul > li > ul > li > ul > li a:before {
+  content: counter(toc4-counter, arabic-indic) "." counter(toc3-counter, arabic-indic) "." counter(toc2-counter, arabic-indic) "." counter(toc1-counter, arabic-indic) ". ";
+}
+
+:lang(fa) .toc > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li a:before {
+  content: counter(toc5-counter, arabic-indic) "." counter(toc4-counter, arabic-indic) "." counter(toc3-counter, arabic-indic) "." counter(toc2-counter, arabic-indic) "." counter(toc1-counter, arabic-indic) ". ";
+}
+
+/* Western Arabic */
+
+:lang(ar) .toc > ul > li > ul > li a:before {
+  content: counter(toc1-counter) ". ";
+}
+
+:lang(ar) .toc > ul > li > ul > li > ul > li a:before {
+  content: counter(toc1-counter) "." counter(toc2-counter) ". ";
+}
+
+:lang(ar) .toc > ul > li > ul > li > ul > li > ul > li a:before {
+  content: counter(toc1-counter) "." counter(toc2-counter) "." counter(toc3-counter) ". ";
+}
+
+:lang(ar) .toc > ul > li > ul > li > ul > li > ul > li > ul > li a:before {
+  content: counter(toc1-counter) "." counter(toc2-counter) "." counter(toc3-counter) "." counter(toc4-counter) ". ";
+}
+
+:lang(ar) .toc > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li a:before {
+  content: counter(toc1-counter) "." counter(toc2-counter) "." counter(toc3-counter) "." counter(toc4-counter) "." counter(toc5-counter) ". ";
+}
+
+
+/* Numbering for headings. */
+
+h1 {
+  counter-reset: h2counter;
+}
+
+h2 {
+  counter-reset: h3counter;
+  counter-increment: h2counter;
+}
+
+h3 {
+  counter-reset: h4counter;
+  counter-increment: h3counter;
+}
+
+h4 {
+  counter-reset: h5counter;
+  counter-increment: h4counter;
+}
+
+h5 {
+  counter-reset: h6counter;
+  counter-increment: h5counter;
+}
+
+h6 {
+  counter-increment: h6counter;
+}
+
+h2:before {
+  content: counter(h2counter) ". ";
+}
+
+h3:before {
+  content: counter(h2counter) "." counter(h3counter) ". ";
+}
+
+h4:before {
+  content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ". ";
+}
+
+h5:before {
+  content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "." counter(h5counter) ". ";
+}
+
+h6:before {
+  content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "." counter(h5counter) "." counter(h6counter) ". ";
+}
+
+/* Eastern Arabic */
+:lang(fa) h2:before {
+  content: counter(h2counter, arabic-indic) ". ";
+}
+
+:lang(fa) h3:before {
+  content: counter(h3counter, arabic-indic) "." counter(h2counter, arabic-indic) ". ";
+}
+
+:lang(fa) h4:before {
+  content: counter(h4counter, arabic-indic) "."  counter(h3counter, arabic-indic) "." counter(h2counter, arabic-indic) ". ";
+}
+
+:lang(fa) h5:before {
+  content: counter(h5counter, arabic-indic) "." counter(h4counter, arabic-indic) "."  counter(h3counter, arabic-indic) "." counter(h2counter, arabic-indic) ". ";
+}
+
+:lang(fa) h6:before {
+  content: counter(h6counter, arabic-indic) "." counter(h5counter, arabic-indic) "." counter(h4counter, arabic-indic) "."  counter(h3counter, arabic-indic) "." counter(h2counter, arabic-indic) ". ";
+}
+
+/* Western Arabic */
+
+:lang(ar) h2:before {
+  content: counter(h2counter) ". ";
+}
+
+:lang(ar) h3:before {
+  content: counter(h2counter) "." counter(h3counter) ". ";
+}
+
+:lang(ar) h4:before {
+  content: counter(h2counter) "."  counter(h3counter) "." counter(h4counter) ". ";
+}
+
+:lang(ar) h5:before {
+  content: counter(h2counter) "." counter(h3counter) "."  counter(h4counter) "." counter(h5counter) ". ";
+}
+
+:lang(ar) h6:before {
+  content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "."  counter(h5counter) "." counter(h6counter) ". ";
+}
