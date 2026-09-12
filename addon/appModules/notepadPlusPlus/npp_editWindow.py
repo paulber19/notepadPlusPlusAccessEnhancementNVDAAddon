@@ -13,6 +13,8 @@ import braille
 import ui
 from queueHandler import registerGeneratorObject
 import textInfos
+from NVDAObjects.inputComposition import InputCompositionTextInfo
+from NVDAObjects import NVDAObject
 import tones
 import time
 import eventHandler
@@ -134,6 +136,13 @@ _copyAllMisspelledWordsToClipboardGesture = KeyboardInputGesture.fromName(
 	_addonConfigManager.getCopyAllMisspelledWordsToClipboardShortCut())
 
 
+def _hasActiveInputComposition(obj: NVDAObject) -> bool:
+	"""Return True when NVDA has current IME composition text on this object."""
+	if getattr(obj, "isReading", False):
+		return bool(getattr(obj, "readingString", ""))
+	return bool(getattr(obj, "compositionString", ""))
+
+
 class NPPDocument (
 	NVDAObjects.window.scintilla.Scintilla,
 	EditableTextWithAutoSelectDetection, EditableTextWithSuggestions):
@@ -160,6 +169,8 @@ class NPPDocument (
 	}
 
 	def _get_TextInfo(self):
+		if _hasActiveInputComposition(self):
+			return InputCompositionTextInfo
 		if self.appModule.is64BitProcess:
 			appVerMajor, appVerMinor, *__ = self.appModule.productVersion.split(".")
 			# When retrieving the version, Notepad++ concatenates
@@ -196,6 +207,7 @@ class NPPDocument (
 		# Also, derek is too lazy to verify this when it already works.
 		if self.appModule is not None:
 			self.appModule.edit = self
+
 	def alertOverflowing(self):
 		def callback():
 			tones.beep(500, 50)
@@ -213,8 +225,6 @@ class NPPDocument (
 			# so delay the emission of the beep
 			self.overfflowingBeepTimer = wx.CallLater(450, callback)
 
-
-
 	def event_typedCharacter(self, ch):
 		super(NPPDocument, self).event_typedCharacter(ch)
 		self.alertOverflowing()
@@ -222,8 +232,6 @@ class NPPDocument (
 	def event_caret(self):
 		super(NPPDocument, self).event_caret()
 		self.alertOverflowing()
-
-
 
 	def checkForDSpellCheckErrors(self, text):
 		global _dSpellCheckReportDelay
@@ -612,7 +620,7 @@ class NPPDocument (
 		d = {}
 		for item in tempList:
 			item = item.strip().split(": ")
-			if len(item) ==2:
+			if len(item) == 2:
 				d[item[0].strip()] = item[1].strip()
 		return d
 

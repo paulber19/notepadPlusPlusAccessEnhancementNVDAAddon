@@ -6,7 +6,6 @@
 
 import addonHandler
 import os
-import sys
 
 
 def getCommonUtilitiesPath():

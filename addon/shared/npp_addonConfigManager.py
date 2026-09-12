@@ -267,6 +267,7 @@ class AddonConfiguration11(BaseAddonConfiguration):
 			DspellCheck=_DSpellCheckConfSpec)
 	), list_values=False, encoding="UTF-8")
 
+
 class AddonConfiguration12(BaseAddonConfiguration):
 	_version = "1.2"
 	_GeneralConfSpec = """[{section}]
@@ -316,7 +317,6 @@ class AddonConfiguration12(BaseAddonConfiguration):
 		reportSpellingErrors=ID_ReportSpellingErrors,
 		reportPositionAfterHomeKeyPress=ID_ReportPositionAfterHomeKeyPress,
 	)
-		
 
 	_DSpellCheckConfSpec = """[{section}]
 	{copyAllMisspelledWordsToClipboardShortCut} = string(default = "control+shift+alt+space")
@@ -334,10 +334,6 @@ class AddonConfiguration12(BaseAddonConfiguration):
 			options=_OptionsConfSpec,
 			DspellCheck=_DSpellCheckConfSpec)
 	), list_values=False, encoding="UTF-8")
-
-
-
-
 
 
 PREVIOUSCONFIGURATIONFILE_SUFFIX = ".prev"

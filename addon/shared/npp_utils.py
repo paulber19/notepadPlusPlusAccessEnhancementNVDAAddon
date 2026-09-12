@@ -5,9 +5,7 @@
 
 
 import addonHandler
-import api
 import speech
-import time
 import queueHandler
 
 import ui

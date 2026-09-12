@@ -47,7 +47,7 @@ markdown_extensions = [
 	"admonition",
 	"attr_list",
 	# Codehilite requires Pygments Package included in NVDA from version 2025.1, but incomplete.
-#	"codehilite",
+	# 	"codehilite",
 	"def_list",
 	# "extra",
 	"fenced_code",
@@ -105,7 +105,6 @@ class ConvertToHTML(object):
 		userConfigPath = os.path.abspath(globalVars.appArgs.configPath)
 		self.temporaryFolderPathForBrowserView = userConfigPath if documentPath is None else documentPath
 		log.debug("temporaryFolderPathForBrowserView : %s" % self.temporaryFolderPathForBrowserView)
-		global _waitToRemoveFilesDelay
 		if _waitToRemoveFilesDelay is not None:
 			_waitToRemoveFilesDelay .Stop()
 		self.removeFiles()
@@ -155,7 +154,7 @@ class ConvertToHTML(object):
 		return target
 
 	def removeFiles(self):
-		global _filesToRemove, _waitToRemoveFilesDelay
+		global _waitToRemoveFilesDelay
 		_waitToRemoveFilesDelay = None
 		for file in _filesToRemove:
 			try:
@@ -401,7 +400,6 @@ class ConvertTxt2TagsToHtml(ConvertToHTML):
 		return "\n".join(textList)
 
 	def display(self, htmlFile, external):
-		global _waitToRemoveFilesDelay
 		html = self.getHtmlSource(htmlFile)
 		if external != DISP_BROWSABLE_MESSAGE:
 			if _lastUseDefaultHeader:

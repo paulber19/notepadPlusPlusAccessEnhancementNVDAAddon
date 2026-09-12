@@ -12,8 +12,8 @@
 %!PostProc: ADDON_NAME notepadPlusPlusAccessEnhancement
 %!PostProc: ADDON_REPOSITORY_NAME notepadPlusPlusAccessEnhancementNVDAAddon
 % current stable version
-%!PostProc (html):ADDON_CUR_VERSION 2.9
+%!PostProc (html):ADDON_CUR_VERSION 2.10
 %!PostProc (html):MINIMUM_NVDA_VERSION  2025.1
-%!PostProc (html):LAST_TESTED_NVDA_VERSION  2026.1
+%!PostProc (html):LAST_TESTED_NVDA_VERSION  2026.2
 %previous stable version
-%!PostProc (html):ADDON_PREV_VERSION 2.8.4
+%!PostProc (html):ADDON_PREV_VERSION 2.9.1

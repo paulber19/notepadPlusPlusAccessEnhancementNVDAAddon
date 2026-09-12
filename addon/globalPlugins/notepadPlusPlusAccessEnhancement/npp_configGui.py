@@ -146,8 +146,10 @@ class NPPLineOptionsPanel(SettingsPanel):
 		self.reportLineNumberCheckBox.SetValue(_addonConfigManager.toggleReportLineNumberOption(False))
 		# Translators: A setting for enabling/disabling report cursor position after home key press
 		labelText = _("Report cursor &position after home key press")
-		self.reportPositionAfterHomeKeyPressCheckBox = sHelper.addItem(wx.CheckBox(self, wx.ID_ANY, label=labelText))
-		self.reportPositionAfterHomeKeyPressCheckBox.SetValue(_addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False))
+		self.reportPositionAfterHomeKeyPressCheckBox = sHelper.addItem(wx.CheckBox(
+			self, wx.ID_ANY, label=labelText))
+		self.reportPositionAfterHomeKeyPressCheckBox.SetValue(
+			_addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False))
 		# Translators: This is the label for a group of editing options in the settings panel.
 		groupText = _("Line indentation")
 		groupSizer = wx.StaticBoxSizer(wx.HORIZONTAL, self, label=groupText)
@@ -208,7 +210,8 @@ class NPPLineOptionsPanel(SettingsPanel):
 	def saveSettingChanges(self):
 		if self.reportLineNumberCheckBox .IsChecked() != _addonConfigManager.toggleReportLineNumberOption(False):
 			_addonConfigManager.toggleReportLineNumberOption(True)
-		if self.reportPositionAfterHomeKeyPressCheckBox .IsChecked() != _addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False):
+		option = _addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(False)
+		if self.reportPositionAfterHomeKeyPressCheckBox .IsChecked() != option:
 			_addonConfigManager.toggleReportPositionAfterHomeKeyPressOption(True)
 		if self.reportLineIndentationCheckBox .IsChecked() != (
 			_addonConfigManager.toggleReportLineIndentationOption(False)):

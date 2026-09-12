@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NotePad ++ appModule\n"
 "Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
-"POT-Creation-Date: 2026-03-12 23:41+0100\n"
-"PO-Revision-Date: 2026-03-12 23:41+0100\n"
+"POT-Creation-Date: 2026-06-11 22:57+0200\n"
+"PO-Revision-Date: 2026-06-11 22:58+0200\n"
 "Last-Translator: paulber19 <paulber19@laposte.net>\n"
 "Language-Team: paulber19 <paulber19@laposte.net>\n"
 "Language: fr_FR\n"
@@ -445,11 +445,11 @@ msgstr "Python"
 msgid "Markdown"
 msgstr "Markdown"
 
-#: buildVars.py:22
+#: ⁨buildVars ori.py⁩:22 buildVars.py:21
 msgid "Notepad++ text's editor : accessibility enhancement"
 msgstr "Éditeur de texte Notepad++: compléments d'accessibilité"
 
-#: buildVars.py:26
+#: ⁨buildVars ori.py⁩:26 buildVars.py:24
 msgid ""
 "\n"
 "1- Features #\n"
@@ -572,6 +572,10 @@ msgstr ""
 "par défaut. Il est donc vivement conseillé, pour son bon fonctionnement, de "
 "ne pas modifier ces raccourcis.\n"
 
+#: buildVars.py:78
+msgid "See add-on history."
+msgstr "Voir l'historique de l'extension."
+
 #: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:28
 msgid "General"
 msgstr "General"
@@ -663,7 +667,7 @@ msgid "&Minimum line length:"
 msgstr "&Taille minimum d'une longue ligne:"
 
 #: globalPlugins/notepadPlusPlusAccessEnhancement/npp_configGui.py:232
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:98
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:179
 msgid "Update"
 msgstr "Mise à jour"
 
@@ -689,47 +693,47 @@ msgstr "&Voir l'historique"
 msgid "Settings"
 msgstr "Paramètres"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:101
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:182
 #, python-brace-format
 msgid "Downloading {name}"
 msgstr "Téléchargement de {name} en cours"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:116
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:197
 #, python-brace-format
 msgid "Error downloading update for {name}."
 msgstr "Erreur lors du téléchargement de la mise à jour de {name}."
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:170
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:250
 #, python-brace-format
 msgid "Cannot update {name} - missing file or invalid file format"
 msgstr ""
 "Impossible de mettre à jour {name} - fichier manquant ou format de fichier "
 "incorrect"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:187
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:267
 msgid "Updating"
 msgstr "Mise à jour en cours"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:189
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:269
 msgid "Please wait while the add-on is being updated."
 msgstr "Veuillez patienter durant la mise à jour de l'extension."
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:211
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:291
 #, python-brace-format
 msgid "Failed to update {name} add-on"
 msgstr "Échec de la mise à jour de l'extension {name}"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:255
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:335
 #, python-brace-format
 msgid "{summary} - update"
 msgstr "{summary} - mise à jour"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:268
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:348
 msgid "The service is temporarily under maintenance. Please, try again later."
 msgstr ""
 "Le service est momentanément en maintenance. Veuillez réessayer plus tard."
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:295
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:375
 #, python-brace-format
 msgid ""
 "The update is not compatible with this version of NVDA. Minimum NVDA "
@@ -739,14 +743,14 @@ msgstr ""
 "minimum de NVDA : {minYear}.{minMajor}, dernière version testée : "
 "{testedYear}.{testedMajor}."
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:356
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:434
 #, python-format
 msgid "New version%s is available. Do you want to download it now?"
 msgstr ""
 "La nouvelle version %s est disponible. Voulez-vous la télécharger "
 "maintenant ?"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:360
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:438
 #, python-brace-format
 msgid ""
 "New version{0} is available.\n"
@@ -760,43 +764,43 @@ msgstr ""
 "Voulez-vous ignorer cette incompatibilité et continuer à la télécharger "
 "maintenant ?"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:381
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:459
 #, python-format
 msgid "You are up-to-date. %s is the latest version."
 msgstr "Vous êtes à jour, %s est la dernière version."
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:388
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:466
 msgid "Oops! There was a problem checking for updates. Please retry later"
 msgstr ""
 "Oups! Il y a un problème pour rechercher les mises à jour. Réessayer "
 "ultérieurement"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:543
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:621
 msgid "&Yes"
 msgstr "&Oui"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:548
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:626
 msgid "&No"
 msgstr "&Non"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:553
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:631
 msgid "&Later"
 msgstr "&Plus tard"
 
-#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:557
+#: globalPlugins/notepadPlusPlusAccessEnhancement/updateHandler/update_check.py:635
 msgid "Wha&t's new"
 msgstr "Quoi &de neuf"
 
-#: installTasks.py:40
+#: installTasks.py:52
 msgid "Do you want to keep current add-on configuration settings ?"
 msgstr "Voulez vous conserver les paramètres actuels de l'extension?"
 
-#: installTasks.py:42 installTasks.py:47
+#: installTasks.py:54 installTasks.py:59
 #, python-format
 msgid "%s - installation"
 msgstr "%s - installation"
 
-#: installTasks.py:45
+#: installTasks.py:57
 msgid ""
 "Are you sure you don't want to keep the current add-on configuration "
 "settings?"

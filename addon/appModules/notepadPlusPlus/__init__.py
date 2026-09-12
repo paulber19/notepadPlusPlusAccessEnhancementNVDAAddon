@@ -405,7 +405,7 @@ class AppModule(AppModule):
 		global _winInputHookKeyDownCallback
 		if _winInputHookKeyDownCallback is not None:
 			winInputHook.setCallbacks(keyDown=_winInputHookKeyDownCallback)
-			_winInputHookKeyDownCallback  = None
+			_winInputHookKeyDownCallback = None
 
 	def script_test(self, gesture):
 		print("Notepad ++ test")

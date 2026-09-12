@@ -152,7 +152,7 @@ def GetLineAndColumnNumber():
 	except (NotImplementedError, RuntimeError):
 		log.error("Position can not be reported")
 		return
-	info =caretInfo.copy()
+	info = caretInfo.copy()
 	info.expand(textInfos.UNIT_LINE)
 	start.setEndPoint(info, "endToStart")
 	text = start.text.replace("\r", "")
@@ -244,7 +244,6 @@ def GetSayLevelChangeText(sIndentList):
 
 
 def GetSayIndentChangeText(indentList):
-	global GB_LastIndentList
 	text = ""
 
 	if ",".join(indentList) != ",".join(GB_LastIndentList):
@@ -303,7 +302,6 @@ def SayPosition():
 	sLine = GetLineToCursor()
 	(sIndentList, sLineWithoutIndent) = GetIndentations(sLine)
 	if sIndentList == ["0E"]:
-		#ui.message(_("Start of line"))
 		speech.speakMessage(_("Start of line"))
 		return
 	indentReportMode = _addonConfigManager.getIndentReportMode()
@@ -319,7 +317,7 @@ def SayPosition():
 		speech.speakMessage(_("After") + " " + text)
 	elif indentReportMode in [Mode_SayLevel]:
 		GB_LastIndentList = []
-		speech.SpeakMessage(GetLevelToSay(sIndentList))
+		speech.speakMessage(GetLevelToSay(sIndentList))
 	GB_LastIndentList = sIndentList
 
 
